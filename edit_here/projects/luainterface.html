@@ -1,0 +1,66 @@
+<h2>LuaInterface: Scripting CLR objects with Lua</h2>
+		  
+<h3>Overview</h3>
+
+<p>LuaInterface is a library for bridging the
+<a href="http://www.lua.org">Lua</a> language and Microsoft .NET platform's
+<a href="http://msdn.microsoft.com/net/ecma/">Common Language Runtime 
+(CLR)</a>. LuaInterface is a full consumer of the Common Language Specification (CLS),
+so Lua scripts can use LuaInterface to instantiate CLR objects, access their properties,
+call their methods, and even handle their events with Lua functions. Any CLR program
+can also use LuaInterface to run Lua scripts and modify the scripts' environment. This is
+a short, working example of LuaInterface in action (it shows a window, with two buttons,
+on the screen):</p>
+
+<pre>
+    require("luanet")
+    
+    Form = luanet.System.Windows.Forms.Form
+    Button = luanet.System.Windows.Forms.Button
+    Point = luanet.System.Drawing.Point
+    
+    mainForm = Form()
+    buttonOk = Button()
+    buttonCancel = Button()
+    
+    buttonOk.Text = "Ok"
+    buttonCancel.Text = "Cancel"
+    buttonOk.Location = Point(10,10)
+    buttonCancel.Location = Point(buttonOk.Left, buttonOk.Height +
+      buttonOk.Top + 10)
+    mainForm.Controls:Add(buttonOk)
+    mainForm.Controls:Add(buttonCancel)
+    mainForm.StartPosition = 
+      luanet.System.Windows.Forms.FormStartPosition.CenterScreen
+    
+    function handleMouseUp(sender,args)
+      print(sender:ToString() .. " MouseUp!")
+    end
+    
+    handlerUp = buttonOk.MouseUp:Add(handleMouseUp)
+    handlerClick = buttonCancel.Click:Add(os.exit)
+    
+    mainForm:ShowDialog()
+</pre>
+
+<p>You can find more about LuaInterface by reading this <a href="luainterface.pdf">paper</a>,
+published in the proceedings of the 8th Brazilian Symposium on Programming Languages, or
+download the library and try it out.</p>
+
+<p><a href="mailto:mascarenhas@acm.org">Fabio Mascarenhas</a> did the initial
+design and implementation of LuaInterface, and it is now being actively
+maintained by <a href="http://luaforge.net/users/kevinh/">Kevin
+Hester</a>.</p>
+
+<h3>Download</h3>
+
+<p>LuaInterface is free software (MIT license), and can be downloaded from its
+<a href="http://luaforge.net/projects/luainterface">LuaForge page</a>. There
+are versions for Lua 5.1 and 5.0, and for use in versions 1.1 and 2.0 of the
+CLR.</p>
+
+<h3>Feedback</h3>
+
+<p>Please send comments, suggestions or bug reports through the <a
+href="http://luaforge.net/projects/luainterface">LuaForge page</a>.</p>
+

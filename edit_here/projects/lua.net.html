@@ -1,0 +1,69 @@
+<h2>Lua.NET: Integrating Lua with the CLI</h2>
+ 
+<p><a href="http://www.lua.org">Lua</a> is a scripting language not totally
+unlike Tcl, Perl, or Python. Like Tcl, Lua is an "embedded language", in the
+sense that embedding the interpreter into your program is a trivial task, and
+it is very easy to interface Lua with other languages like C, C++, or even
+Fortran. Like Python, Lua has a clear and intuitive syntax. Like all those
+three, Lua is an interpreted language with dynamic typing, and with several
+reflexive facilities.</p>
+
+<p>What sets Lua apart from those languages is its portability, simplicity,
+and small size. Lua is written in ANSI C, and runs without modifications in
+almost any platform (MS-DOS, all versions of Windows, all flavors of Unix,
+plus X-Box, PlayStation II, OS/2, BeOS, EPOC, etc.). The whole program lua.exe
+has less than 200 Kbytes. Its simplicity led other groups to adopt Lua as a
+scripting language for other scripting languages (see, for instance, <a
+href="http://ruby-lua.unolotiene.com">Ruby-Lua</a>).</p>
+
+<p>Currently, Lua has a strong presence whenever programmers need a light,
+efficient, and portable language. It is being used by some tens of thousands
+programmers around the world, both in research and in industrial projects. Lua
+has been successfully used in games (e.g. Grim Fandango, Escape from Monkey
+Island, MK2, Baldur's Gate), in robots (e.g. Crazy Ivan, that won the Danish
+RoboCup in 2000 and 2001), and several other applications (e.g. a
+hot-swappable Ethernet switch (CPC4400), a genetic sequence visualization
+system (GUPPY), "The most Linux on one floppy disk" (tomsrtbt)). An extended
+list of applications using Lua can be found <a
+href="http://www.lua.org/uses.html">here</a>.</p>
+
+<p>The Lua.NET project integrates Lua with the <a
+href="http://msdn.microsoft.com/netframework/programming/clr/">Common Language
+Infrastructure</a>, a framework for language interoperability. This
+integration allows Lua to act both as a "client" language and as a "server"
+language, although with a limited capacity for the latter. As a client, Lua
+scripts can access components available through the CLI. As a server, Lua
+scripts can implement new components accessible by other languages integrated
+with the CLI.<p>
+
+<p>Because Lua is an interpreted language with dynamic typing, its integration
+with the CLI demands a dynamic nature. Lua.NET employs two approaches for this
+integration. The first uses the same techniques used to implement <a
+href="http://www.tecgraf.puc-rio.br/luaorb">LuaOrb</a>, a scripting tool that
+canaccess and implement CORBA, COM and Java components. The approach is
+implemented by the <a href="luainterface/">LuaInterface</a> library.</p>
+
+<p>The second approach compiles Lua to the CLI's Common Intermediate Language,
+instead of its own bytecode representation. This approach is implemented by
+the <a href="lua2il/">Lua2IL</a> compiler.</p>
+
+<p>The authors of the Lua.NET project are <a
+href="http://www.inf.puc-rio.br/~roberto/">Roberto Ierusalimschy</a>, <a
+href="http://www.inf.puc-rio.br/~rcerq/">Renato Cequeira</a> and <a
+href="mailto:mascarenhas@acm.org">Fabio Mascarenhas</a>. The project is
+sponsored by <a
+href="http://research.microsoft.com/programs/europe/rotor/">Microsoft
+Research</a>
+
+and <a href="http://www.capes.gov.br">CAPES.</a></p>
+
+<h3>Publications</h3>
+
+<p>Fabio Mascarenhas, Roberto Ierusalimschy. <a
+href="http://www.jucs.org/jucs_10_7/luainterface_scripting_the_net">LuaInterface:
+Scripting the .NET CLR with Lua</a>. Journal of Universal Computer Science,
+10(7):892-908, July 2004.</p>
+
+<p>Fabio Mascarenhas, Roberto Ierusalimschy. <a href="lua2il_jucs.pdf">Running
+Lua Scripts on the CLR Through Bytecode Translation</a>. Due for publication
+in a special edition of the Journal of Universal Computer Science.</p>
