@@ -1,0 +1,76 @@
+
+body {
+   margin-top: 30px;
+   font-family: "Dejavu Sans", "Bitstream Vera Sans", sans
+   font-size: 16px;
+   color: #101010;
+}
+
+.main {
+   width: 70%;
+   float: right;
+   border: #c0c0e0 solid 1px;
+   padding: 30px;
+}
+
+a {
+   text-decoration: none;
+   color: #20207f;
+}
+
+a:hover {
+   text-decoration: underline;
+   color: #00005f;
+}
+
+.menu a {
+   text-decoration: none;
+   color: #00007f;
+}
+
+.menu a:hover {
+   text-decoration: none;
+   color: #00005f;
+   text-shadow: 0.05em 0.05em 0.2em #777;
+}
+
+.menu {
+   padding-top: 10px;
+   padding-bottom: 10px;
+   text-align: right;
+   letter-spacing: 3px;
+}
+
+.menu a {
+   text-decoration: none;
+   color: #00007f;
+}
+
+.hspacer {
+   width: 15%;
+   float: right;
+}
+
+.header {
+   text-align: right;
+}
+
+li {
+   padding-top: 5px;
+   padding-bottom: 5px;
+}
+
+h2 {
+   font-weight: normal;
+   color: #606060;
+   font-size: 22px;
+   padding-bottom: 0.3em;
+   border-bottom: #d0d0f0 solid 1px;
+}
+
+h3 {
+   letter-spacing: 1px;
+   font-weight: normal;
+   color: #606060;
+   font-size: 18px;
+}
