@@ -2,14 +2,8 @@
 
 cd "$HOME"
 
-publish_dir="public_html"
-staging_dir="$publish_dir.new"
-pages_data=(generated common)
-extras_data=(images publications)
-
-server_url=https://github.com/labluapucrio/site/raw/master
-package_url="$server_url/packed"
-download_dir="fetch"
+source ./config.sh
+[ "$publish_dir" ] || { echo "Couldn't load config.sh"; exit 1 ;}
 
 # Make dirs absolute
 staging_dir=$(readlink -f "$staging_dir")
@@ -67,9 +61,6 @@ cp -a "generated/"* "$staging_dir"
 cd ..
 rm -rf "$publish_dir"
 mv "$staging_dir" "$publish_dir"
-cd "$publish_dir"
-ln -s about.html index.html
-cd ..
 
 echo "Done!"
 

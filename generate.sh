@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 source ./config.sh
 [ "$output_dir" ] || { echo "Couldn't load config.sh"; exit 1 ;}
