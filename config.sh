@@ -10,7 +10,7 @@ extras_data=(images publications)
 # server side configuration:
 publish_dir=public_html
 staging_dir="$publish_dir.new"
-server_url=https://github.com/labluapucrio/site/raw/master
+server_url="https://github.com/labluapucrio/site/raw/master"
 package_url="$server_url/$package_dir"
 download_dir="fetch"
 
