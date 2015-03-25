@@ -12,4 +12,4 @@ tar cv "${extras_data[@]}" | gzip -n > "$package_dir"/extras.tar.gz
 md5sum  "$package_dir"/pages.tar.gz >  "$package_dir"/pages.tar.gz.md5
 md5sum  "$package_dir"/extras.tar.gz >  "$package_dir"/extras.tar.gz.md5
 
-git add edit_here "$package_dir"/* && git commit && git push
+#git add edit_here "$package_dir"/* && git commit && git push
