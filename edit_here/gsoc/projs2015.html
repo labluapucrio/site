@@ -1,0 +1,293 @@
+
+<h2>Accepted Projects - Google Summer of Code 2015</h2>
+
+<ul>
+<li><a href="#luarocks">
+LuaRocks add-ons system
+</a></li>
+<li><a href="#kerneltest">
+Port Lua Test Suite to NetBSD Kernel
+</a></li>
+<li><a href="#elastic">
+Elasticsearch Lua client (elasticsearch-lua)
+</a></li>
+<li><a href="#ceu">
+Port an SDL-based C++ open source game to Céu
+</a></li>
+<li><a href="#luasoap">
+Add support for WSDL generation to LuaSOAP
+</a></li>
+<li><a href="#dynserial">
+Develop a binary serialization format with support for dynamically types values and an RPC protocol for dynamically typed invocations based on this format.
+</a></li>
+<li><a href="#sailor">
+Sailor: Web Development in Lua (proposed by the student)
+</a></li>
+</ul>
+
+<br><hr>
+<h3 id="luarocks">LuaRocks add-ons system</h3>
+<h4 id="student">Student</h4>
+XIAO Qi - Technology University of Eindhoven, the Netherlands.
+<p>
+<h4 id="mentor">Mentor</h4>
+<a href="http://hisham.hm/">Hisham Muhammad</a>
+<p>
+<h4 id="briefexplanation">Brief explanation</h4>
+
+<p><a href="http://luarocks.org">LuaRocks</a>
+is a package manager for
+Lua modules. Since version 1.0, the format of the package
+specification file (rockspec) was unchanged, in the name of
+compatibility. For the next major release of LuaRocks, we intend to
+make a backward-compatible revision to the format. However, instead of
+guessing which features will be needed in the forthcoming years, the
+idea is to make the format extensible through <i>add-ons</i>, as
+discussed in this <a
+href="https://www.youtube.com/watch?v=WiZqfpZLSA8">Lua Workshop 2014
+talk</a>.
+
+<p>There are two sides to making an application extensible: defining
+hooks to the application where extensions will plug into, and defining
+a public API, which is the parts of the application that the
+extensions will see/access.
+
+<p>This includes major design work, and the student is not expected to do
+this alone: the design part will be discussed with the mentor and the
+LuaRocks community at large through the <a
+href="https://lists.sourceforge.net/lists/listinfo/luarocks-developers">LuaRocks
+mailing list</a>. The coding part, of course, is up to the student.
+
+<p>The best way to evaluate new APIs is to put them to work: the second
+phase of the project will be to write some add-ons, to exercise the
+new features. Two features that are often requested by the community
+are support for running tests and generating documentation files:
+these would make great add-ons.
+
+<h4 id="expectedresults">Expected results</h4>
+<ul>
+<li>Extending the LuaRocks rockspec reader to allow new entries
+created by add-ons</li>
+<li>A system of hooks in LuaRocks to trigger actions programmed by add-ons</li>
+<li>A sandbox environment for presenting a restricted API to add-ons</li>
+<li>Add-ons for running tests and generating documentation</li>
+</ul>
+
+
+<br><hr>
+<h3 id="kerneltest">Port Lua Test Suite to NetBSD Kernel</h3>
+<h4 id="student">Student</h4>
+Guilherme Salazar - Universidade Federal de Goiás, Brasil.
+<p>
+<h4 id="mentor">Mentor</h4>
+<a href="mailto:lourival.neto@gmail.com">Lourival Vieira Neto</a>
+<p>
+<h4 id="briefexplanation">Brief explanation</h4>
+
+<p>
+<a href="http://www.netbsd.org">The NetBSD Operating System</a>
+has a kernel-level Lua interpreter version for
+<a href="http://netbsd.org/~lneto/dls14.pdf">scripting its kernel</a>.
+For example, it allows users to
+<a href="http://netbsd.org/~lneto/eurobsdcon14.pdf">filter packets using Lua
+scripts</a>.
+<p>
+The main difference between kernel Lua and regular user-level Lua
+is that kernel Lua doesn't have support for standard libraries that depend on
+operating system (e.g., io and os) and for floating-point numbers.
+The purpose of this project is to port
+the <a href="http://www.lua.org/tests/">Lua Test Suite</a>
+to NetBSD kernel.
+That is,
+to adapt scripts from Lua test suite and
+develop a <a
+href="http://www.home.unix-ag.org/bmeurer/NetBSD/howto-lkm.html">NetBSD
+loadable kernel module</a> containing the C portion of Lua test suite.
+
+<h4 id="expectedresults">Expected results</h4>
+<ul>
+<li>Adapted test scripts for kernel Lua</li>
+<li>Kernel module for testing the
+<a href="http://www.lua.org/manual/5.3/manual.html#4">Lua C API</a></li>
+</ul>
+
+<br><hr>
+<h3 id="elastic">Elasticsearch Lua client (elasticsearch-lua)</h3>
+<h4 id="student">Student</h4>
+Dhaval Kapil - Indian Institute of Technology Roorke, India.
+<h4 id="mentor">Mentor</h4>
+<p><a href="http://www.inf.puc-rio.br/~pmusa/">Pablo Musa</a></p>
+
+<h4 id="briefexplanation">Brief explanation</h4>
+
+<p><a href="http://elasticsearch.com/">Elasticsearch</a>
+is a distributed and scalable search engine.
+It is written in Java and, besides the transport protocol (Java to
+Java), it offers a very complete REST API accessed through
+<a href="http://json.org/">JSON</a></p>
+
+<p>Elasticsearch clients for different scripting languages such as Python, PHP
+and Perl have already been developed.
+However, a client for <a href="http://lua.org/">Lua</a>
+is still not available.
+
+<p>This project aims to create a complete Lua client to access Elasticsearch.
+
+
+<h4 id="expectedresults">Expected results</h4>
+<ul>
+<li>A complete Lua client to access the Elasticsearch REST API.
+</ul>
+<br><hr>
+<h3 id="ceu">
+Port an SDL-based C++ open source game to Céu
+</h3>
+<h4 id="student">Student</h4>
+Alexander Tkachev -  Novosibirsk State Universit, Russia.
+<h4 id="mentor">Mentor</h4>
+<p>Francisco Sant'Anna</p>
+
+<h4 id="about-ceu">
+About Céu
+</h4>
+
+Céu is a programming language that targets system-level development of reactive 
+systems.
+<p>
+For a little introduction about the language, please watch the video in our front page:
+<br>
+<a href="http://ceu-lang.org/">
+http://ceu-lang.org/
+</a>
+<p>
+Céu appeared last year on "StrangeLoop" and the "Future Programming Workshop":
+<br>
+<a href="http://www.future-programming.org/program.html">
+http://www.future-programming.org/program.html
+</a>
+
+<h4 id="briefexplanation">Brief explanation</h4>
+
+Port to Céu an existing C++ open source game of considerable size (30-50k lines of code).
+<p>
+Here are some possible projects to look for:
+<ul>
+<li>
+<a href="http://en.wikipedia.org/wiki/List_of_open-source_video_games">
+http://en.wikipedia.org/wiki/List_of_open-source_video_games
+</a>
+<li>
+<a href="http://www.reddit.com/r/opensourcegames">
+http://www.reddit.com/r/opensourcegames
+</a>
+</ul>
+
+<h4 id="expectedresults">Expected results</h4>
+
+<ul>
+<li>A working implementation of the game
+<li>A report about the experience of using Céu in the context of game 
+development, also comparing the implementations in terms of code complexity 
+(e.g., lines of code), resource usage (CPU, memory), etc.
+</ul>
+<br><hr>
+<h3 id="luasoap">Add support for WSDL generation to LuaSOAP</h3>
+<h4 id="student">Student</h4>
+Victor Dias - Pontifícia Universidade Católica do Rio de Janeiro (PUC-Rio), Brasil.
+<h4 id="mentor">Mentor</h4>
+<p>Tomás Guisasola</p>
+
+<h4 id="briefexplanation">Brief explanation</h4>
+
+<p><a href="http://tomasguisasola.github.io/luasoap/">LuaSOAP</a> is a library to
+ease the use of <a href="http://www.w3.org/TR/soap/">SOAP</a>.  LuaSOAP provides
+a very simple API that convert Lua tables to and from XML documents.
+It also offers a simple way to invoke remote Web Services without having
+to deal directly with SOAP messages.  In fact, LuaSOAP also provides
+a simple way to offer Web Services -- the server side -- but it lacks
+support for WSDL generation of the offered services.</p>
+
+<p><a href="http://www.w3.org/TR/wsdl">WSDL</a> is an XML format for describing
+network services.  It is used to describe operations and messages --
+with its types -- offered by Web Services.  Since Lua code does not
+include type information, automatic generation has to be based on some
+kind of hand-made declarative information.</p>
+
+<h4 id="expectedresults">Expected results</h4>
+<ul>
+<li>Define the format to describe complementary WSDL information in Lua</li>
+<li>Implement an automatic generator of WSDL documents</li>
+<li>Test and document everything</li>
+</ul>
+<br><hr>
+<h3 id="dynserial">Develop a binary serialization format with support for dynamically types values and an RPC protocol for dynamically typed invocations based on this format.</h3>
+<h4 id="student">Student</h4>
+Lukas Borin - Chalmers University of Technology, Sweden.
+<h4 id="mentor">Mentor</h4>
+<p>Renato Maia</p>
+
+<h4 id="briefexplanation">Brief explanation</h4>
+
+<p>Most RMI protocols available today are either focused on inefficient 
+representation formats for typing information (e.g.
+<a href="http://www.omg.org/spec/CORBA/3.3/Interoperability/PDF">
+GIOP/IIOP (CORBA)</a>,
+<a href="http://hessian.caucho.com">Hessian</a>,
+<a href="https://developers.google.com/protocol-buffers/">
+Google Protocol Buffers</a>)
+or on invocations where the typing information are predefined and static, 
+therefore are absent on the data sent through the wire 
+(e.g.
+<a href="http://www.w3.org/TR/soap/">SOAP</a>,
+<a href="http://www.json.org">JSON</a>,
+<a href="http://www.caucho.com/resin-3.0/protocols/burlap.xtp">Burlap</a>).
+<p>
+Few protocols are designed to work efficiently with typed data. Invocations with typed data work well with the RPC model because it allows the identification of deployment problems (mismatch interfaces) and facilitate the dynamic evolution of distributed systems. A protocol for dynamically typed RPC should be based on a efficient serialization format for typed data, that is, information about how the data should be interpreted.</p>
+
+<p>The goal of this project is to design and implement a serialization binary serialization format with the following requirements:</p>
+
+<ul>
+<li>Primitive data: numeric formats (integer and floating-point), characters and boolean.</li>
+<li>Structured data: serialization of usual structured data like records, arrays, maps, tuples, union, etc.</li>
+<li>Optional typing: serialization of both raw data and data plus typing information.</li>
+<li>Structural compatibility: type information should allow to efficiently verify whether two types are compatibile.</li>
+<li>Opaque data: allow that a special form of raw data (without typing information) can be ignored without compromising the remains of the stream and that can also be passed along by a receiver that did not interpreted it.</li>
+<li>Semantic information: data types that can extend a standard type with additional semantic information, like a string (sequence of characteres) with an associated charset or a record with an associated class name that provides some behavior over the data on the record.</li>
+<li>Graphs: data with cyclic references.</li>
+</ul>
+
+<h4 id="expectedresults">Expected results</h4>
+
+<ul>
+<li>An specification of a binary serialization format with support for typed data.</li>
+<li>An implementation of a library for encoding values using this format.</li>
+</ul>
+<br><hr>
+<h3 id="sailor">
+Sailor: Web Development in Lua (proposed by the student)
+</h3>
+<h4 id="student">Student</h4>
+Etiene Dalcol - Pontifícia Universidade Católica do Rio de Janeiro (PUC-Rio), Brasil / ENSTA Bretagne, France.
+<h4 id="mentor">Mentor</h4>
+<a href="http://www.dcc.ufrj.br/~fabiom/">Fabio Mascarenhas</a>
+
+<h4 id="briefexplanation">Brief explanation</h4>
+<a href="http://sailorproject.org/">Sailor</a> is a web MVC framework 
+completely written in Lua that allows to write robust web systems using 
+the Lua programming language. It's in early development stage,
+ with three 
+releases under MIT License. 
+<p>Sailor currently runs on the top of various web 
+servers, such as Apache2, NginX, Mongoose, Lwan and Xavante. 
+It's compatible with different operational systems, such as Linux, Mac and 
+Windows although Linux and Mac are more well-supported. 
+<p>
+During GSoC 2015 the following improvements to Sailor will be developed:
+<ul>
+<li>Development or Integration of a test suite to Sailor
+<li>Improvements to the Lua programming environment at the client side
+<ul>
+<li>DOM manipulation
+<li>support for loading Lua modules
+</ul>
+</ul>
