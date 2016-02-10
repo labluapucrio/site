@@ -17,6 +17,12 @@ Extending the online tutorial of Céu with Emscripten and SDL
 <li><a href="#netbsd">
 Develop I/O API for NetBSD Kernel Lua
 </a></li>
+<li><a href="#cgilua">
+Adapt CGILua SAPI launcher to explore all WSAPI features
+</a></li>
+<li><a href="#luasql">
+Add support for prepared statements in LuaSQL
+</a></li>
 </ul>
 
 <br><hr>
@@ -296,6 +302,90 @@ Advanced
 <a href="mailto:lneto@NetBSD.org">Lourival Vieira Neto</a>
 </p>
 
+<br><hr>
+<h3 id="cgilua">Adapt CGILua SAPI launcher to explore all WSAPI features.</h3>
+<h4 id="briefexplanation">Brief explanation</h4>
+
+<p><a href="http://keplerproject.github.io/cgilua/">
+CGILua</a> is a tool for creating dynamic Web pages and manipulating input
+data from Web forms.  One of advantages of CGILua is its abstraction
+of the underlying Web server. CGILua can be used with a variety of Web
+servers and, for each server, with different launchers. A launcher is
+responsible for the interaction of CGILua and the Web server, for example
+using ISAPI on IIS or mod_lua on Apache. The reference implementation
+of CGILua launchers is Kepler.</p>
+
+<p> <a href="http://keplerproject.github.io/wsapi/">WSAPI</a>
+is an API that abstracts the web server from Lua web
+applications. WSAPI provides a set of helper libraries that help with
+request processing and output buffering.</p>
+
+<p>Actually CGILua has an implementation of an abstract underlying server
+which is almost the same of WSAPI itself. This project proposes a
+reimplementation of this layer (called SAPI) to explore WSAPI fully. This
+should improve the performance and simpify maintenance.</p>
+
+<h4 id="expectedresults">Expected results</h4>
+<ul>
+<li>Rewrite CGILua library to dispense SAPI module and use WSAPI directly.</li>
+</ul>
+
+<h4 id="knowledgeprerequisites">Knowledge prerequisites</h4>
+<p>Advanced Lua programming is mandatory, since both tools (CGILua and WSAPI)
+are not naive software. A good understanding of the Lua environment
+concept is particularly necessary in this project.</p>
+
+<p>Web programming experience can be very helpful especially to understand
+the context of use of these tools.</p>
+
+<h4 id="skilllevel">Skill level</h4>
+<p>Medium</p>
+
+<h4 id="mentor">Mentor</h4>
+<p>Tomás Guisasola</p>
+
+<br><hr>
+<h3 id="luasql">Add support for prepared statements in LuaSQL</h3>
+<h4 id="briefexplanation">Brief explanation</h4>
+<p><a href="http://www.keplerproject.org/luasql/">
+LuaSQL</a> is a generic interface from Lua to a DBMS.
+It aims at portability over performance, but it allows extensions to
+suit the particularities of each DBMS.</p>
+
+<p>The inclusion of support for prepared statements in LuaSQL has been
+discussed thoroughly some time ago, but since each DBMS offers very
+different APIs there is no standard that could be defined to assure
+portability between them.
+Anyway the demand persists.</p>
+
+<p>This project proposes the addition of a minimal API that would allow
+each driver to implement prepared statements according to its DBMS
+restrictions.</p>
+
+<h4 id="expectedresults">Expected results</h4>
+<ul>
+<li>Adapt the API to each LuaSQL driver according to its particularities</li>
+<li>Implement the new functions to each driver</li>
+<li>Test and document everything</li>
+</ul>
+
+<h4 id="knowledgeprerequisites">Knowledge prerequisites</h4>
+<p>C, Lua and C API for Lua:</p>
+
+<ul>
+<li>C is mandatory.</li>
+<li>Knowledge of the C API for Lua is mandatory, although it is not too
+difficult to be learned during the project.</li>
+<li>Basic programming in Lua is very helpful, but not mandatory, since
+the examples and test-cases are very simple.</li>
+</ul>
+
+<h4 id="skilllevel">Skill level</h4>
+<p>Hard</p>
+
+<h4 id="mentor">Mentor</h4>
+<p>Tomás Guisasola</p>
+
 <!--
 <li><a href="#kerneltest">
 Port Lua Test Suite to NetBSD Kernel
@@ -306,14 +396,8 @@ Elasticsearch Lua client (elasticsearch-lua)
 <li><a href="#lpeg">
 Add support for left recursion to LPeg
 </a></li>
-<li><a href="#cgilua">
-Adapt CGILua SAPI launcher to explore all WSAPI features
-</a></li>
 <li><a href="#luasoap">
 Add support for WSDL generation to LuaSOAP
-</a></li>
-<li><a href="#luasql">
-Add support for prepared statements in LuaSQL
 </a></li>
 <li><a href="#vlc">
 Multi-CPU usage in VLC
@@ -417,47 +501,6 @@ is still not available.
 
 
 
-<br><hr>
-<h3 id="cgilua">Adapt CGILua SAPI launcher to explore all WSAPI features.</h3>
-<h4 id="briefexplanation">Brief explanation</h4>
-
-<p><a href="http://keplerproject.github.io/cgilua/">
-CGILua</a> is a tool for creating dynamic Web pages and manipulating input
-data from Web forms.  One of advantages of CGILua is its abstraction
-of the underlying Web server. CGILua can be used with a variety of Web
-servers and, for each server, with different launchers. A launcher is
-responsible for the interaction of CGILua and the Web server, for example
-using ISAPI on IIS or mod_lua on Apache. The reference implementation
-of CGILua launchers is Kepler.</p>
-
-<p> <a href="http://keplerproject.github.io/wsapi/">WSAPI</a>
-is an API that abstracts the web server from Lua web
-applications. WSAPI provides a set of helper libraries that help with
-request processing and output buffering.</p>
-
-<p>Actually CGILua has an implementation of an abstract underlying server
-which is almost the same of WSAPI itself. This project proposes a
-reimplementation of this layer (called SAPI) to explore WSAPI fully. This
-should improve the performance and simpify maintenance.</p>
-
-<h4 id="expectedresults">Expected results</h4>
-<ul>
-<li>Rewrite CGILua library to dispense SAPI module and use WSAPI directly.</li>
-</ul>
-
-<h4 id="knowledgeprerequisites">Knowledge prerequisites</h4>
-<p>Advanced Lua programming is mandatory, since both tools (CGILua and WSAPI)
-are not naive software. A good understanding of the Lua environment
-concept is particularly necessary in this project.</p>
-
-<p>Web programming experience can be very helpful especially to understand
-the context of use of these tools.</p>
-
-<h4 id="skilllevel">Skill level</h4>
-<p>Medium</p>
-
-<h4 id="mentor">Mentor</h4>
-<p>Tomás Guisasola</p>
 
 <br><hr>
 <h3 id="luasoap">Add support for WSDL generation to LuaSOAP</h3>
@@ -501,47 +544,6 @@ kind of hand-made declarative information.</p>
 
 <p>Tomás Guisasola</p>
 
-<br><hr>
-<h3 id="luasql">Add support for prepared statements in LuaSQL</h3>
-<h4 id="briefexplanation">Brief explanation</h4>
-<p><a href="http://www.keplerproject.org/luasql/">
-LuaSQL</a> is a generic interface from Lua to a DBMS.
-It aims at portability over performance, but it allows extensions to
-suit the particularities of each DBMS.</p>
-
-<p>The inclusion of support for prepared statements in LuaSQL has been
-discussed thoroughly some time ago, but since each DBMS offers very
-different APIs there is no standard that could be defined to assure
-portability between them.
-Anyway the demand persists.</p>
-
-<p>This project proposes the addition of a minimal API that would allow
-each driver to implement prepared statements according to its DBMS
-restrictions.</p>
-
-<h4 id="expectedresults">Expected results</h4>
-<ul>
-<li>Adapt the API to each LuaSQL driver according to its particularities</li>
-<li>Implement the new functions to each driver</li>
-<li>Test and document everything</li>
-</ul>
-
-<h4 id="knowledgeprerequisites">Knowledge prerequisites</h4>
-<p>C, Lua and C API for Lua:</p>
-
-<ul>
-<li>C is mandatory.</li>
-<li>Knowledge of the C API for Lua is mandatory, although it is not too
-difficult to be learned during the project.</li>
-<li>Basic programming in Lua is very helpful, but not mandatory, since
-the examples and test-cases are very simple.</li>
-</ul>
-
-<h4 id="skilllevel">Skill level</h4>
-<p>Hard</p>
-
-<h4 id="mentor">Mentor</h4>
-<p>Tomás Guisasola</p>
 
 <br><hr>
 <h3 id="vlc">Multi-CPU usage in VLC</h3>
