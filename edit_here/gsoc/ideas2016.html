@@ -38,6 +38,9 @@ Assembler and Disassembler for Lua 5.3
 <li><a href="#typedlua">
 Add class-based object-oriented programming to Typed Lua
 </a></li>
+<li><a href="#luasec">
+Improve the HTTPS module of LuaSec
+</a></li>
 </ul>
 
 <br><hr>
@@ -174,7 +177,7 @@ An integration for code coverage, automated build tests (already working) and a 
 
 <br><hr>
 <h3 id="libscript">Enhancements to LibScript, a cross-language scripting library</h3>
-<h4 id="briefexplanation">Brief explanation</h4>
+<h4>Brief explanation</h4>
 
 <p><a href="http://libscript.sf.net">LibScript</a>
 is a library for cross-language scripting: it allows code written in one scripting
@@ -195,7 +198,7 @@ and <a href="https://www.r-project.org">R</a> (giving many languages access to t
 libraries available in <a href="http://cran.us.r-project.org/">CRAN</a>).</li>
 </ul>
 
-<h4 id="expectedresults">Expected results</h4>
+<h4>Expected results</h4>
 <ul>
 <li>Enhancements to the existing LibScript plugins, supporting structured data types.</li>
 <li>New plugins supporting additional languages</li>
@@ -211,17 +214,17 @@ libraries available in <a href="http://cran.us.r-project.org/">CRAN</a>).</li>
 <li>Previous experience embedding any scripting language in a C application is a bonus</li>
 </ul>
 
-<h4 id="skilllevel">Skill level</h4>
+<h4>Skill level</h4>
 <p>Medium/advanced</p>
 
-<h4 id="mentor">Mentor</h4>
+<h4>Mentor</h4>
 <p>
 <a href="http://hisham.hm/">Hisham Muhammad</a>
 </p>
 
 <br><hr>
 <h3 id="typed">Implement core Typed Lua in Haskell</h3>
-<h4 id="briefexplanation">Brief explanation</h4>
+<h4>Brief explanation</h4>
 
 <p><a href="https://github.com/andremm/typedlua">Typed Lua</a>
 is an optional type system for Lua, and its main goal is to
@@ -238,13 +241,13 @@ it has explicit type annotations, explicit scope for variables,
 explicit method declarations, and explicit method calls.
 </p>
 
-<h4 id="expectedresults">Expected results</h4>
+<h4>Expected results</h4>
 
 <ul>
 <li>A type checker written in Haskell that analyses code written in core Typed Lua.</li>
 </ul>
 
-<h4 id="knowledgeprerequisites">Knowledge prerequisites</h4>
+<h4>Knowledge prerequisites</h4>
 
 <ul>
 <li>Lua (for understanding regular Typed Lua implementation).</li>
@@ -253,10 +256,10 @@ explicit method declarations, and explicit method calls.
 <li>Git (the project repository should be in github).</li>
 </ul>
 
-<h4 id="skilllevel">Skill level</h4>
+<h4>Skill level</h4>
 <p>Advanced</p>
 
-<h4 id="mentor">Mentor</h4>
+<h4>Mentor</h4>
 <p>
 <a href="mailto:amaidl@inf.puc-rio.br">André Murbach Maidl</a>
 </p>
@@ -428,7 +431,7 @@ Advanced
 
 <br><hr>
 <h3 id="cgilua">Adapt CGILua SAPI launcher to explore all WSAPI features.</h3>
-<h4 id="briefexplanation">Brief explanation</h4>
+<h4>Brief explanation</h4>
 
 <p><a href="http://keplerproject.github.io/cgilua/">
 CGILua</a> is a tool for creating dynamic Web pages and manipulating input
@@ -449,12 +452,12 @@ which is almost the same of WSAPI itself. This project proposes a
 reimplementation of this layer (called SAPI) to explore WSAPI fully. This
 should improve the performance and simplify maintenance.</p>
 
-<h4 id="expectedresults">Expected results</h4>
+<h4>Expected results</h4>
 <ul>
 <li>Rewrite CGILua library to dispense SAPI module and use WSAPI directly.</li>
 </ul>
 
-<h4 id="knowledgeprerequisites">Knowledge prerequisites</h4>
+<h4>Knowledge prerequisites</h4>
 <p>Advanced Lua programming is mandatory, since both tools (CGILua and WSAPI)
 are not naive software. A good understanding of the Lua environment
 concept is particularly necessary in this project.</p>
@@ -462,15 +465,15 @@ concept is particularly necessary in this project.</p>
 <p>Web programming experience can be very helpful especially to understand
 the context of use of these tools.</p>
 
-<h4 id="skilllevel">Skill level</h4>
+<h4>Skill level</h4>
 <p>Medium</p>
 
-<h4 id="mentor">Mentor</h4>
+<h4>Mentor</h4>
 <p>Tomás Guisasola</p>
 
 <br><hr>
 <h3 id="luasql">Add support for prepared statements in LuaSQL</h3>
-<h4 id="briefexplanation">Brief explanation</h4>
+<h4>Brief explanation</h4>
 <p><a href="http://www.keplerproject.org/luasql/">
 LuaSQL</a> is a generic interface from Lua to a DBMS.
 It aims at portability over performance, but it allows extensions to
@@ -486,14 +489,14 @@ Anyway the demand persists.</p>
 each driver to implement prepared statements according to its DBMS
 restrictions.</p>
 
-<h4 id="expectedresults">Expected results</h4>
+<h4>Expected results</h4>
 <ul>
 <li>Adapt the API to each LuaSQL driver according to its particularities</li>
 <li>Implement the new functions to each driver</li>
 <li>Test and document everything</li>
 </ul>
 
-<h4 id="knowledgeprerequisites">Knowledge prerequisites</h4>
+<h4>Knowledge prerequisites</h4>
 <p>C, Lua and C API for Lua:</p>
 
 <ul>
@@ -504,10 +507,10 @@ difficult to be learned during the project.</li>
 the examples and test-cases are very simple.</li>
 </ul>
 
-<h4 id="skilllevel">Skill level</h4>
+<h4>Skill level</h4>
 <p>Hard</p>
 
-<h4 id="mentor">Mentor</h4>
+<h4>Mentor</h4>
 <p>Tomás Guisasola</p>
 
 <br/><hr/>
@@ -603,7 +606,7 @@ Medium
 
 <br><hr>
 <h3 id="lad">Assembler and Disassembler for Lua 5.3</h3>
-<h4 id="briefexplanation">Brief explanation</h4>
+<h4>Brief explanation</h4>
 
 <p>
 Lua is a dynamically typed programming language that runs by interpreting
@@ -622,14 +625,14 @@ The assembly syntax should be expressive enough to encode all the instructions
 that are available at Lua VM.
 </p>
 
-<h4 id="expectedresults">Expected results</h4>
+<h4>Expected results</h4>
 
 <ul>
 <li>A disassembler script that converts Lua code/bytecode into assembly instructions.</li>
 <li>An assembler script that converts assembly instructions into executable Lua bytecode.</li>
 </ul>
 
-<h4 id="knowledgeprerequisites">Knowledge prerequisites</h4>
+<h4>Knowledge prerequisites</h4>
 
 <ul>
 <li>Lua (the project should be written in Lua).</li>
@@ -638,10 +641,10 @@ that are available at Lua VM.
 <li>LPeg is a plus (the assembler parser can be written with LPeg).</li>
 </ul>
 
-<h4 id="skilllevel">Skill level</h4>
+<h4>Skill level</h4>
 <p>Easy</p>
 
-<h4 id="mentor">Mentor</h4>
+<h4>Mentor</h4>
 <p>
 <a href="mailto:amaidl@inf.puc-rio.br">André Murbach Maidl</a>
 </p>
@@ -650,7 +653,7 @@ that are available at Lua VM.
 
 <h3 id="typedlua">Add class-based object-oriented programming to <a href="https://github.com/andremm/typedlua">Typed Lua</a></h3>
 
-<h4 id="briefexplanation">Brief explanation</h4>
+<h4>Brief explanation</h4>
 
 <p>Typed Lua is a strict superset of Lua that provides optional
 type annotations, and compile-time type checking.
@@ -660,7 +663,7 @@ The compiler uses static types to perform compile-time type checking,
 but also allows Lua code to coexist with Typed Lua code, and generate
 Lua code that runs in unmodified Lua implementations.</p>
 
-<h4 id="expectedresults">Expected results</h4>
+<h4>Expected results</h4>
 
 <p>Typed Lua intended use is as an application language, and we view that
 policies for organizing a program in modules and writing object-oriented
@@ -674,200 +677,81 @@ as a way to help Lua programmers better structure their code.
 The backend code generator should be a plugin, so the programmers
 can choose which OO style or library they want to use.</p>
 
-<h4 id="knowledgeprerequisites">Knowledge prerequisites</h4>
+<h4>Knowledge prerequisites</h4>
 
 <p>Lua, Object-Oriented Programming, and Type Systems</p>
 
-<h4 id="skilllevel">Skill level</h4>
+<h4>Skill level</h4>
 
 <p>Hard</p>
 
-<h4 id="mentor">Mentor</h4>
+<h4>Mentor</h4>
 
 <p><a href="http://www.dcc.ufrj.br/~fabiom/">Fabio Mascarenhas</a></p>
 
+<br/><hr/>
+
+<h3 id="luasec">Improve the HTTPS module of LuaSec</h3>
+<h4>Brief explanation</h4>
+
+<p>
+  <a href="https://github.com/brunoos/luasec/wiki" target="_blank">LuaSec</a>&#39;s HTTPS
+  module was built on top
+  of <a href="http://w3.impa.br/~diego/software/luasocket/" target="_blank">LuaSocket</a>&#39;s
+  HTTP and presents some problems due to limited integration.
+</p>
+<p>
+  The aim of this project is to improve HTTPS module, fixing the
+  issues and adding some new features.
+</p>
+
+<h4>Expected results</h4>
+
+<ul>
+  <li>Turn the module more self-contained, fixing the dependency problem.</li>
+  <li>Add new features: proxy, SNI (Server Name Indication), etc.</li>
+  <li>Support to HTTP/2 is a plus.</li>
+</ul>
+
+<h4>Knowledge prerequisites</h4>
+
+<ul>
+  <li>C, Lua, Git, HTTP protocol.</li>
+</ul>
+
+<h4>Skill level</h4>
+<p>Easy / Medium</p>
+
+<h4>Mentor</h4>
+<p>
+<a href="mailto:brunoos@inf.ufg.br" target="_blank">Bruno Silvestre</a>
+</p>
+
 <!--
-<li><a href="#kerneltest">
-Port Lua Test Suite to NetBSD Kernel
-</a></li>
-<li><a href="#elastic">
-Elasticsearch Lua client (elasticsearch-lua)
-</a></li>
-<li><a href="#lpeg">
-Add support for left recursion to LPeg
-</a></li>
-<li><a href="#luasoap">
-Add support for WSDL generation to LuaSOAP
-</a></li>
-<li><a href="#vlc">
-Multi-CPU usage in VLC
-</a></li>
-<li><a href="#wireshark">
-Multi-CPU usage in wireshark
-</a></li>
-<li><a href="#dynserial">
-Develop a binary serialization format with support for dynamically types values and an RPC protocol for dynamically typed invocations based on this format.
-</a></li>
-<li><a href="#loski">
-Develop a library for Lua that allows Lua programs to access features provided by the platform's underlying operating system (OS) kernel, such as process control, network access, file system, event notification, etc.
-</a></li>
-<li><a href="#ceu">
-Port an SDL-based C++ open source game to Céu
-</a></li>
-</ul>
--->
-
-
-<!--
-
-<br><hr>
-<h3 id="kerneltest">Port Lua Test Suite to NetBSD Kernel</h3>
-<h4 id="briefexplanation">Brief explanation</h4>
-
-<p>
-<a href="http://www.netbsd.org">The NetBSD Operating System</a>
-has a kernel-level Lua interpreter version for
-<a href="http://netbsd.org/~lneto/dls14.pdf">scripting its kernel</a>.
-For example, it allows users to
-<a href="http://netbsd.org/~lneto/eurobsdcon14.pdf">filter packets using Lua
-scripts</a>.
-<p>
-The main difference between kernel Lua and regular user-level Lua
-is that kernel Lua doesn't have support for standard libraries that depend on
-operating system (e.g., io and os) and for floating-point numbers.
-The purpose of this project is to port
-the <a href="http://www.lua.org/tests/">Lua Test Suite</a>
-to NetBSD kernel.
-That is,
-to adapt scripts from Lua test suite and
-develop a <a
-href="http://www.home.unix-ag.org/bmeurer/NetBSD/howto-lkm.html">NetBSD
-loadable kernel module</a> containing the C portion of Lua test suite.
-
-<h4 id="expectedresults">Expected results</h4>
-<ul>
-<li>Adapted test scripts for kernel Lua</li>
-<li>Kernel module for testing the
-<a href="http://www.lua.org/manual/5.3/manual.html#4">Lua C API</a></li>
-</ul>
-
-<h4 id="knowledgeprerequisites">Knowledge prerequisites</h4>
-<ul>
-<li>C, Lua (and some patience :) )
-</ul>
-
-<h4 id="skilllevel">Skill level</h4>
-<p>Medium</p>
-
-<h4 id="mentor">Mentor</h4>
-<a href="mailto:lourival.neto@gmail.com">Lourival Vieira Neto</a>
-<p>
-<br><hr>
-<h3 id="elastic">Elasticsearch Lua client (elasticsearch-lua)</h3>
-<h4 id="briefexplanation">Brief explanation</h4>
-
-<p><a href="http://elasticsearch.com/">Elasticsearch</a>
-is a distributed and scalable search engine.
-It is written in Java and, besides the transport protocol (Java to
-Java), it offers a very complete REST API accessed through
-<a href="http://json.org/">JSON</a></p>
-
-<p>Elasticsearch clients for different scripting languages such as Python, PHP
-and Perl have already been developed.
-However, a client for <a href="http://lua.org/">Lua</a>
-is still not available.
-
-<p>This project aims to create a complete Lua client to access Elasticsearch.
-
-
-<h4 id="expectedresults">Expected results</h4>
-<ul>
-<li>A complete Lua client to access the Elasticsearch REST API.
-</ul>
-
-<h4 id="knowledgeprerequisites">Knowledge prerequisites</h4>
-<ul>
-<li>Lua - medium (socket and metatable experience is important)
-<li>Elasticsearch - basic/medium
-<li>JSON - medium
-<li>HTTP - basic/medium
-</ul>
-
-<h4 id="skilllevel">Skill level</h4>
-<p>Medium</p>
-
-<h4 id="mentor">Mentor</h4>
-<p><a href="http://www.inf.puc-rio.br/~pmusa/">Pablo Musa</a></p>
-
-
-
-
-<br><hr>
-<h3 id="luasoap">Add support for WSDL generation to LuaSOAP</h3>
-<h4 id="briefexplanation">Brief explanation</h4>
-
-<p><a href="http://tomasguisasola.github.io/luasoap/">LuaSOAP</a> is a library to
-ease the use of <a href="http://www.w3.org/TR/soap/">SOAP</a>.  LuaSOAP provides
-a very simple API that convert Lua tables to and from XML documents.
-It also offers a simple way to invoke remote Web Services without having
-to deal directly with SOAP messages.  In fact, LuaSOAP also provides
-a simple way to offer Web Services -- the server side -- but it lacks
-support for WSDL generation of the offered services.</p>
-
-<p><a href="http://www.w3.org/TR/wsdl">WSDL</a> is an XML format for describing
-network services.  It is used to describe operations and messages --
-with its types -- offered by Web Services.  Since Lua code does not
-include type information, automatic generation has to be based on some
-kind of hand-made declarative information.</p>
-
-<h4 id="expectedresults">Expected results</h4>
-<ul>
-<li>Define the format to describe complementary WSDL information in Lua</li>
-<li>Implement an automatic generator of WSDL documents</li>
-<li>Test and document everything</li>
-</ul>
-
-<h4 id="knowledgeprerequisites">Knowledge prerequisites</h4>
-<p>Lua programming; client-server web architecture; SOAP and WSDL specifications.</p>
-
-<ul>
-<li>Basic programming in Lua is mandatory</li>
-<li>Web programming experience is very appreciated but not mandatory</li>
-<li>SOAP and WSDL specifications could be learned during the project</li>
-</ul>
-
-<h4 id="skilllevel">Skill level</h4>
-
-<p>Medium</p>
-
-<h4 id="mentor">Mentor</h4>
-
-<p>Tomás Guisasola</p>
-
 
 <br><hr>
 <h3 id="vlc">Multi-CPU usage in VLC</h3>
-<h4 id="briefexplanation">Brief explanation:</h4>
+<h4>Brief explanation:</h4>
 
 <p><a href="https://wiki.videolan.org/VLC_media_player/">VLC </a> is a free and open source cross-platform multimedia player and framework that plays most multimedia files as well as DVD, Audio CD, VCD, and various streaming protocols. Lua scripts can be added to VLC for tasks such as playlist construction and service discovery. Such tasks may involve a lot of parsing and communication and could benefit from using multiple CPUs when available. The purpose of this project is to include support for multi-CPU usage in VLC, using
 <a href="http://askyrme.github.io/luaproc/">luaproc</a>,
  a library that allows programmers to create multiple independent execution flows of Lua code that can run inparallel, communicating only via message-passing.</p>
 
-<h4 id="expectedresults">Expected results:</h4>
+<h4>Expected results:</h4>
 <p>Multi-CPU support in VLC.</p>
 
 <h4 id="knowledgeprerequisite">Knowledge prerequisite:</h4>
 <p>C, Lua</p>
 
-<h4 id="skilllevel">Skill level:</h4>
+<h4>Skill level:</h4>
 <p>Medium</p>
 
-<h4 id="mentor">Mentor:</h4>
+<h4>Mentor:</h4>
 <p>Alexandre Skyrme</p>
 
 <br><hr>
 <h3 id="wireshark">Multi-CPU usage in wireshark</h3>
-<h4 id="briefexplanation">Brief explanation:</h4>
+<h4>Brief explanation:</h4>
 
 <p>The 
 <a href="http://www.wireshark.org/">
@@ -875,114 +759,24 @@ wireshark network protocol analyser</a> allows programmers to use Lua to write d
 <a href="http://askyrme.github.io/luaproc/">luaproc</a>,
 a library that allows programmers to create multiple independent execution flows of Lua code that can run inparallel, communicating only via message-passing.</p>
 
-<h4 id="expectedresults">Expected results:</h4>
+<h4>Expected results:</h4>
 <p>We expect the support for Multi-CPU usage in wireshark.</p>
 
 <h4 id="knowledgeprerequisite">Knowledge prerequisite:</h4>
 <p>C, Lua</p>
 
-<h4 id="skilllevel">Skill level:</h4>
+<h4>Skill level:</h4>
 <p>Medium</p>
 
-<h4 id="mentor">Mentor:</h4>
+<h4>Mentor:</h4>
 <p>Alexandre Skyrme</p>
 
-
-<br><hr>
-<h3 id="lpeg">Add support for left recursion to 
-<a href="http://www.inf.puc-rio.br/~roberto/lpeg/">
-LPeg</a></h3>
-<h4 id="briefexplanation">Brief explanation</h4>
-
-<p>Parsing Expression Grammars (PEGs) are an expressive formalism for designing
-and implementing top-down parsers with local backtracking. A frequently missed 
-feature of PEGs is left recursion, which is commonly used in 
-Context-Free Grammars (CFGs) to encode left-associative operations.
-
-<p>There is a 
-<a href="http://arxiv.org/pdf/1207.0443.pdf">
-formal extension to the PEGs formalism</a>
-that allows the use of 
-left-recursive rules in a PEG grammar and that was implemented by 
-some PEG-based tools, such as
-<a href="https://github.com/sacek/LPegLJ">LPegLJ  </a>
-and <a href="http://ironmeta.sourceforge.net/">IronMeta</a>.
-
-<p>The aim of this project is to create a fork of
-<a href="http://www.inf.puc-rio.br/~roberto/lpeg/">LPeg</a>,
-an implementation of PEGs for Lua based on a virtual parsing machine.
-
-<h4 id="knowledgeprerequisites">Knowledge prerequisites</h4>
-<p>C, Lua and Parsing Expression Grammars
-
-<h4 id="skilllevel">Skill level</h4>
-<p>Hard</p>
-
-<h4 id="mentor">Mentor</h4>
-<p><a href="https://sites.google.com/site/sqmedeiros/">Sérgio Medeiros</a></p>
-
-<br><hr>
-<h3 id="dynserial">Develop a binary serialization format with support for dynamically types values and an RPC protocol for dynamically typed invocations based on this format.</h3>
-
-<h4 id="briefexplanation">Brief explanation</h4>
-
-<p>Most RMI protocols available today are either focused on inefficient 
-representation formats for typing information (e.g.
-<a href="http://www.omg.org/spec/CORBA/3.3/Interoperability/PDF">
-GIOP/IIOP (CORBA)</a>,
-<a href="http://hessian.caucho.com">Hessian</a>,
-<a href="https://developers.google.com/protocol-buffers/">
-Google Protocol Buffers</a>)
-or on invocations where the typing information are predefined and static, 
-therefore are absent on the data sent through the wire 
-(e.g.
-<a href="http://www.w3.org/TR/soap/">SOAP</a>,
-<a href="http://www.json.org">JSON</a>,
-<a href="http://www.caucho.com/resin-3.0/protocols/burlap.xtp">Burlap</a>).
-<p>
-Few protocols are designed to work efficiently with typed data. Invocations with typed data work well with the RPC model because it allows the identification of deployment problems (mismatch interfaces) and facilitate the dynamic evolution of distributed systems. A protocol for dynamically typed RPC should be based on a efficient serialization format for typed data, that is, information about how the data should be interpreted.</p>
-
-<p>The goal of this project is to design and implement a serialization binary serialization format with the following requirements:</p>
-
-<ul>
-<li>Primitive data: numeric formats (integer and floating-point), characters and boolean.</li>
-<li>Structured data: serialization of usual structured data like records, arrays, maps, tuples, union, etc.</li>
-<li>Optional typing: serialization of both raw data and data plus typing information.</li>
-<li>Structural compatibility: type information should allow to efficiently verify whether two types are compatibile.</li>
-<li>Opaque data: allow that a special form of raw data (without typing information) can be ignored without compromising the remains of the stream and that can also be passed along by a receiver that did not interpreted it.</li>
-<li>Semantic information: data types that can extend a standard type with additional semantic information, like a string (sequence of characteres) with an associated charset or a record with an associated class name that provides some behavior over the data on the record.</li>
-<li>Graphs: data with cyclic references.</li>
-</ul>
-
-<h4 id="expectedresults">Expected results</h4>
-
-<ul>
-<li>An specification of a binary serialization format with support for typed data.</li>
-<li>An implementation of a library for encoding values using this format.</li>
-</ul>
-
-<h4 id="knowledgeprerequisites">Knowledge prerequisites</h4>
-
-<ul>
-<li>Programming in C (medium to advanced).</li>
-<li>Familiarity with concepts of the Lua language.</li>
-<li>Data structures and formats (endianess, two's complement, IEEE 754, memory pointes, etc).
-<li>Network protocols fundamentals.
-</ul>
-
-<h4 id="skilllevel">Skill level</h4>
-
-<p>Hard</p>
-
-<h4 id="mentor">Mentor</h4>
-
-<p>Renato Maia</p>
 
 <br><hr>
 <h3 id="loski">Develop a library for Lua 
 that allows Lua programs to access features provided by the platform's underlying operating system (OS) kernel, such as process control, network access, file system, event notification, etc.</h3>
 
-<h4 id="briefexplanation">Brief explanation</h4>
+<h4>Brief explanation</h4>
 <p>Standard Lua distribution is based mostly on standard ANSI C libraries only. Therefore, many functionalities provided by modern platforms (like process control, file system operations, network communication, kernel event notification, etc.) are only available through third-party libraries that are developed independently and might not integrate.</p>
 
 <p>The project has three main goals:</p>
@@ -1000,7 +794,7 @@ A prototype for the proposed library is available
 <a href="https://github.com/renatomaia/loski">
 here</a>.
 
-<h4 id="expectedresults">Expected results</h4>
+<h4>Expected results</h4>
 
 <p>A set of Lua libraries implemented at least in one major operating system platform. The library shall provide support for:</p>
 
@@ -1013,116 +807,18 @@ here</a>.
 
 <p>The implementation shall also be flexible enough to facilitate the portability for other platforms.</p>
 
-<h4 id="knowledgeprerequisites">Knowledge prerequisites</h4>
+<h4>Knowledge prerequisites</h4>
 <ul>
 <li>Programming in C.</li>
 <li>Familiarity with concepts of the Lua language.</li>
 <li>Programming with the system API of some popular platform, such as Linux, FreeBSD, Windows, etc.</li>
 </ul>
 
-<h4 id="skilllevel">Skill level</h4>
+<h4>Skill level</h4>
 <p>Hard</p>
 
-<h4 id="mentor">Mentor</h4>
+<h4>Mentor</h4>
 
 <p>Renato Maia</p>
-
-
-<br><hr>
-<h3 id="ceu">
-Port an SDL-based C++ open source game to Céu
-</h3>
-
-<h4 id="about-ceu">
-About Céu
-</h4>
-
-Céu is a programming language that targets system-level development of reactive 
-systems.
-<p>
-For a little introduction about the language, please watch the video in our front page:
-<br>
-<a href="http://ceu-lang.org/">
-http://ceu-lang.org/
-</a>
-<p>
-Céu appeared last year on "StrangeLoop" and the "Future Programming Workshop":
-<br>
-<a href="http://www.future-programming.org/program.html">
-http://www.future-programming.org/program.html
-</a>
-
-<h4 id="briefexplanation">Brief explanation</h4>
-
-Port to Céu an existing C++ open source game of considerable size (30-50k lines of code).
-<p>
-Here are some possible projects to look for:
-<ul>
-<li>
-<a href="http://en.wikipedia.org/wiki/List_of_open-source_video_games">
-http://en.wikipedia.org/wiki/List_of_open-source_video_games
-</a>
-<li>
-<a href="http://www.reddit.com/r/opensourcegames">
-http://www.reddit.com/r/opensourcegames
-</a>
-</ul>
-
-<h4 id="expectedresults">Expected results</h4>
-
-<ul>
-<li>A working implementation of the game
-<li>A report about the experience of using Céu in the context of game 
-development, also comparing the implementations in terms of code complexity 
-(e.g., lines of code), resource usage (CPU, memory), etc.
-</ul>
-
-<h4 id="knowledgeprerequisites">Knowledge prerequisites</h4>
-
-<ul>
-  <li> SDL
-  <li> C
-</ul>
-
-<p>
-(Previous experience with Céu is of course not required.)
-
-<p>
-Linux, Mac or Windows?
-<p>
-The current distribution of Céu is only available for Linux.
-<br>
-A student using another operating system is also welcome, as long as she/he has 
-the skills to build the development environment by her/himself.
-<br>
-The compiler of Céu depends on gcc, lua-5.1, and lua-lpeg.
-
-<h4 id="recommendations">Recommendations</h4>
-
-Last year LabLua had over 15 submissions for only 4 slots.
-<br>
-(Note that we will only know the number of slots for this year <b>after</b> the 
-students submit the proposals.)
-
-<p>
-It is highly recommended that the student installs Céu, compiles some examples, 
-possibly making something very simple from scratch (or changing some existing 
-example).
-<br>
-For us, this is important to see if the student will be able to keep track of the project.
-<br>
-For the student, this initial experience is important to ensure that the 
-expectations with the project match the reality.
-
-<p>
-If the student has participated in other open source projects, it is also 
-recommended that she/he tell us about that experience
-
-<h4 id="skilllevel">Skill level</h4>
-<p>Medium</p>
-
-<h4 id="mentor">Mentor</h4>
-
-<p>Francisco Sant'Anna</p>
 
 -->
