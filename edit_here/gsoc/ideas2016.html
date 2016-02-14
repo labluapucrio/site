@@ -2,8 +2,14 @@
 <h2>Ideas List - Google Summer of Code 2016</h2>
 
 <ul>
-<li><a href="#elasticsearch">
-Enhancements to Elasticsearch-Lua
+<li><a href="#elasticsearch_update">
+Update elasticsearch-lua
+</a></li>
+<li><a href="#elasticsearch_sailor">
+Elasticsearch and Sailor
+</a></li>
+<li><a href="#elasticsearch_tests">
+Improve elasticsearch-lua tests and build
 </a></li>
 <li><a href="#libscript">
 Enhancements to LibScript, a cross-language scripting library
@@ -35,30 +41,135 @@ Add class-based object-oriented programming to Typed Lua
 </ul>
 
 <br><hr>
-<h3 id="elasticsearch">Enhancements to Elasticsearch-Lua</h3>
+<h3 id="elasticsearch_update">Update elasticsearch-lua</h3>
 
-<h4 id="briefexplanation">Brief explanation</h4>
+<h4>Brief explanation</h4>
 
-<p><a href="http://elasticsearch.com/">Elasticsearch</a>
+<p>
+<a href="https://www.elastic.co/products/elasticsearch">Elasticsearch</a>
 is a distributed and scalable search engine.
-It is written in Java and, besides the transport protocol (Java to
-Java), it offers a very complete REST API accessed through
-<a href="http://json.org/">JSON</a>.</p>
+It is written in Java and, besides the transport protocol (Java to Java), it
+offers a very complete REST API accessed through <a href="http://json.org/">JSON</a>.
+<a href="https://github.com/DhavalKapil/elasticsearch-lua/">elasticsearch-lua</a>
+is a Lua library that allows Lua applications to easily comunicate with
+Elasticsearch clusters.
+</p>
 
-<p>TODO TODO TODO</p>
+<p>Currently, elasticsearch-lua is built on top of Elasticsearch 1.7 but does not implement all possible Elasticsearch features. Moreover, Elasticsearch is already in version 2.2 and many new features are available.</p>
 
-<h4 id="expectedresults">Expected results</h4>
+<p>This project aims to implement the missing features from 1.7 and also add the new features from Elasticsearch 2.2.</p>
 
-<p>TODO TODO TODO</p>
+<h4>Expected results</h4>
 
-<h4 id="knowledgeprerequisites">Knowledge prerequisites</h4>
+<p>
+An updated Lua client to access the Elasticsearch REST API compatible with the latest version (currently 2.2).
+</p>
 
-<p>TODO TODO TODO</p>
+<h4>Knowledge prerequisites</h4>
 
-<h4 id="skilllevel">Skill level</h4>
-<p>TODO TODO TODO</p>
+<p>
+<ul>
+<li>Lua - medium</li>
+<li>JSON - medium</li>
+<li>HTTP - medium</li>
+<li>Elasticsearch - medium</li>
+</ul>
+</p>
 
-<h4 id="mentor">Mentor</h4>
+<h4>Skill level</h4>
+<p>Medium</p>
+
+<h4>Mentor</h4>
+<p><a href="http://www.inf.puc-rio.br/~pmusa/">Pablo Musa</a></p>
+
+<br><hr>
+<h3 id="elasticsearch_sailor">Elasticsearch and Sailor</h3>
+
+<h4>Brief explanation</h4>
+
+<p>
+<a href="https://www.elastic.co/products/elasticsearch">Elasticsearch</a>
+is a distributed and scalable search engine.
+It is written in Java and, besides the transport protocol (Java to Java), it
+offers a very complete REST API accessed through <a href="http://json.org/">JSON</a>.
+<a href="https://github.com/DhavalKapil/elasticsearch-lua/">elasticsearch-lua</a>
+is a Lua library that allows Lua applications to easily communicate with
+Elasticsearch clusters.
+</p>
+
+<p>
+<a href="http://sailorproject.org/">Sailor</a> is a web framework in the Lua programming language. Like Lua, it is open sourced under the MIT License, which is extremely permissive. Sailor applications are structured in a model-view-controller (MVC) architecture.
+</p>
+
+<p>
+This project aims the development of a search module that integrates elasticsearch-lua into Sailor.
+</p>
+
+<h4>Expected results</h4>
+
+<p>
+A search functionality that is easy to use and integrate to a website using Sailor. Internally,
+a new form.search method in the form module that exposes a search text input and a search model similar to the current database one. 
+</p>
+
+<h4>Knowledge prerequisites</h4>
+
+<p>
+<ul>
+<li>Lua - medium</li>
+<li>Sailor - not required</li>
+<li>Elasticsearch - basic</li>
+<li>Web Development - medium</li>
+</ul>
+</p>
+
+<h4>Skill level</h4>
+<p>Easy/Medium</p>
+
+<h4>Mentor</h4>
+<p><a href="http://www.inf.puc-rio.br/~pmusa/">Pablo Musa</a></p>
+
+<br><hr>
+<h3 id="elasticsearch_tests">Improve elasticsearch-lua tests and build</h3>
+
+<h4>Brief explanation</h4>
+
+<p>
+<a href="https://www.elastic.co/products/elasticsearch">Elasticsearch</a>
+is a distributed and scalable search engine.
+It is written in Java and, besides the transport protocol (Java to Java), it
+offers a very complete REST API accessed through <a href="http://json.org/">JSON</a>.
+<a href="https://github.com/DhavalKapil/elasticsearch-lua/">elasticsearch-lua</a>
+is a Lua library that allows Lua applications to easily comunicate with
+Elasticsearch clusters.
+</p>
+
+<p>
+Currently, elasticsearch-lua has small build automation, only 19 library tests and no code coverage.
+</p>
+
+<p>This project aims to implement more robust build automation.</p>
+
+<h4>Expected results</h4>
+
+<p>
+An integration for code coverage, automated build tests (already working) and a large set of tests that cover most part of the code.
+</p>
+
+<h4>Knowledge prerequisites</h4>
+
+<p>
+<ul>
+<li>Lua - basic</li>
+<li>Elasticsearch - basic/medium</li>
+<li>Continous Integration - basic</li>
+</ul>
+</p>
+
+<h4>Skill level</h4>
+<p>Easy</p>
+
+<h4>Mentor</h4>
 <p><a href="http://www.inf.puc-rio.br/~pmusa/">Pablo Musa</a></p>
 
 <br><hr>
