@@ -11,6 +11,9 @@ Elasticsearch and Sailor
 <li><a href="#elasticsearch_tests">
 Improve elasticsearch-lua tests and build
 </a></li>
+<li><a href="#luarocks">
+Next Generation of the LuaRocks test suite
+</a></li>
 <li><a href="#libscript">
 Enhancements to LibScript, a cross-language scripting library
 </a></li>
@@ -209,13 +212,55 @@ libraries available in <a href="http://cran.us.r-project.org/">CRAN</a>).</li>
 <ul>
 <li>C programming - must be comfortable with C code, working with C libraries and learning their APIs</li>
 <li>Unix shell and tools - Makefile, shell scripting (not being scared of <a href="http://www.sourceware.org/autobook/">Autotools</a> is a bonus -- if scared, we'll work on it!)</li>
-<li>Previous experience in some scripting language - any of Python, Ruby, Lua, Perl, JavaScript, etc.</li>
-<li>Git (experience with the Github workflow is a bonus)</li>
+<li>Previous experience in <i>some</i> scripting language - any of Python, Ruby, Lua, Perl, JavaScript, etc.</li>
+<li>Experience with, or willingness to quickly learn Git and the Github workflow</li>
 <li>Previous experience embedding any scripting language in a C application is a bonus</li>
 </ul>
 
 <h4>Skill level</h4>
 <p>Medium/advanced</p>
+
+<h4>Mentor</h4>
+<p>
+<a href="http://hisham.hm/">Hisham Muhammad</a>
+</p>
+
+<br><hr>
+<h3 id="libscript">Next Generation of the LuaRocks test suite</h3>
+<h4>Brief explanation</h4>
+
+<p><a href="http://luarocks.org">LuaRocks</a>
+is the package manager for Lua modules. It has a test suite with about 80%
+coverage. However, the test suite is implemented as a big shell script that
+only does black-box testing: it calls <tt>luarocks</tt> as an external
+application. Further, it only checks for success and failure of the process,
+and not if it executed the expected actions, and it runs only on Linux.
+</p>
+
+<p>The idea of this project is to port the test suite to Lua,
+using <a href="http://olivinelabs.com/busted/">Busted</a>. This
+will allow us to extend the test suite by writing smarter tests
+that check its behavior, write white-box tests of the internals,
+and also port the test suite to other platforms.</p>
+
+<h4>Expected results</h4>
+<ul>
+<li>A new test suite, written in Lua.</li>
+<li>Improved code coverage, by adding white-box tests for parts that are hard-to reach
+via black-box testing.</li>
+<li>Initial results running the test suite on Windows (even if we can't run all tests at first).</li>
+<li>Integrated code coverage results, merging the Linux and Windows runs.</li>
+</ul>
+
+<h4>Knowledge prerequisites</h4>
+<ul>
+<li>Lua</li>
+<li>Unix shell and tools - basic shell scripting in order to understand the <a href="https://github.com/keplerproject/luarocks/blob/master/test/testing.sh">current test suite</a></li>
+<li>Experience with, or willingness to quickly learn Git and the Github workflow</li>
+</ul>
+
+<h4>Skill level</h4>
+<p>Easy/Medium</p>
 
 <h4>Mentor</h4>
 <p>
