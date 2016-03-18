@@ -1,5 +1,10 @@
 #!/bin/bash
 
+[ "$1" = "running" ] || {
+   echo "Do not launch this one directly. Use ./upload.sh instead."
+   exit 1
+}
+
 source ./config.sh
 [ "$output_dir" ] || { echo "Couldn't load config.sh"; exit 1 ;}
 
