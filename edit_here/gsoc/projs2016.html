@@ -1,0 +1,388 @@
+
+<h2>Projects - Google Summer of Code 2016</h2>
+
+<ul>
+<li><a href="#typed">
+Typed Lua Core Typechecker
+</a></li>
+<li><a href="#typedlua">
+Add class-based object-oriented programming to Typed Lua
+</a></li>
+<li><a href="#luarocks">
+Next Generation of the LuaRocks test suite
+</a></li>
+<li><a href="#netbsd">
+I/O API for NetBSD Kernel Lua
+</a></li>
+<li><a href="#elasticsearch_tests">
+Improve elasticsearch-lua tests and build
+</a></li>
+<li><a href="#elasticsearch_sailor">
+Admin Center, Elasticsearch integration for Sailor and Luagoogle
+</a></li>
+<li><a href="#ceu">
+Extending the online tutorial of C&eacute;u with Emscripten and SDL
+</a></li>
+<li><a href="#peg">
+Improving the Quality of Error Messages in PEG Parsers
+</a></li>
+<li><a href="#cgilua">
+An automatic generator of WSDL documents for LuaSOAP
+</a></li>
+</ul>
+
+<br><hr>
+<h3 id="typed">Typed Lua Core Typechecker</h3>
+<h4>Student</h4>
+<a href="http://tomkee.github.io/">Tomek Dyczek</a> - MsC Student, AGH University of Science and Technology, Poland.
+<p>
+<h4>Mentor</h4>
+<p>
+<a href="https://github.com/andremm">Andre Murbach Maidl</a>
+</p>
+
+<h4>Brief explanation</h4>
+
+<p><a href="https://github.com/andremm/typedlua">Typed Lua</a>
+is an optional type system for Lua, and its main goal is to
+provide static type checking for Lua.
+To do that, Typed Lua extends the syntax of Lua 5.3 to introduce
+optional type annotations, and performs local type inference
+to detect more precise types for unannotated expressions.
+</p>
+
+<p>The aim of this project is to implement core Typed Lua in Haskell,
+as a tool to test new features and reason about new typing rules for Typed Lua.
+Core Typed Lua limits control flow to if and while statements;
+it has explicit type annotations, explicit scope for variables,
+explicit method declarations, and explicit method calls.
+We also expect that a Haskell implementation can help us improve our test suite
+in the future, as we it will allow us creating an environment where changes
+in the Typed Lua compiler can be verified along with the Haskell implementation.
+</p>
+
+<h4>Expected results</h4>
+
+<ul>
+<li>A type checker written in Haskell that analyses code written in core Typed Lua.</li>
+</ul>
+
+<br><hr>
+<h3 id="typedlua">Add class-based object-oriented programming to Typed Lua</h3>
+<h4>Student</h4>
+<a href="http://github.org/kevinclancy/">Kevin Clancy</a> - PhD Student, Northeastern
+University, USA.
+<p>
+<h4>Mentor</h4>
+<p><a href="http://www.dcc.ufrj.br/~fabiom/">Fabio Mascarenhas</a></p>
+<h4>Brief explanation</h4>
+
+
+<p><a href="https://github.com/andremm/typedlua">Typed Lua</a>
+intended use is as an application language, and 
+policies for organizing a program in modules and writing object-oriented
+programs should be part of the language and enforced by its optional type
+system. An application language is a programming language that helps
+programmers develop applications from scratch until these applications
+evolve to complex systems rather than just scripts.
+This project aims to add class-based object-oriented programming to
+Typed Lua through the definition of classes and interfaces,
+as a way to help Lua programmers better structure their code.
+The backend code generator should be a plugin, so the programmers
+can choose which OO style or library they want to use.</p>
+
+<h4>Expected results</h4>
+<ul>
+<li>A formal specification of the syntax and typing judgements of the
+new class system.
+<li>An extended version of the Typed Lua compiler that parses and type
+checks this class system.
+</li>
+</ul>
+
+<br><hr>
+<h3 id="luarocks">Next Generation of the LuaRocks test suite</h3>
+<h4>Student</h4>
+Robert Karasek - MsC Student, Faculty of Informatics and Information
+Technologies (FIIT), Slovakia.
+<p>
+<h4>Mentor</h4>
+<p>
+<a href="http://hisham.hm/">Hisham Muhammad</a>
+</p>
+
+<h4>Brief explanation</h4>
+
+<p><a href="http://luarocks.org">LuaRocks</a>
+is the package manager for Lua modules. It has a test suite with about 80%
+coverage. However, the test suite is implemented as a big shell script that
+only does black-box testing: it calls <tt>luarocks</tt> as an external
+application. Further, it only checks for success and failure of the process,
+and not if it executed the expected actions, and it runs only on Linux.
+</p>
+
+<p>The idea of this project is to port the test suite to Lua,
+using 
+<a href="https://github.com/Olivine-Labs/busted">Busted</a>.
+This
+will allow us to extend the test suite by writing smarter tests
+that check its behavior, write white-box tests of the internals,
+and also port the test suite to other platforms.</p>
+
+<h4>Expected results</h4>
+<ul>
+<li>A new test suite, written in Lua.</li>
+<li>Improved code coverage, by adding white-box tests for parts that are hard-to reach
+via black-box testing.</li>
+<li>Initial results running the test suite on Windows (even if we can't run all tests at first).</li>
+<li>Integrated code coverage results, merging the Linux and Windows runs.</li>
+</ul>
+
+<br><hr>
+<h3 id="netbsd">I/O API for NetBSD Kernel Lua</h3>
+<h4>Student</h4>
+<a href="https://github.com/gmesalazar">Guilherme Salazar</a> - 
+Instituto de Inform&aacute;tica, Universidade Federal de Goias, Brazil.
+<p>
+<h4>Mentor</h4>
+<p>
+<a href="mailto:lneto@NetBSD.org">Lourival Vieira Neto</a>
+</p>
+
+
+<h4>Brief explanation</h4>
+
+<p>
+<a href="http://www.netbsd.org">The NetBSD Operating System</a> has a
+kernel-level Lua interpreter version for
+<a href="http://netbsd.org/~lneto/dls14.pdf">scripting its kernel</a>.
+For example, it allows users to
+<a href="http://netbsd.org/~lneto/eurobsdcon14.pdf">filter packets
+using Lua scripts</a>.
+</p>
+<p>
+The main difference between kernel Lua and regular user-level Lua is
+that kernel Lua doesn't have support for standard libraries that
+depend on an operating system (e.g., io and os) and for floating-point
+numbers. The purpose of this project is to develop kernel Lua
+libraries to provide I/O functionality to kernel scripts. This API
+should provide access both for file system and network. It should be
+implemented as
+ a <a href="http://www.home.unix-ag.org/bmeurer/NetBSD/howto-lkm.html">NetBSD
+loadable kernel module</a>, binding the kernel internal implementation
+for files and sockets user-level API.
+</p>
+
+<h4>Expected results</h4>
+
+<ul>
+<li>Kernel Lua File Library.</li>
+<li>Kernel Lua Socket Library.</li>
+<li>Documentation and Benchmarks.</li>
+</ul>
+
+<br><hr>
+<h3 id="elasticsearch_tests">Improve elasticsearch-lua tests and build</h3>
+<h4>Student</h4>
+<a href="https://dhavalkapil.com/">Dhaval Kapil</a> - 
+Indian Institute of Technology Roorkee, India.
+<p>
+<h4>Mentor</h4>
+<p><a href="https://github.com/pmusa/">Pablo Musa</a></p>
+
+<h4>Brief explanation</h4>
+
+<p>
+<a href="https://www.elastic.co/products/elasticsearch">Elasticsearch</a>
+is a distributed and scalable search engine.
+It is written in Java and, besides the transport protocol (Java to Java), it
+offers a very complete REST API accessed through <a href="http://json.org/">JSON</a>.
+<a href="https://github.com/DhavalKapil/elasticsearch-lua/">elasticsearch-lua</a>
+is a Lua library that allows Lua applications to easily comunicate with
+Elasticsearch clusters.
+</p>
+
+<p>
+Currently, elasticsearch-lua has small build automation, only 19 library tests and no code coverage.
+</p>
+
+<p>This project aims to implement more robust build automation.</p>
+
+<h4>Expected results</h4>
+
+<p>
+<ul>
+<li>
+An integration for code coverage, automated build tests (already working) and a large set of tests that cover most part of the code.
+<li>Improved elasticsearch-lua documentation.
+<li>Benchmarking code for elasticsearch-lua.
+</ul>
+</p>
+
+<br><hr>
+<h3 id="elasticsearch_sailor">Admin Center, Elasticsearch integration for
+Sailor and Luagoogle</h3>
+<h4>Student</h4>
+<a href="https://github.com/rnikhil275">R. Nikhil</a> - 
+Birla Institute of Technology and Science Pilane, India.
+<p>
+<h4>Mentor</h4>
+<p><a href="http://etiene.net/">Etiene Dalcol</a></p>
+
+
+<h4>Brief explanation</h4>
+
+<p>
+<a href="https://www.elastic.co/products/elasticsearch">Elasticsearch</a>
+is a distributed and scalable search engine.
+It is written in Java and, besides the transport protocol (Java to Java), it
+offers a very complete REST API accessed through <a href="http://json.org/">JSON</a>.
+<a href="https://github.com/DhavalKapil/elasticsearch-lua/">elasticsearch-lua</a>
+is a Lua library that allows Lua applications to easily communicate with
+Elasticsearch clusters.
+</p>
+<a href="http://sailorproject.org/">Sailor</a> is a web framework in the Lua programming language. Like Lua, it is open sourced under the MIT License, which is extremely permissive. Sailor applications are structured in a model-view-controller (MVC) architecture.
+</p>
+
+<p>
+The initial proposal for this project was the development of a search module 
+to integrate elasticsearch-lua into Sailor. This proposal was extended by
+the student in order to include an Admin Center for Sailor and also a Lua
+module for getting Google search results programmatically in Lua.
+</p>
+
+<h4>Expected results</h4>
+
+<ul>
+<li>Admin Center for the Sailor MVC framework.
+<li>Integration or the elasticsearch-lua client into 
+Sailor.
+<li>A Lua module for getting Google search results programmatically
+(LuaGoogle).
+</ul>
+
+<br><hr>
+<h3 id="ceu">Extending the online tutorial of C&eacute;u with Emscripten and SDL</h3>
+<h4>Student</h4>
+<a href="https://github.com/VicentiuM">Margarit Vicentiu</a> - 
+Faculty of Computer Science, University Politehnica of Bucharest, Romania.
+<p>
+<h4>Mentor</h4>
+<p>
+<a href="http://www.ceu-lang.org/chico">Francisco Sant'Anna</a>
+</p>
+
+<h4>Brief explanation</h4>
+
+<p><a href="http://ceu-lang.org/">C&eacute;u</a> is a programming language that 
+targets system-level development of reactive systems. The language is under development at the LabLua since 2011, and was
+presented in <a href="http://www.future-programming.org/2014/program.html">Future Programming</a> and <a href="http://curry-on.org/2015/sessions/structured-synchronous-programming.html">Curry-On</a> workshops.</p>
+
+<p>Currently, the online tutorial of C&eacute;u executes a simulation at the server 
+side (<a href="http://ceu-lang.org/try.php">http://ceu-lang.org/try.php</a>).
+This server-side approach does not provide a reactive and real-time experience, 
+which are the ultimate objectives of the language. We want the online tutorial to offer a more interactive experience for learners 
+of C&eacute;u.
+
+<p>
+<a href="http://libsdl.org/">SDL</a> is a C-based and cross-platform development library that provides access to 
+audio, keyboard, mouse, joystick, and graphics hardware.
+Given that C&eacute;u interacts well with C, combining C&eacute;u and SDL is a viable option 
+for building a visually-appealing interactive tutorial.
+<a href="https://github.com/kripken/emscripten/">Emscripten</a> is an LLVM-to-JavaScript compiler. SDL has already <a href="https://github.com/kripken/emscripten/issues/2404">been ported to Emscripten</a>.
+</p><p>
+Putting it all together, we can build an interactive tutorial for C&eacute;u that runs 
+in the browser at the client side.
+</p><p>
+The bulk of the project is to implement this synergy between C, C&eacute;u, SDL, and 
+Emscripten.
+</p>
+
+<h4>Expected results</h4>
+
+<ul><li>A working interactive online tutorial for C&eacute;u.</ul>
+
+<p>
+As an ultimate goal, we would like to build an incremental tutorial based on 
+<a href="https://vimeo.com/110512582">this video</a>.
+<p>
+<br><hr>
+<h3 id="peg">Improving the Quality of Error Messages in PEG Parsers</h3>
+<h4>Student</h4>
+Matthew Allen Go - 
+De La Salle University, Philippines.
+<p>
+<h4>Mentor</h4>
+<p>
+<a href="https://sites.google.com/site/sqmedeiros/">S&eacute;rgio Medeiros</a>
+</p>
+
+<h4>Brief explanation</h4>
+
+<p>
+<a href="http://bford.info/pub/lang/peg">Parsing Expression Grammars</a> (PEGs)
+are an expressive formalism for designing and implementing top-down parsers with local backtracking.
+An issue that users of PEG-based parsers face is poor reporting of syntax errors on the part of PEG-based parsers.
+<a href="http://www.inf.puc-rio.br/~roberto/docs/sblp2013-1.pdf">Labeled failures</a> are an extension to PEGs that aims
+to address this issue by annotating a PEG with labels corresponding to syntax errors,
+improving the quality of error messages generated by a PEG-based parser.
+</p>
+
+<p>
+<a href="https://github.com/sqmedeiros/lpeglabel/">LPegLabel</a> is an extension of the
+<a href="http://www.inf.puc-rio.br/~roberto/lpeg/">LPeg</a> tool that provides an implementation of PEGs with labeled failures. 
+Labels can be used to signal different kinds of errors and to specify which alternative in a labeled ordered choice
+should handle a given label. 
+</p>
+
+<p>The goal of this project is to rewrite the parsers of some Lua libraries,
+such as the module <i>re</i> from LPeg and <i>lua-parser</i>, by using LPegLabel.
+After this rewriting we should get parsers with better error messages.
+</p>
+
+<h4>Expected results</h4>
+<ul>
+  <li>The rewriting of at least 3 parsers by using LPegLabel.
+  <li>Proper documentation.
+</ul>
+</p>
+
+<p>
+A marginal result would be the improvement of the LPegLabel tool
+based on the difficulties found during the project.
+</p>
+
+<br><hr>
+<h3 id="cgilua">An automatic generator of WSDL documents for LuaSOAP.</h3>
+<h4>Student</h4>
+<a href="https://github.com/DiasVictor/">Victor Dias</a> - Universidade
+Veiga de Almeida, Brazil.
+<p>
+<h4>Mentor</h4>
+Tomas Guisasola
+<p>
+<h4>Brief explanation</h4>
+<p><a href="http://tomasguisasola.github.io/luasoap/">LuaSOAP</a> is a library to
+ease the use of <a href="http://www.w3.org/TR/soap/">SOAP</a>, providing
+a very simple API that convert Lua tables to and from XML documents.
+It also offers a simple way to invoke remote Web Services without having
+to deal directly with SOAP messages.  In fact, LuaSOAP also provides
+a simple way to offer Web Services -- the server side -- but it lacks
+support for WSDL generation of the offered services.
+<a href="http://www.w3.org/TR/wsdl">WSDL</a> is an XML format for describing
+network services.  It is used to describe operations and messages --
+with its types -- offered by Web Services. 
+<p>
+The purpose of this project is to develop a fully automatic generator of
+WSDL documents for LuaSOAP, composed by a generation module and a parameter-based
+script. In order to guarantee type consistency without the need of explicit
+type declarations by LuaSOAP users, the use of 
+<a href="https://github.com/andremm/typedlua">Typed Lua</a> will be investigated
+.
+<h4>Expected results</h4>
+<ul>
+  <li>The automatic generator of WSDL documents for LuaSOAP.
+  <li>Proper documentation.
+</ul>
+<br/><hr/>
+
