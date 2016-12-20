@@ -1,0 +1,201 @@
+<html>
+<head>
+<title>Lablua</title>
+<style>
+h1 { margin-top: 100px; }
+body { width: 700px; margin-left: 50px; }
+</style>
+</head>
+<body>
+
+<h1>Google Summer of Code Wrap up: LabLua</h1>
+
+<div style="text-align:center; margin: 40px 0px 40px 0px;">
+<img src="http://www.lua.inf.puc-rio.br/images/site_header.png">
+</div>
+
+<p>
+<a href="http://www.lua.inf.puc-rio.br">LabLua</a>
+is a lab at <a href="http://www.puc-rio.br">PUC-Rio</a>
+dedicated to research on programming languages, with emphasis on 
+the <a href="http://www.lua.org">Lua language</a>.
+Lua is a powerful, fast, lightweight, embeddable scripting language
+that is used in many industrial applications, and on many 
+embedded systems and games.
+</p>
+
+<p>
+This was our third year in Google Summer of Code (GSoC), and we had a very
+succesful outcome, with six completed projects. Five of them were selected
+from our <a href="http://www.lua.inf.puc-rio.br/gsoc/ideas2015.html">Ideas' List</a>,
+and one was proposed by the student herself. We were happy to
+see that our students contributed not only with coding,
+but also with creative input on the design of their projects.
+Here is a brief highlight of this year's projects:
+</p>
+
+<p>
+<b>Port Lua Test Suite to NetBSD Kernel</b>
+(<a href="https://github.com/gmesalazar/kerneltest">Guilherme Salazar</a>)
+</p>
+
+<p>
+The Lua interpreter was initially ported to the 
+<a href="http://www.netbsd.org/">NetBSD</a> kernel during GSoC 2010,
+allowing users to <a href="http://netbsd.org/~lneto/dls14.pdf">write kernel extensions using Lua scripts</a>.
+During GSoC 2015, Guilherme worked on porting the 
+<a href="http://www.lua.org/tests/">Lua test suite</a> 
+to the NetBSD kernel. He adapted test scripts to
+eliminate dependencies on floating-point numbers and the operating
+system itself.
+</p>
+
+<p>
+Guilherme also ported and reimplemented part of the
+Lua standard libraries (e.g., math and io) for satisfying test
+dependencies. Moreover, he found important bugs on the Lua kernel
+port (which is the ultimate purpose of testing software ;-)).
+</p>
+
+<b>Elasticsearch Lua client (elasticsearch-lua)</b>
+(<a href="https://github.com/DhavalKapil/elasticsearch-lua">Dhaval Kapil</a>)
+<p>
+
+</p>
+<a href="https://www.elastic.co/products/elasticsearch">Elasticsearch</a> is a distributed and scalable search engine written in Java that,
+besides its native transport protocol (Java to Java), offers a very complete REST API 
+accessed through JSON. 
+Dhaval built <a href="https://github.com/DhavalKapil/elasticsearch-lua">elasticsearch-lua</a>, an initial client for the Lua language following a model 
+similar to other existing clients, such as the clients written in Python 
+and PHP.
+</p>
+
+<p>
+Dhaval had freedom to decide how to model the object oriented API
+and how to build tests during development. 
+With elasticsearch-lua, programmers can now access most Elasticsearch
+functionalities, such as index, read, update, delete, and search documents.
+</p>
+
+<p>
+The elasticsearch-lua client does proper load balancing across all nodes with 
+pluggable and multiple selection strategies, implements a connection pool 
+and offers the reindex feature (not available in Elasticsearch).
+</p>
+
+<p>
+<b>Port an SDL-based C++ open source game to Céu</b>
+(<a href="https://github.com/Tkachov/ceu_pingus">Alexander Tkachov</a>)
+</p>
+
+<p>
+<a href="http://ceu-lang.org/">Céu</a> is a programming language that
+targets the development of reactive applications such as video games.
+It features first-class support for events and parallel compositions for lines
+of execution.
+For this project, we wanted to port an open source game of considerable size from 
+C++ to Céu.
+</p>
+
+<p>
+Alexander chose the game <a href="http://pingus.seul.org">Pingus</a> (a Lemmings-like
+game for Linux) with a codebase of around 40k lines of code.
+An important requirement of our project was to do a "live port" of the game,
+in which the game remained fully functional while portions of
+it were ported to Céu and the rest remained in C++.
+</p>
+
+<p>
+In this project, Alexander faced two main challenges:
+applying the Céu idioms to the new code and
+keeping the old C++ code working across the language boundaries.
+Even though the code base was too big for a 3-month period,
+Alexander was able to port around half of the game, including its core
+(i.e., the game levels).
+</p>
+
+<p>
+<b>Add support for WSDL generation to LuaSOAP</b>
+(<a href="https://github.com/DiasVictor/luasoap">Victor Dias</a>)
+</p>
+
+<p>
+<a href="http://tomasguisasola.github.io/luasoap">LuaSOAP</a>
+is a library to ease the use of <a href="http://en.wikipedia.org/wiki/SOAP">SOAP</a>,
+the Simple Object Access Protocol. It provides a very simple 
+API that converts Lua tables to and from XML documents. 
+It offers two modules to help providing (server) and consuming (client) 
+SOAP services.
+</p>
+
+<p>
+Victor developed a module to help the generation of 
+<a href="https://en.wikipedia.org/wiki/Web_Services_Description_Language">WSDL</a>
+(Web Services Description Language) documents for the services implemented by the server.
+This new module traverses the service description (a Lua table, 
+built by the programmer by hand, because Lua doesn't have this kind 
+of information) and produces the WSDL description for it.
+This new module will be integrated into LuaSOAP next version.
+</p>
+
+<b>Design of TIER encoding and its implementation in Lua</b>
+(<a href="https://github.com/TheFlyingFiddle/TIER">Lukas Borin</a>)
+
+<p>
+TIER is an experimental language-independent binary encoding format,
+designed by this project's mentor, similar in purpose to formats like XML,
+JSON and Google's Protocol Buffers. TIER is designed to optionally support
+self-describing encodings that include meta-information about the serial
+structure of the encoded data; this meta-information can be used to support
+dynamic verifications or automatic decoding.
+</p>
+<p>
+Lukas improved TIER's design and also wrote the first implementation of a 
+Lua library that provides support for TIER encodings. 
+He also wrote TIER's basic documentation and some tutorials on its usage. 
+The TIER library supports custom mappings of the various TIER serial 
+structures to specific Lua values. On top of this custom mapping support, 
+Lukas also developed some predefined mappings for usual Lua values and a 
+framework to facilitate the creation of mappings for usual Lua structures, 
+such as sequences, maps, sets, etc.
+</p>
+
+<p>
+Additionally, Lukas also developed a 
+collection of mappings to automatically translate Lua values into TIER 
+encodings and vice-versa, using different approaches 
+to preserve structure of the original Lua value in the encoded stream.
+</p>
+
+<p>
+<b>Improvements to the Sailor Web Framework</b>
+(<a href="https://github.com/Etiene/sailor">Etiene Dalcol</a>)
+</p>
+
+<p>
+Sailor is an MVC web framework for Lua. Its distinguishing
+feature is that it easily lets the programmer
+write Lua code for running both in the server and in the
+browser. It was created by Etiene Dalcol, and she submitted
+a project proposal to us with a series of planned improvements.
+</p>
+<p>
+During GSoC 2015, she worked on three fronts for improving
+the framework: the first was a better test suite, the second
+was better documentation for the project, and the third was
+a series of improvements for the feature of running Lua code
+on the browser, with the possibility of having Lua code in
+the browser request new modules on demand from the server,
+and breaking the original dependency on also having node.js
+installed on the server.
+</p>
+<p>
+All of the GSoC contributions are already committed to the
+<a href="https://github.com/Etiene/sailor">
+Sailor project repository at Github</a>,
+and the test suite is already part of Sailor 0.4, the latest
+public release of the project.
+</p>
+
+</body>
+</html>
