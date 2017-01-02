@@ -1,20 +1,17 @@
 <html>
 <head>
-<title>Lablua</title>
+<title>LabLua</title>
 <style>
 h1 { margin-top: 100px; }
 body { width: 700px; margin-left: 50px; }
 </style>
 </head>
 <body>
-
-<h1>Google Summer of Code Wrap up: LabLua</h1>
-
+<h2>Google Summer of Code 2016 wrap-up: LabLua</h2>
 <div style="text-align:center; margin: 40px 0px 40px 0px;">
-<img src="http://www.lua.inf.puc-rio.br/images/site_header.png">
+<img src="http://www.lua.inf.puc-rio.br/images/lablualogo2.png">
 </div>
 
-<p>
 <a href="http://www.lua.inf.puc-rio.br">LabLua</a>
 is a lab at <a href="http://www.puc-rio.br">PUC-Rio</a>
 dedicated to research on programming languages, with emphasis on 
@@ -25,177 +22,218 @@ embedded systems and games.
 </p>
 
 <p>
-This was our third year in Google Summer of Code (GSoC), and we had a very
-succesful outcome, with six completed projects. Five of them were selected
-from our <a href="http://www.lua.inf.puc-rio.br/gsoc/ideas2015.html">Ideas' List</a>,
-and one was proposed by the student herself. We were happy to
-see that our students contributed not only with coding,
-but also with creative input on the design of their projects.
+We were very happy to participate again in Google Summer of Code
+(GSoC), our third year, and specially to have been able to mentor 
+eight fine students that successfully completed their projects.
+We thank them, and Google, for this
+extraordinary contribution to our R&D work.
+<p>
 Here is a brief highlight of this year's projects:
+
+<p>
+<image src="robert_karasek.jpg" height=100  />
+<b>Next Generation of the LuaRocks test suite - Robert Karasek</b>
+</p>
+
+<a href="http://luarocks.org">LuaRocks</a> is the package manager for
+Lua modules. Its test suite was implemented as a big shell script that
+performed only black-box testing and ran only on Linux. The goal for
+this GSoC project was to port the test suite to Lua, improving its
+portability and allowing more types of tests so we could raise our
+coverage numbers.
+<p>
+Robert ported the test suite to Lua using 
+<a href="https://github.com/Olivine-Labs/busted">Busted</a>,
+a Lua unit testing tool. His efforts improved not only our coverage, but most
+importantly, the portability of our tests: his new test suite, now
+merged into mainline LuaRocks, runs under continuous integration on
+both <a href="https://travis-ci.org/luarocks/luarocks">Linux,
+macOS</a> and <a
+href="https://ci.appveyor.com/project/hishamhm/luarocks/">Windows</a>.
+This was an extremely welcome addition, bringing much greater
+confidence to LuaRocks developers on avoiding portability regressions.
+Robert improved the checks in existing tests and wrote many new ones,
+including a new mock-server for testing the client API for uploading
+packages to the <a href="http://luarocks.org">luarocks.org</a>
+repository.
+
+
+<p>
+<b>Typed Lua Typechecker - Tomasz Dyczek</b>
+<image src="tomasz.jpg" height=100 />
 </p>
 
 <p>
-<b>Port Lua Test Suite to NetBSD Kernel</b>
-(<a href="https://github.com/gmesalazar/kerneltest">Guilherme Salazar</a>)
+<a href="https://github.com/andremm/typedlua">Typed Lua</a>
+is an optional type system that provides static type checking for
+the Lua language.
+Typed Lua extends the syntax of Lua 5.3 to introduce
+optional type annotations, and performs local type inference
+to detect more precise types for unannotated expressions.
 </p>
 
 <p>
-The Lua interpreter was initially ported to the 
-<a href="http://www.netbsd.org/">NetBSD</a> kernel during GSoC 2010,
-allowing users to <a href="http://netbsd.org/~lneto/dls14.pdf">write kernel extensions using Lua scripts</a>.
-During GSoC 2015, Guilherme worked on porting the 
-<a href="http://www.lua.org/tests/">Lua test suite</a> 
-to the NetBSD kernel. He adapted test scripts to
-eliminate dependencies on floating-point numbers and the operating
-system itself.
+During GSoC 2016, Tomasz implemented the
+<a href="https://github.com/tomkee/typed-lua-core">
+core of Typed Lua in Haskell</a>.
+Tomasz's implementation parses code written in a syntax close to
+the abstract syntax of Typed Lua and then type checks the 
+generated AST. Besides providing a great support for testing
+and reasoning about new features before introducing them to
+Typed Lua, Tomasz's Haskell typechecker can be also used to validate
+tests to be included in Typed Lua's test suite.
 </p>
 
 <p>
-Guilherme also ported and reimplemented part of the
-Lua standard libraries (e.g., math and io) for satisfying test
-dependencies. Moreover, he found important bugs on the Lua kernel
-port (which is the ultimate purpose of testing software ;-)).
+<image src="KevinClancy.jpg" height=100 />
+<b>Classes and Generics for Typed Lua - 
+<a href="https://github.com/kevinclancy/">Kevin Clancy</a></b>
 </p>
-
-<b>Elasticsearch Lua client (elasticsearch-lua)</b>
-(<a href="https://github.com/DhavalKapil/elasticsearch-lua">Dhaval Kapil</a>)
 <p>
-
-</p>
-<a href="https://www.elastic.co/products/elasticsearch">Elasticsearch</a> is a distributed and scalable search engine written in Java that,
-besides its native transport protocol (Java to Java), offers a very complete REST API 
-accessed through JSON. 
-Dhaval built <a href="https://github.com/DhavalKapil/elasticsearch-lua">elasticsearch-lua</a>, an initial client for the Lua language following a model 
-similar to other existing clients, such as the clients written in Python 
-and PHP.
-</p>
-
+During GSoC 2016, Kevin worked on the implementation of
+a class system for <a href="https://github.com/andremm/typedlua">Typed Lua</a>.
+He also added parametric polymorphism
+(generics) to Typed Lua, not only for classes, but also for
+existing Typed Lua types such as its functions and tables.
 <p>
-Dhaval had freedom to decide how to model the object oriented API
-and how to build tests during development. 
-With elasticsearch-lua, programmers can now access most Elasticsearch
-functionalities, such as index, read, update, delete, and search documents.
+Kevin's work currently lives in its
+<a href="https://github.com/kevinclancy/typedlua">own branch</a>,
+but will me merged in the main branch ASAP.
+Meanwhile, Kevin has written a 
+<a href="http://kevinclancy.github.io/2016/08/18/a-class-system-for-typed-lua.html">
+detailed post</a> explaining all the features that have been implemented
 </p>
 
 <p>
-The elasticsearch-lua client does proper load balancing across all nodes with 
-pluggable and multiple selection strategies, implements a connection pool 
-and offers the reindex feature (not available in Elasticsearch).
+<b>Improving Error Reporting in PEG Parsers - Matthew Allen Go</b>
+<image src="matthew.jpg" height=100  />
+</p>
+<p>
+<a href="https://github.com/sqmedeiros/lpeglabel/">LPegLabel</a> is an extension
+of <a href="http://www.inf.puc-rio.br/~roberto/lpeg/">LPeg</a>,
+a pattern matching tool for Lua, based on 
+<a href="http://bford.info/pub/lang/peg">Parsing Expression Grammars (PEGs)</a>.
+LPegLabel supports labeled failures, a facility that improves error
+reporting and recovery for PEG-based parsers.
+<p>
+The goal of this project was to use LPegLabel to write parsers
+with good error reporting. These parsers could then be used by
+the Lua community and also serve as a guide for LPegLabel users.
+Because LPegLabel is a young tool, another important
+expected contribution was to improve the tool's usability.
+<p>
+Matthew achieved both goals during GSoC 2016.
+First, he developed a 
+<a href="https://github.com/undecidabot/lua-parser/">
+Lua parser for Lua 5.3</a> based on LPegLabel.
+After GSoC 2016, Matthew's work has been incorporated into
+the new release of
+<a href="https://github.com/andremm/lua-parser">lua-parser</a>
+(1.0.0), which is already available to the Lua community.
+<p>
+Matthew also contributed to LPegLabel's
+usability by improving its API and documentation.
+
+
+<p>
+<image src="dhaval.jpg" height=120  />
+<b>Improving elasticsearch-lua tests and build -
+<a href="https://dhavalkapil.com/">Dhaval Kapil</a></b>
+</p>
+<p>
+<a href="https://www.elastic.co/products/elasticsearch">Elasticsearch</a>
+is a distributed and scalable search engine written in Java that, 
+besides the transport protocol (Java to Java), offers a REST API accessed through JSON.
+During GSoC 2015, Dhaval implemented 
+<a href="https://github.com/DhavalKapil/elasticsearch-lua">elasticsearch-lua</a>,
+an initial client for the Lua language following a model similar to other 
+existing clients, such as the clients written in Python and PHP.
+<p>
+During GSoC 2016, Dhaval worked on improving elasticsearch-lua.
+Apart from adding a test suite to elasticsearch-lua and making it robust, 
+he also documented the entire codebase and updated the current client to be 
+compatible with a newer version of Elasticsearch. 
+<p>
+Dhaval exceeded our expectations by also creating a new library called 
+<a href="https://dhavalkapil.com/blogs/Lua-Version-Manager">luaver</a>.
+This work was motivated by having to frequently switch between different 
+versions of Lua while developing the test suite.
+<p>A full blog post about Dhaval's project during GSoC 2016 can be found
+<a href="https://dhavalkapil.com/blogs/Elasticsearch-Lua-GSOC-2016/">here</a>.
+
+<p>
+<b>Admin Center and Elasticsearch integration for Sailor - 
+<a href="https://github.com/rnikhil275">Nikhil Ramesh</a></b>
+<image src="nikhil.jpg" height=120  />
+</p>
+<p>
+<a href="http://sailorproject.org/">Sailor</a> is a web framework written 
+in the Lua programming language and structured in a model-view-controller 
+(MVC) architecture. Like other web development frameworks, such as Ruby on 
+Rails and Django, it is designed to make the development process faster by 
+making some assumptions and conventions (over configuration) and 
+encouraging principles like DRY (Don't Repeat Yourself).
+<p>
+During GSoC 2016, Nikhil Ramesh focused on extending the Sailor framework 
+by adding new features to it.
+The first feature he worked on was an Admin Center, which is 
+initially being used as a web interface for editing the configuration 
+of an application and accessing auto generation of scaffolding pages.
+Another part of his work consisted of integrating Sailor and 
+elasticsearch-lua to facilitate Elasticsearch indexes to be stored as 
+Sailor Models.
+<p> 
+Nikhil's work is currently pending as a 
+<a href="https://github.com/sailorproject/sailor/pull/125">Pull Request</a>,
+to be merged as soon as possible.
 </p>
 
 <p>
-<b>Port an SDL-based C++ open source game to Céu</b>
-(<a href="https://github.com/Tkachov/ceu_pingus">Alexander Tkachov</a>)
+<b>Extending the online tutorial of CÃ©u with Emscripten and SDL - Margarit Vicentiu</b>
 </p>
+<p>
+<a href="http://ceu-lang.org/">CÃ©u</a>
+is a programming language that targets the development of reactive applications 
+such as video games and embedded systems. Its compiler generates output in plain C 
+to integrate easily with the the underlying platform (e.g. Arduino, SDL).
+For this project, we wanted to integrate CÃ©u with 
+<a href="https://github.com/kripken/emscripten/">Emscripten</a>
+to also run applications in a web browser.
+<p>
+Vicentiu started with the online tutorial of CÃ©u, which is a server-side application:
+the user types CÃ©u code in a text area and hits the send button;
+the server receives the code, executes it, and sends the output back to the user.
+During the summer, Vicentiu made most of the examples compile with Emscripten and 
+run in real-time in the user screen.
+<p>
+Our next goal is to make the graphical examples with user interactions also work in 
+the browser, and Vicentiu plans to continue contributing to the project to 
+achieve this goal.
 
 <p>
-<a href="http://ceu-lang.org/">Céu</a> is a programming language that
-targets the development of reactive applications such as video games.
-It features first-class support for events and parallel compositions for lines
-of execution.
-For this project, we wanted to port an open source game of considerable size from 
-C++ to Céu.
-</p>
-
-<p>
-Alexander chose the game <a href="http://pingus.seul.org">Pingus</a> (a Lemmings-like
-game for Linux) with a codebase of around 40k lines of code.
-An important requirement of our project was to do a "live port" of the game,
-in which the game remained fully functional while portions of
-it were ported to Céu and the rest remained in C++.
-</p>
-
-<p>
-In this project, Alexander faced two main challenges:
-applying the Céu idioms to the new code and
-keeping the old C++ code working across the language boundaries.
-Even though the code base was too big for a 3-month period,
-Alexander was able to port around half of the game, including its core
-(i.e., the game levels).
-</p>
-
-<p>
-<b>Add support for WSDL generation to LuaSOAP</b>
-(<a href="https://github.com/DiasVictor/luasoap">Victor Dias</a>)
+<b>An automatic generator of WSDL documents for LuaSOAP - Victor Dias</b>
 </p>
 
 <p>
 <a href="http://tomasguisasola.github.io/luasoap">LuaSOAP</a>
 is a library to ease the use of <a href="http://en.wikipedia.org/wiki/SOAP">SOAP</a>,
-the Simple Object Access Protocol. It provides a very simple 
-API that converts Lua tables to and from XML documents. 
-It offers two modules to help providing (server) and consuming (client) 
-SOAP services.
+the Simple Object Access Protocol.
+<a href="https://en.wikipedia.org/wiki/Web_Services_Description_Language">WSDL</a> 
+is an XML format for describing
+network services; it is used to describe operations, messages and types
+offered by Web Services.
 </p>
 
 <p>
-Victor developed a module to help the generation of 
-<a href="https://en.wikipedia.org/wiki/Web_Services_Description_Language">WSDL</a>
-(Web Services Description Language) documents for the services implemented by the server.
-This new module traverses the service description (a Lua table, 
-built by the programmer by hand, because Lua doesn't have this kind 
-of information) and produces the WSDL description for it.
-This new module will be integrated into LuaSOAP next version.
-</p>
+This summer Victor extended LuaSOAP's support of WSDL
+by developing a software layer that helps automatic generation of WSDL documents.
+This new layer eases the description of most WSDL &quot;bureaucracy&quot; 
+(types, operations, ports, messages...) with no counterpart in a dynamic language 
+like Lua.
+He also improved the test suite and the documentation.
+<p>
 
-<b>Design of TIER encoding and its implementation in Lua</b>
-(<a href="https://github.com/TheFlyingFiddle/TIER">Lukas Borin</a>)
-
-<p>
-TIER is an experimental language-independent binary encoding format,
-designed by this project's mentor, similar in purpose to formats like XML,
-JSON and Google's Protocol Buffers. TIER is designed to optionally support
-self-describing encodings that include meta-information about the serial
-structure of the encoded data; this meta-information can be used to support
-dynamic verifications or automatic decoding.
+<a href="https://github.com/DiasVictor/luasoap">Victor's work</a>
+will be integrated into LuaSOAP's next version.
 </p>
-<p>
-Lukas improved TIER's design and also wrote the first implementation of a 
-Lua library that provides support for TIER encodings. 
-He also wrote TIER's basic documentation and some tutorials on its usage. 
-The TIER library supports custom mappings of the various TIER serial 
-structures to specific Lua values. On top of this custom mapping support, 
-Lukas also developed some predefined mappings for usual Lua values and a 
-framework to facilitate the creation of mappings for usual Lua structures, 
-such as sequences, maps, sets, etc.
-</p>
-
-<p>
-Additionally, Lukas also developed a 
-collection of mappings to automatically translate Lua values into TIER 
-encodings and vice-versa, using different approaches 
-to preserve structure of the original Lua value in the encoded stream.
-</p>
-
-<p>
-<b>Improvements to the Sailor Web Framework</b>
-(<a href="https://github.com/Etiene/sailor">Etiene Dalcol</a>)
-</p>
-
-<p>
-Sailor is an MVC web framework for Lua. Its distinguishing
-feature is that it easily lets the programmer
-write Lua code for running both in the server and in the
-browser. It was created by Etiene Dalcol, and she submitted
-a project proposal to us with a series of planned improvements.
-</p>
-<p>
-During GSoC 2015, she worked on three fronts for improving
-the framework: the first was a better test suite, the second
-was better documentation for the project, and the third was
-a series of improvements for the feature of running Lua code
-on the browser, with the possibility of having Lua code in
-the browser request new modules on demand from the server,
-and breaking the original dependency on also having node.js
-installed on the server.
-</p>
-<p>
-All of the GSoC contributions are already committed to the
-<a href="https://github.com/Etiene/sailor">
-Sailor project repository at Github</a>,
-and the test suite is already part of Sailor 0.4, the latest
-public release of the project.
-</p>
-
-</body>
-</html>
+<p> By Ana LÃºcia de Moura, LabLua org administrator.
