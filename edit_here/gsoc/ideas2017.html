@@ -1,0 +1,157 @@
+
+<h2>Ideas List - Google Summer of Code 2017</h2>
+
+<ul>
+<li><a href="#luasec">
+Improve the HTTPS module of LuaSec
+</a></li>
+<li><a href="#netbsd">
+Develop I/O API for NetBSD Kernel Lua
+</a></li>
+<li><a href="#strava">
+Lua Client for Strava V3 API
+</a></li>
+</ul>
+
+<br><hr>
+<h3 id="luasec">Improve the HTTPS module of LuaSec</h3>
+<h4>Brief explanation</h4>
+
+<p>
+  <a href="https://github.com/brunoos/luasec/wiki" target="_blank">LuaSec</a>&#39;s HTTPS
+  module was built on top
+  of <a href="http://w3.impa.br/~diego/software/luasocket/" target="_blank">LuaSocket</a>&#39;s
+  HTTP and presents some problems due to limited integration.
+</p>
+<p>
+  The aim of this project is to improve HTTPS module, fixing the
+  issues and adding some new features.
+</p>
+
+<h4>Expected results</h4>
+
+<ul>
+  <li>Turn the module more self-contained, fixing the dependency problem.</li>
+  <li>Add new features: proxy, SNI (Server Name Indication), etc.</li>
+  <li>Support to HTTP/2 is a plus.</li>
+</ul>
+
+<h4>Knowledge prerequisites</h4>
+
+<ul>
+  <li>C, Lua, Git, HTTP protocol.</li>
+</ul>
+
+<h4>Skill level</h4>
+<p>Easy / Medium</p>
+
+<h4>Mentor</h4>
+<p>
+<a href="mailto:brunoos@inf.ufg.br" target="_blank">Bruno Silvestre</a>
+</p>
+
+<br><hr>
+<h3 id="netbsd">Develop I/O API for NetBSD Kernel Lua</h3>
+
+<h4>Brief explanation</h4>
+
+<p>
+<a href="http://www.netbsd.org">The NetBSD Operating System</a> has a
+kernel-level Lua interpreter version for
+<a href="http://netbsd.org/~lneto/dls14.pdf">scripting its kernel</a>.
+For example, it allows users to
+<a href="http://netbsd.org/~lneto/eurobsdcon14.pdf">filter packets
+using Lua scripts</a>.
+</p>
+<p>
+The main difference between kernel Lua and regular user-level Lua is
+that kernel Lua doesn't have support for standard libraries that
+depend on operating system (e.g., io and os) and for floating-point
+numbers. The purpose of this project is to develop kernel Lua
+libraries to provide I/O functionality to kernel scripts. This API
+should provide access both for file system and network. It should be
+implemented as
+<a href="http://www.home.unix-ag.org/bmeurer/NetBSD/howto-lkm.html">NetBSD
+loadable kernel modules</a> binding the kernel internal implementation
+for files and sockets user-level API.
+</p>
+
+<h4>Expected results</h4>
+
+<ul>
+<li>Kernel Lua File Library</li>
+<li>Kernel Lua Socket Library</li>
+<li>Documentation and Benchmarks</li>
+</ul>
+
+<h4>Knowledge prerequisites</h4>
+
+<p>
+C, Lua, OS  (and some courage :) )
+</p>
+
+<h4>Skill level</h4>
+
+<p>
+Advanced
+</p>
+
+<h4>Mentor</h4>
+
+<p>
+<a href="mailto:lneto@NetBSD.org">Lourival Vieira Neto</a>
+</p>
+
+<br><hr>
+<h3 id="strava">Lua Client for Strava V3 API</h3>
+<h4>Brief explanation</h4>
+
+<p><a href="https://www.strava.com">Strava</a>
+is a popular social network for athletes that we can use to
+track cycling, running or swimming activities and share them
+among our connections.
+The interface of <a href="https://strava.github.io/api/">Strava V3 API</a>
+is publicly available and developers can use it to access Strava's dataset
+for creating custom applications.
+For instance, <a href="https://www.relive.cc/">RELIVE.cc</a> gets your
+latest Strava ride and creates a movie of your ride that is played with
+Google Earth 3D.
+Even though Strava allows developers to create their own applications,
+its <a href="https://strava.github.io/api/#libraries"> library support</a> is
+still limited and there is no support for Lua.
+</p>
+
+<p>
+The aim of this project is to create a Strava library for Lua, so
+we can use it to create Strava applications with Lua.
+We also expect that at least one application example should be
+developed using the new library.
+We can also use Typed Lua to define our interfaces, as we might
+want to move to Typed Lua when it is released.
+</p>
+
+<h4>Expected results</h4>
+
+<ul>
+<li>A Lua Client for Strava V3 API.</li>
+<li>An example of application that uses the Lua library.</li>
+</ul>
+
+<h4>Knowledge prerequisites</h4>
+
+<ul>
+<li>Lua.</li>
+<li>RESTful WebServices.</li>
+<li>JSON.</li>
+<li>Github.</li>
+<li>Running, Cycling or Swimming.</li>
+</ul>
+
+<h4>Skill level</h4>
+<p>Medium</p>
+
+<h4>Mentor</h4>
+<p>
+<a href="mailto:amaidl@inf.puc-rio.br">André Murbach Maidl</a>
+</p>
+
