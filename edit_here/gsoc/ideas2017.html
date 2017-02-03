@@ -11,6 +11,9 @@ Develop I/O API for NetBSD Kernel Lua
 <li><a href="#strava">
 Lua Client for Strava V3 API
 </a></li>
+<li><a href="#peg">
+Parser Generator Based on LPeg(Label)
+</a></li>
 </ul>
 
 <br><hr>
@@ -153,5 +156,95 @@ want to move to Typed Lua when it is released.
 <h4>Mentor</h4>
 <p>
 <a href="mailto:amaidl@inf.puc-rio.br">André Murbach Maidl</a>
+</p>
+
+<h3 id="peg">Parser Generator Based on LPeg(Label)</h3>
+
+<h4>Brief explanation</h4>
+
+<p>
+<a href="http://bford.info/pub/lang/peg">Parsing Expression Grammars</a> (PEGs)
+are an expressive formalism for designing and implementing top-down parsers with local backtracking.
+<a href="http://www.inf.puc-rio.br/~roberto/lpeg/">LPeg</a> is a tool that provides an implementation
+of PEGs for Lua, while <a href="https://github.com/sqmedeiros/lpeglabel/">LPegLabel</a> is an extension
+of LPeg with some facilities for error reporting and recovery.
+</p>
+
+<p>The goal of this project is to build a parser generator on top of LPegLabel.
+This new tool should make easier the description of commom idioms and
+should make error reporting more automatic.
+</p>
+
+<p>
+The new parse generator will be used to (re)write parsers, such
+as the <i><a href="https://github.com/andremm/lua-parser">lua-parser</a></i>.
+</p>
+
+
+<h4>Tools</h4>
+
+<p>
+<ul>
+  <li><a href="https://github.com/sqmedeiros/lpeglabel/">LPegLabel</a>
+  <li><a href="http://www.inf.puc-rio.br/~roberto/lpeg/">LPeg</a>
+  <li>Lua libraries whose parsers will be rewritten
+</ul> 
+</p>
+
+
+<h4>Expected results</h4>
+
+<p>
+<ul>
+	<li>Build a parser generator tool
+  <li>The (re)writing of at least 2 parsers, including <i>lua-parser</i>, with the new tool.
+  The description of the parsers using the new tool should be easier than using plain LPeg(Label).
+  <li>A proper documentation
+</ul>
+</p>
+
+<p>
+A marginal result would be the improvement of the LPegLabel tool
+based on the difficulties perceived during the project.
+</p>
+
+
+<h4>Prerequisites</h4>
+
+<p>
+We expect the applicants to know <b>parsing</b> well and
+to develop familiarity with LPeg and LPegLabel before the project starts.
+The applicant should have used at least one parser generator tool,
+such as yacc/bison, ANTLR, JavaCC, PEG.js, etc.
+</p>
+
+<p>
+For this reason, we may ask the applicants to perform some activities
+<b>before</b> the application period.
+</p>
+
+
+<h4>How to apply</h4>
+
+<p>
+<ul>
+<li>Get in touch.
+<li>Follow the official GSoC instructions.
+<li>Follow the LabLua instructions.
+</ul>
+</p>
+
+
+<h4>Skill level</h4>
+
+<p>
+Medium / Advanced
+</p>
+
+
+<h4>Mentor</h4>
+
+<p>
+<a href="https://sites.google.com/site/sqmedeiros/">S&eacute;rgio Medeiros</a>
 </p>
 
