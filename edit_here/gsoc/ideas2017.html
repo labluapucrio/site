@@ -17,6 +17,9 @@ Parser Generator Based on LPeg(Label)
 <li><a href="#peg">
 Editor Support for Typed Lua
 </a></li>
+<li><a href="#cgilua">
+Adapt CGILua SAPI launcher to explore all WSAPI features
+</a></li>
 </ul>
 
 <br><hr>
@@ -260,7 +263,7 @@ Medium / Advanced
 <a href="http://github.com/andremm/typedlua">Typed Lua</a> is a statically
 typed extension of the Lua language. Currently Typed Lua's user interface
 is just a command-line compiler that compiles a file at a time. 
-The goal of this project is threefold: first to build turn the command-line
+The goal of this project is threefold: first to turn the command-line
 compiler into a daemon that watches a file tree for changes, recompiling
 the files whenever they change, and keeping as its internal state all
 the errors and types extracted from these files; this daemon, or
@@ -303,3 +306,46 @@ Medium
 <p>
 <a href="https://www.dcc.ufrj.br/~fabiom/index.en.html">Fabio Mascarenhas</a>
 </p>
+
+<br><hr>
+<h3 id="cgilua">Adapt CGILua SAPI launcher to explore all WSAPI features.</h3>
+<h4>Brief explanation</h4>
+
+<p><a href="http://keplerproject.github.io/cgilua/">
+CGILua</a> is a tool for creating dynamic Web pages and manipulating input
+data from Web forms.  One of advantages of CGILua is its abstraction
+of the underlying Web server. CGILua can be used with a variety of Web
+servers and, for each server, with different launchers. A launcher is
+responsible for the interaction of CGILua and the Web server, for example
+using ISAPI on IIS or mod_lua on Apache. The reference implementation
+of CGILua launchers is Kepler.</p>
+
+<p> <a href="http://keplerproject.github.io/wsapi/">WSAPI</a>
+is an API that abstracts the web server from Lua web
+applications. WSAPI provides a set of helper libraries that help with
+request processing and output buffering.</p>
+
+<p>Actually CGILua has an implementation of an abstract underlying server
+which is almost the same of WSAPI itself. This project proposes a
+reimplementation of this layer (called SAPI) to explore WSAPI fully. This
+should improve the performance and simplify maintenance.</p>
+
+<h4>Expected results</h4>
+<ul>
+<li>Rewrite CGILua library to dispense SAPI module and use WSAPI directly.</li>
+</ul>
+
+<h4>Knowledge prerequisites</h4>
+<p>Advanced Lua programming is mandatory, since both tools (CGILua and WSAPI)
+are not naive software. A good understanding of the Lua environment
+concept is particularly necessary in this project.</p>
+
+<p>Web programming experience can be very helpful especially to understand
+the context of use of these tools.</p>
+
+<h4>Skill level</h4>
+<p>Medium</p>
+
+<h4>Mentor</h4>
+<p>Tomás Guisasola</p>
+
