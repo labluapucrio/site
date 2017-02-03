@@ -14,6 +14,9 @@ Lua Client for Strava V3 API
 <li><a href="#peg">
 Parser Generator Based on LPeg(Label)
 </a></li>
+<li><a href="#peg">
+Editor Support for Typed Lua
+</a></li>
 </ul>
 
 <br><hr>
@@ -248,3 +251,55 @@ Medium / Advanced
 <a href="https://sites.google.com/site/sqmedeiros/">S&eacute;rgio Medeiros</a>
 </p>
 
+
+<h3 id="peg">Editor Support for Typed Lua</h3>
+
+<h4>Brief explanation</h4>
+
+<p>
+<a href="http://github.com/andremm/typedlua">Typed Lua</a> is a statically
+typed extension of the Lua language. Currently Typed Lua's user interface
+is just a command-line compiler that compiles a file at a time. 
+The goal of this project is threefold: first to build turn the command-line
+compiler into a daemon that watches a file tree for changes, recompiling
+the files whenever they change, and keeping as its internal state all
+the errors and types extracted from these files; this daemon, or
+<i>analysis server</i>, can then answer to HTTP queries about the files
+in the tree, with the answers in JSON format; finally, editor plugins
+can interface with the server to display error and autocomplete information
+about the files that the programmer is currently editing.
+</p>
+
+<h4>Expected results</h4>
+
+<p>
+<ul>
+<li>An analysis server for Typed Lua that watches a directory tree
+and compiles any Typed Lua source files that change</li>
+<li>Webservices in the analysis server that serve information (in JSON format) on
+the source files in the tree about parse/type errors and type information
+for autocomplete purposes</li>
+<li>Editor plugins for <a href="https://atom.io">Atom</a>, <a href="https://code.visualstudio.com/">VS Code</a>,
+and <a href="https://studio.zerobrane.com/">Zerobrane Studio</a> that connect to
+the analysis server</li>
+</ul>
+</p>
+
+
+<h4>Prerequisites</h4>
+
+<p>Knowledge of Lua, JavaScript, JSON, RESTful webservices, file watching APIs.
+Knowledge of how the Typed Lua typechecker works is not necessary.</p>
+
+<h4>Skill level</h4>
+
+<p>
+Medium
+</p>
+
+
+<h4>Mentor</h4>
+
+<p>
+<a href="https://www.dcc.ufrj.br/~fabiom/index.en.html">Fabio Mascarenhas</a>
+</p>
