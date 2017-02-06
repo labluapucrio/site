@@ -26,6 +26,9 @@ Adapt CGILua SAPI launcher to explore all WSAPI features
 <li><a href="#ceu">
 Interrupt-based drivers and libraries for Céu-Arduino
 </a></li>
+<li><a href="#terradroid">
+Porting Terra, a tiny IoT Virtual Machine, to Android Devices.
+</a></li>
 </ul>
 
 <br><hr>
@@ -526,6 +529,62 @@ Hard
 
 <p>
 <a href="http://www.ceu-lang.org/chico">Francisco Sant'Anna</a>
+</p>
+<br><hr>
+
+<h3 id="terradroid"> Porting Terra, a tiny IoT Virtual Machine, to
+Android Devices.</h3>
+<h4>Brief explanation</h4>
+<p><a href="http://www.inf.puc-rio.br/%7Eabranco/terra.html">Terra</a>
+is a system based on a tiny virtual machine and combines a reactive
+scripting language with a set of customized components. Originally,
+Terra was designed to run in WSN/IoT nodes with limited resources.
+These nodes, typically, have small microcontrolers and communicate
+using specific radio standards like IEEE 802.15.4 (based on ZigBee).
+Terra uses Céu-T as its scripting language and implements a
+component-based virtual machine VM-T to be customized for different
+application domains.
+We built VM-T using the <a href="http://nescc.sourceforge.net/">nesC</a>
+programming language and
+the <a href="http://tinyos.net">TinyOS</a> operating system.
+</p>
+<p>
+We have already started some initiatives to port Terra to different
+devices to enable interoperability in heterogeneous IoT network. These
+initiatives include ports to different operating systems and devices
+with different levels of resources. These initiatives include
+the use of radio technologies like IEEE 802.11 standards and the use of
+Linux on RaspberryPI device. </p>
+<p>
+The aim of this project is to port Terra Virtual Machine VM-T to
+Android devices. This port will enable interoperability of Android
+devices with others devices running Terra, allowing experiments with
+more powerful mobile devices interacting with a heterogeneous IoT
+network. </p>
+<p>
+We plan two main development activities.
+One will be the development of an integration layer
+between the VM engine and the Android system.
+The other will be the customization to access some sensors and
+actuators of the device.
+</p>
+<h4>Expected results</h4>
+<ul>
+<li>A functional port of Terra VM to Android devices.</li>
+<li>A set of Terra application examples, including a gateway between
+different radio standards.</li>
+</ul>
+<h4>Knowledge prerequisites</h4>
+<ul>
+<li>Android - programming in C. (Timer and UDP/IP library)</li>
+<li>nesC - Desirable basic knowledge.</li>
+<li>Github.</li>
+</ul>
+<h4>Skill level</h4>
+<p>Medium</p>
+<h4>Mentor</h4>
+<p>
+<a href="mailto:abranco@inf.puc-rio.br">Adriano Branco</a>
 </p>
 
 <br/><hr/>
