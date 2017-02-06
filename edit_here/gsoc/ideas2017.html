@@ -1,3 +1,6 @@
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
 
 <h2>Ideas List - Google Summer of Code 2017</h2>
 
@@ -19,6 +22,9 @@ Editor Support for Typed Lua
 </a></li>
 <li><a href="#cgilua">
 Adapt CGILua SAPI launcher to explore all WSAPI features
+</a></li>
+<li><a href="#ceu">
+Interrupt-based drivers and libraries for Céu-Arduino
 </a></li>
 </ul>
 
@@ -349,3 +355,177 @@ the context of use of these tools.</p>
 <h4>Mentor</h4>
 <p>Tomás Guisasola</p>
 
+<br><hr>
+<h3 id="ceu">Interrupt-based drivers and libraries for Céu-Arduino</h3>
+
+<h4>Background</h4>
+
+<p>
+Currently, most operations in Arduino libraries freeze the rest of the
+application until they complete:
+</a>
+</p>
+
+<ul>
+<li> Reading an analog pin with
+     <a href="https://www.arduino.cc/en/Reference/AnalogRead">analogRead</a>
+     takes about 100 microseconds to complete.
+</li>
+<li> Measuring distance with an
+     <a href="http://playground.arduino.cc/Code/NewPing">ultrasonic sensor</a>
+     takes about 30 milliseconds.
+</li>
+</ul>
+
+<p>
+The use of interrupts allow programs to remain executing while the operation
+progresses and completes.
+However, programming with interrupts is hard and error prone.
+</p>
+
+<p>
+Céu-Arduino supports the development of Arduino applications in the programming
+language Céu:
+</p>
+
+<ul>
+<li>Source Code:   <a href="https://github.com/fsantanna/ceu-arduino/">https://github.com/fsantanna/ceu-arduino/</a></li>
+<li>Documentation: <a href="http://fsantanna.github.io/ceu-arduino/">http://fsantanna.github.io/ceu-arduino/</a></li>
+<li>Chat:          <a href="https://gitter.im/fsantanna/ceu">https://gitter.im/fsantanna/ceu</a></li>
+</ul>
+
+<p>
+Céu is a reactive language that aims to offer a higher-level and safer
+alternative to C:
+</p>
+
+<ul>
+<li>Home Page:   <a href="http://www.ceu-lang.org/">http://www.ceu-lang.org/</a></li>
+<li>Source code: <a href="https://github.com/fsantanna/ceu/">https://github.com/fsantanna/ceu/</a></li>
+</ul>
+
+<p>
+Céu-Arduino empowers the development of Arduino applications with the following
+extensions:
+</p>
+
+<ul>
+<li>Awaiting events in direct/sequential style.  </li>
+<li>Parallel lines of execution with
+    <ul>
+    <li>safe abortion;</li>
+    <li>deterministic behavior (in contrast with threads).</li>
+    </ul>
+</li>
+<li>Asynchronous loops for heavy computations.</li>
+<li>Interrupt-driven operation mode.</li>
+<li>Seamless integration with standard Arduino (e.g., <code>digitalWrite</code>,
+<code>random</code>, etc).</li>
+</ul>
+
+<p>
+Céu supports
+<a href="https://github.com/fsantanna/ceu-arduino#switching-a-led-with-interrupts">
+interrupts</a>
+as a primitive construct, reducing programming efforts considerably.
+</p>
+
+<p>
+Céu-Arduino already provides interrupt-based drivers for
+<a href="https://github.com/fsantanna/ceu-arduino/tree/master/include/arduino/isr">
+pins, internal timers, and the USART</a>.
+</p>
+
+<h4>The Project</h4>
+
+The project consists of developing new interrupt-based drivers and libraries
+for chips and peripherals, e.g.:
+
+<ul>
+    <li>Arduino's internal analog-to-digital converter.
+    </li>
+    <li>Arduino's internal SPI and I2C buses.
+    </li>
+    <li>Arduino's internal EEPROM.
+    </li>
+    <li>An external real-time clock.
+        (<a href="http://forum.arduino.cc/index.php?topic=278270.0">link</a>)
+    </li>
+    <li>Some sensor libraries built on top of these drivers, e.g.:
+        ultrasonic, accelerometer, etc.
+    </li>
+</ul>
+
+
+<h4>Tools</h4>
+
+<ul>
+<li>
+    <a href="https://github.com/fsantanna/ceu/">Céu</a> is the programming
+    language used in Céu-Arduino.
+</li>
+<li>
+    <a href="https://github.com/fsantanna/ceu-arduino/">Céu-Arduino</a> is the
+    Céu binding for Arduino.
+</li>
+<li>
+    <a href="https://www.arduino.cc/en/Main/ArduinoBoardUno">Arduino UNO</a>
+    is an Arduino development board.
+</li>
+<li>
+    A sort of Arduino peripherals.
+</li>
+</ul>
+
+<h4>Prerequisites</h4>
+
+<p>
+<b>We expect the student to own an Arduino board and peripherals.</b>
+</p>
+
+We also expect the student to know <b>C</b> and
+<b>interrupt services routines</b> in Arduino or AVR microcontrollers.
+
+<p>
+We ask applicants to complete the following activities <i>before</i> the
+application period:
+</p>
+
+<ol>
+<li>
+    Install Céu and Céu-Arduino and compile and test some existing examples.
+</li>
+<li>
+    Create a simple example in Céu-Arduino using some sensors and actuators
+    (not necessarily using interrupts).
+</li>
+<li>
+    Create a simple example in C that uses interrupt-driven analog reads.
+</li>
+<li>
+    Fork our <a href="https://github.com/fsantanna/ceu-arduino/">Céu-Arduino</a>
+    project on <i>github</i> and commit the new examples.
+</li>
+</ol>
+
+<h4>How to apply</h4>
+
+<ul>
+<li><a href="http://www.ceu-lang.org/chico">Get in touch.</a></li>
+<li>Follow the official GSoC instructions.</li>
+<li>Follow the LabLua instructions.</li>
+</ul>
+
+<h4>Skill level</h4>
+
+<p>
+Hard
+</p>
+
+<h4>Mentor</h4>
+
+<p>
+<a href="http://www.ceu-lang.org/chico">Francisco Sant'Anna</a>
+</p>
+
+<br/><hr/>
