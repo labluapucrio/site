@@ -9,41 +9,14 @@ contribution to our R&D work.
 <p>
 Here is a brief highlight of this year's projects:
 
-<hr>
-<ul>
-<li><a href="#luarocks">
-Next Generation of the LuaRocks test suite
-</a></li>
-<li><a href="#typed">
-Typed Lua Core Typechecker
-</a></li>
-<li><a href="#typedlua">
-Classes and Generics for Typed Lua
-</a></li>
-<li><a href="#peg">
-Improving Error Reporting in PEG Parsers
-</a></li>
-<li><a href="#elasticsearch_tests">
-Improving elasticsearch-lua tests and build
-</a></li>
-<li><a href="#elasticsearch_sailor">
-Admin Center and Elasticsearch integration for Sailor
-</a></li>
-<li><a href="#ceu">
-Extending the online tutorial of C&eacute;u with Emscripten and SDL
-</a></li>
-<li><a href="#cgilua">
-An automatic generator of WSDL documents for LuaSOAP
-</a></li>
-</ul>
-<hr>
-<br>
+<br><br><hr>
 
 <p>
-<image src="http://www.lua.inf.puc-rio.br/images/gsoc2016/robert_karasek.jpg" height=100  />
 <b>Next Generation of the LuaRocks test suite - Robert Karasek</b>
 </p>
 
+<p>
+<image align="left" src="http://www.lua.inf.puc-rio.br/images/gsoc2016/robert_karasek.jpg" height=100  />
 <a href="http://luarocks.org">LuaRocks</a> is the package manager for
 Lua modules. Its test suite was implemented as a big shell script that
 performed only black-box testing and ran only on Linux. The goal for
@@ -65,15 +38,15 @@ Robert improved the checks in existing tests and wrote many new ones,
 including a new mock-server for testing the client API for uploading
 packages to the <a href="http://luarocks.org">luarocks.org</a>
 repository.
+</p>
 
-
-<hr>
+<br><hr>
 <p>
 <b>Typed Lua Typechecker - Tomasz Dyczek</b>
-<image src="http://www.lua.inf.puc-rio.br/images/gsoc2016/tomasz.jpg" height=100 />
 </p>
 
 <p>
+<image align="right" src="http://www.lua.inf.puc-rio.br/images/gsoc2016/tomasz.jpg" height=100 />
 <a href="https://github.com/andremm/typedlua">Typed Lua</a>
 is an optional type system that provides static type checking for
 the Lua language.
@@ -94,13 +67,13 @@ Typed Lua, Tomasz's Haskell typechecker can be also used to validate
 tests to be included in Typed Lua's test suite.
 </p>
 
-<hr>
+<br><hr>
 <p>
-<image src="http://www.lua.inf.puc-rio.br/images/gsoc2016/KevinClancy.jpg" height=100 />
 <b>Classes and Generics for Typed Lua - 
 <a href="https://github.com/kevinclancy/">Kevin Clancy</a></b>
 </p>
 <p>
+<image align = "left" src="http://www.lua.inf.puc-rio.br/images/gsoc2016/KevinClancy.jpg" height=100 />
 During GSoC 2016, Kevin worked on the implementation of
 a class system for <a href="https://github.com/andremm/typedlua">Typed Lua</a>.
 He also added parametric polymorphism
@@ -115,12 +88,12 @@ Meanwhile, Kevin has written a
 detailed post</a> explaining all the features that have been implemented
 </p>
 
-<hr>
+<br><hr>
 <p>
 <b>Improving Error Reporting in PEG Parsers - Matthew Allen Go</b>
-<image src="http://www.lua.inf.puc-rio.br/images/gsoc2016/matthew.jpg" height=100  />
 </p>
 <p>
+<image align="right" src="http://www.lua.inf.puc-rio.br/images/gsoc2016/matthew.jpg" height=100  />
 <a href="https://github.com/sqmedeiros/lpeglabel/">LPegLabel</a> is an extension
 of <a href="http://www.inf.puc-rio.br/~roberto/lpeg/">LPeg</a>,
 a pattern matching tool for Lua, based on 
@@ -145,15 +118,15 @@ the new release of
 <p>
 Matthew also contributed to LPegLabel's
 usability by improving its API and documentation.
+</p>
 
-
-<hr>
+<br><hr>
 <p>
-<image src="http://www.lua.inf.puc-rio.br/images/gsoc2016/dhaval.jpg" height=120  />
 <b>Improving elasticsearch-lua tests and build -
 <a href="https://dhavalkapil.com/">Dhaval Kapil</a></b>
 </p>
 <p>
+<image align="left" src="http://www.lua.inf.puc-rio.br/images/gsoc2016/dhaval.jpg" height=120  />
 <a href="https://www.elastic.co/products/elasticsearch">Elasticsearch</a>
 is a distributed and scalable search engine written in Java that, 
 besides the transport protocol (Java to Java), offers a REST API accessed through JSON.
@@ -173,14 +146,15 @@ This work was motivated by having to frequently switch between different
 versions of Lua while developing the test suite.
 <p>A full blog post about Dhaval's project during GSoC 2016 can be found
 <a href="https://dhavalkapil.com/blogs/Elasticsearch-Lua-GSOC-2016/">here</a>.
+</p>
 
-<hr>
+<br><hr>
 <p>
 <b>Admin Center and Elasticsearch integration for Sailor - 
 <a href="https://github.com/rnikhil275">Nikhil Ramesh</a></b>
-<image src="http://www.lua.inf.puc-rio.br/images/gsoc2016/nikhil.jpg" height=120  />
 </p>
 <p>
+<image align="right" src="http://www.lua.inf.puc-rio.br/images/gsoc2016/nikhil.jpg" height=120  />
 <a href="http://sailorproject.org/">Sailor</a> is a web framework written 
 in the Lua programming language and structured in a model-view-controller 
 (MVC) architecture. Like other web development frameworks, such as Ruby on 
@@ -202,22 +176,21 @@ Nikhil's work is currently pending as a
 to be merged as soon as possible.
 </p>
 
-<hr>
-<br>
+<br><hr>
 <p>
-<b>Extending the online tutorial of Céu with Emscripten and SDL - Margarit Vicentiu</b>
+<b>Extending the online tutorial of C&eacute;u with Emscripten and SDL - Margarit Vicentiu</b>
 </p>
 <p>
-<a href="http://ceu-lang.org/">Céu</a>
+<a href="http://ceu-lang.org/">C&eacute;u</a>
 is a programming language that targets the development of reactive applications 
 such as video games and embedded systems. Its compiler generates output in plain C 
 to integrate easily with the the underlying platform (e.g. Arduino, SDL).
-For this project, we wanted to integrate Céu with 
+For this project, we wanted to integrate C&eacute;u with 
 <a href="https://github.com/kripken/emscripten/">Emscripten</a>
 to also run applications in a web browser.
 <p>
-Vicentiu started with the online tutorial of Céu, which is a server-side application:
-the user types Céu code in a text area and hits the send button;
+Vicentiu started with the online tutorial of C&eacute;u, which is a server-side application:
+the user types C&eacute;u code in a text area and hits the send button;
 the server receives the code, executes it, and sends the output back to the user.
 During the summer, Vicentiu made most of the examples compile with Emscripten and 
 run in real-time in the user screen.
@@ -225,9 +198,9 @@ run in real-time in the user screen.
 Our next goal is to make the graphical examples with user interactions also work in 
 the browser, and Vicentiu plans to continue contributing to the project to 
 achieve this goal.
+</p>
 
-<hr>
-<br>
+<br> <hr>
 <p>
 <b>An automatic generator of WSDL documents for LuaSOAP - Victor Dias</b>
 </p>
