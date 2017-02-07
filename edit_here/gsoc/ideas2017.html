@@ -1,6 +1,3 @@
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-</head>
 
 <h2>Ideas List - Google Summer of Code 2017</h2>
 
@@ -14,17 +11,17 @@ Develop I/O API for NetBSD Kernel Lua
 <li><a href="#strava">
 Lua Client for Strava V3 API
 </a></li>
-<li><a href="#peg">
-Parser Generator Based on LPeg(Label)
+<li><a href="#typed">
+Editor Support for Typed Lua
 </a></li>
 <li><a href="#peg">
-Editor Support for Typed Lua
+Parser Generator Based on LPeg(Label)
 </a></li>
 <li><a href="#cgilua">
 Adapt CGILua SAPI launcher to explore all WSAPI features
 </a></li>
 <li><a href="#ceu">
-Interrupt-based drivers and libraries for Céu-Arduino
+Interrupt-based drivers and libraries for C&eacute;u-Arduino
 </a></li>
 <li><a href="#terradroid">
 Porting Terra, a tiny IoT Virtual Machine, to Android Devices.
@@ -36,28 +33,28 @@ Porting Terra, a tiny IoT Virtual Machine, to Android Devices.
 <h4>Brief explanation</h4>
 
 <p>
-  <a href="https://github.com/brunoos/luasec/wiki" target="_blank">LuaSec</a>&#39;s HTTPS
-  module was built on top
-  of <a href="http://w3.impa.br/~diego/software/luasocket/" target="_blank">LuaSocket</a>&#39;s
-  HTTP and presents some problems due to limited integration.
+The <a href="https://github.com/brunoos/luasec/wiki" target="_blank">LuaSec</a>
+HTTPS module was built on top
+of <a href="https://github.com/diegonehab/luasocket" target="_blank">LuaSocket</a>
+HTTP and its current versions presents some problems due to limited integration.
 </p>
 <p>
-  The aim of this project is to improve HTTPS module, fixing the
-  issues and adding some new features.
+The aim of this project is to improve the HTTPS module, fixing the
+issues and adding some new features.
 </p>
 
 <h4>Expected results</h4>
 
 <ul>
-  <li>Turn the module more self-contained, fixing the dependency problem.</li>
-  <li>Add new features: proxy, SNI (Server Name Indication), etc.</li>
-  <li>Support to HTTP/2 is a plus.</li>
+<li>Make the HTTPS module more self-contained, fixing the dependency problem.</li>
+<li>New features: proxy and SNI (Server Name Indication).</li>
+<li>Support to HTTP/2 is a plus.</li>
 </ul>
 
 <h4>Knowledge prerequisites</h4>
 
 <ul>
-  <li>C, Lua, Git, HTTP protocol.</li>
+<li>C, Lua, Git, HTTP protocol.</li>
 </ul>
 
 <h4>Skill level</h4>
@@ -74,23 +71,23 @@ Porting Terra, a tiny IoT Virtual Machine, to Android Devices.
 <h4>Brief explanation</h4>
 
 <p>
-<a href="http://www.netbsd.org">The NetBSD Operating System</a> has a
+<a href="http://www.netbsd.org" target="_blank">The NetBSD Operating System</a> has a
 kernel-level Lua interpreter version for
-<a href="http://netbsd.org/~lneto/dls14.pdf">scripting its kernel</a>.
+<a href="http://netbsd.org/~lneto/dls14.pdf" target="_blank">scripting its kernel</a>.
 For example, it allows users to
-<a href="http://netbsd.org/~lneto/eurobsdcon14.pdf">filter packets
+<a href="http://netbsd.org/~lneto/eurobsdcon14.pdf" target="_blank">filter packets
 using Lua scripts</a>.
 </p>
 <p>
 The main difference between kernel Lua and regular user-level Lua is
-that kernel Lua doesn't have support for standard libraries that
-depend on operating system (e.g., io and os) and for floating-point
+that kernel Lua has no support for standard libraries that
+depend on the operating system (e.g., io and os) and for floating-point
 numbers. The purpose of this project is to develop kernel Lua
 libraries to provide I/O functionality to kernel scripts. This API
 should provide access both for file system and network. It should be
 implemented as
-<a href="http://www.home.unix-ag.org/bmeurer/NetBSD/howto-lkm.html">NetBSD
-loadable kernel modules</a> binding the kernel internal implementation
+<a href="http://www.home.unix-ag.org/bmeurer/NetBSD/howto-lkm.html" target="_blank">
+NetBSD loadable kernel modules</a>, binding the kernel internal implementation
 for files and sockets user-level API.
 </p>
 
@@ -124,19 +121,19 @@ Advanced
 <h3 id="strava">Lua Client for Strava V3 API</h3>
 <h4>Brief explanation</h4>
 
-<p><a href="https://www.strava.com">Strava</a>
+<p><a href="https://www.strava.com" target="_blank">Strava</a>
 is a popular social network for athletes that we can use to
 track cycling, running or swimming activities and share them
-among our connections.
-The interface of <a href="https://strava.github.io/api/">Strava V3 API</a>
+with our connections.
+The <a href="https://strava.github.io/api/" target="_blank">Strava V3 API</a>
 is publicly available and developers can use it to access Strava's dataset
 for creating custom applications.
-For instance, <a href="https://www.relive.cc/">RELIVE.cc</a> gets your
-latest Strava ride and creates a movie of your ride that is played with
-Google Earth 3D.
-Even though Strava allows developers to create their own applications,
-its <a href="https://strava.github.io/api/#libraries"> library support</a> is
-still limited and there is no support for Lua.
+As an example, <a href="https://www.relive.cc/" target="_blank">RELIVE.cc</a> 
+gets your latest Strava ride and creates a movie of your ride that is played 
+with Google Earth 3D.
+Although Strava allows developers to create their own applications,
+its <a href="https://strava.github.io/api/#libraries" target="_blank">
+library support</a> is still limited and there is no support for Lua.
 </p>
 
 <p>
@@ -144,7 +141,9 @@ The aim of this project is to create a Strava library for Lua, so
 we can use it to create Strava applications with Lua.
 We also expect that at least one application example should be
 developed using the new library.
-We can also use Typed Lua to define our interfaces, as we might
+We would like to use 
+<a href="http://github.com/andremm/typedlua">Typed Lua</a>
+to define our interfaces, as we might
 want to move to Typed Lua when it is released.
 </p>
 
@@ -152,7 +151,7 @@ want to move to Typed Lua when it is released.
 
 <ul>
 <li>A Lua Client for Strava V3 API.</li>
-<li>An example of application that uses the Lua library.</li>
+<li>An example application that uses the Lua library.</li>
 </ul>
 
 <h4>Knowledge prerequisites</h4>
@@ -170,114 +169,26 @@ want to move to Typed Lua when it is released.
 
 <h4>Mentor</h4>
 <p>
-<a href="mailto:amaidl@inf.puc-rio.br">André Murbach Maidl</a>
+<a href="mailto:amaidl@inf.puc-rio.br">Andr&eacute; Maidl</a>
 </p>
 
-<h3 id="peg">Parser Generator Based on LPeg(Label)</h3>
+
+<br><hr>
+<h3 id="typed">Editor Support for Typed Lua</h3>
 
 <h4>Brief explanation</h4>
 
 <p>
-<a href="http://bford.info/pub/lang/peg">Parsing Expression Grammars</a> (PEGs)
-are an expressive formalism for designing and implementing top-down parsers with local backtracking.
-<a href="http://www.inf.puc-rio.br/~roberto/lpeg/">LPeg</a> is a tool that provides an implementation
-of PEGs for Lua, while <a href="https://github.com/sqmedeiros/lpeglabel/">LPegLabel</a> is an extension
-of LPeg with some facilities for error reporting and recovery.
-</p>
-
-<p>The goal of this project is to build a parser generator on top of LPegLabel.
-This new tool should make easier the description of commom idioms and
-should make error reporting more automatic.
-</p>
-
-<p>
-The new parse generator will be used to (re)write parsers, such
-as the <i><a href="https://github.com/andremm/lua-parser">lua-parser</a></i>.
-</p>
-
-
-<h4>Tools</h4>
-
-<p>
-<ul>
-  <li><a href="https://github.com/sqmedeiros/lpeglabel/">LPegLabel</a>
-  <li><a href="http://www.inf.puc-rio.br/~roberto/lpeg/">LPeg</a>
-  <li>Lua libraries whose parsers will be rewritten
-</ul> 
-</p>
-
-
-<h4>Expected results</h4>
-
-<p>
-<ul>
-	<li>Build a parser generator tool
-  <li>The (re)writing of at least 2 parsers, including <i>lua-parser</i>, with the new tool.
-  The description of the parsers using the new tool should be easier than using plain LPeg(Label).
-  <li>A proper documentation
-</ul>
-</p>
-
-<p>
-A marginal result would be the improvement of the LPegLabel tool
-based on the difficulties perceived during the project.
-</p>
-
-
-<h4>Prerequisites</h4>
-
-<p>
-We expect the applicants to know <b>parsing</b> well and
-to develop familiarity with LPeg and LPegLabel before the project starts.
-The applicant should have used at least one parser generator tool,
-such as yacc/bison, ANTLR, JavaCC, PEG.js, etc.
-</p>
-
-<p>
-For this reason, we may ask the applicants to perform some activities
-<b>before</b> the application period.
-</p>
-
-
-<h4>How to apply</h4>
-
-<p>
-<ul>
-<li>Get in touch.
-<li>Follow the official GSoC instructions.
-<li>Follow the LabLua instructions.
-</ul>
-</p>
-
-
-<h4>Skill level</h4>
-
-<p>
-Medium / Advanced
-</p>
-
-
-<h4>Mentor</h4>
-
-<p>
-<a href="https://sites.google.com/site/sqmedeiros/">S&eacute;rgio Medeiros</a>
-</p>
-
-
-<h3 id="peg">Editor Support for Typed Lua</h3>
-
-<h4>Brief explanation</h4>
-
-<p>
-<a href="http://github.com/andremm/typedlua">Typed Lua</a> is a statically
-typed extension of the Lua language. Currently Typed Lua's user interface
-is just a command-line compiler that compiles a file at a time. 
+<a href="http://github.com/andremm/typedlua" target="_blank">Typed Lua</a> 
+is a statically typed extension of the Lua language.
+Currently, Typed Lua's user interface is just a command-line compiler 
+that compiles a file at a time. 
 The goal of this project is threefold: first to turn the command-line
 compiler into a daemon that watches a file tree for changes, recompiling
 the files whenever they change, and keeping as its internal state all
-the errors and types extracted from these files; this daemon, or
+the errors and types extracted from these files. This daemon, or
 <i>analysis server</i>, can then answer to HTTP queries about the files
-in the tree, with the answers in JSON format; finally, editor plugins
+in the tree, with the answers in JSON format. Finally, editor plugins
 can interface with the server to display error and autocomplete information
 about the files that the programmer is currently editing.
 </p>
@@ -291,9 +202,10 @@ and compiles any Typed Lua source files that change</li>
 <li>Webservices in the analysis server that serve information (in JSON format) on
 the source files in the tree about parse/type errors and type information
 for autocomplete purposes</li>
-<li>Editor plugins for <a href="https://atom.io">Atom</a>, <a href="https://code.visualstudio.com/">VS Code</a>,
-and <a href="https://studio.zerobrane.com/">Zerobrane Studio</a> that connect to
-the analysis server</li>
+<li>Editor plugins for <a href="https://atom.io" target="_blank">Atom</a>, 
+<a href="https://code.visualstudio.com/" target="blank">VS Code</a>,
+and <a href="https://studio.zerobrane.com/" target = "_blank">Zerobrane Studio</a> 
+that connect to the analysis server</li>
 </ul>
 </p>
 
@@ -317,24 +229,110 @@ Medium
 </p>
 
 <br><hr>
+<h3 id="peg">Parser Generator Based on LPeg(Label)</h3>
+
+<h4>Brief explanation</h4>
+
+<p>
+<a href="http://bford.info/pub/lang/peg" target="_blank">
+Parsing Expression Grammars</a> (PEGs)
+are an expressive formalism for the design and implementation of top-down parsers 
+with local backtracking.
+<a href="http://www.inf.puc-rio.br/~roberto/lpeg/" target="_blanl">LPeg</a> 
+is a tool that provides an implementation of PEGs for Lua, while 
+<a href="https://github.com/sqmedeiros/lpeglabel/" target="_blank">LPegLabel</a> 
+is an extension
+of LPeg with some facilities for error reporting and recovery.
+</p>
+
+<p>The goal of this project is to build a parser generator on top of LPegLabel.
+This new tool should make easier the description of commom idioms and
+should make error reporting more automatic.
+</p>
+
+<p>
+The new parse generator will be used to (re)write parsers, such
+as the <a href="https://github.com/andremm/lua-parser" target="_blank">
+<i>lua-parser</i></a>.
+</p>
+
+
+<h4>Tools</h4>
+
+<p>
+<ul>
+<li><a href="https://github.com/sqmedeiros/lpeglabel/" target="_blank">LPegLabel</a>
+<li><a href="http://www.inf.puc-rio.br/~roberto/lpeg/" target="_blank">LPeg</a>
+<li>Lua libraries whose parsers will be rewritten
+</ul> 
+</p>
+
+
+<h4>Expected results</h4>
+
+<p>
+<ul>
+<li>A parser generator tool
+<li>The (re)writing of at least 2 parsers, including <i>lua-parser</i>, 
+with the new tool.
+  The description of the parsers using the new tool should be easier than using plain LPeg(Label).
+<li>A proper documentation
+</p>
+
+<p>
+A marginal result would be the improvement of the LPegLabel tool
+based on the difficulties perceived during the project.
+</p>
+</ul>
+
+
+<h4>Prerequisites</h4>
+
+<p>
+We expect the applicants to have a good knowledge of <i>parsing</i> and
+to develop familiarity with LPeg and LPegLabel before the project starts.
+The applicant should have used at least one parser generator tool,
+such as yacc/bison, ANTLR, JavaCC, PEG.js, etc.
+</p>
+
+<p>
+For this reason, we may ask the applicants to perform some activities
+<b>before</b> the application period.
+</p>
+
+<h4>Skill level</h4>
+
+<p>
+Medium / Advanced
+</p>
+
+
+<h4>Mentor</h4>
+
+<p>
+<a href="https://sites.google.com/site/sqmedeiros/" target="_blank">
+S&eacute;rgio Medeiros</a>
+</p>
+
+<br><hr>
 <h3 id="cgilua">Adapt CGILua SAPI launcher to explore all WSAPI features.</h3>
 <h4>Brief explanation</h4>
 
-<p><a href="http://keplerproject.github.io/cgilua/">
+<p><a href="http://keplerproject.github.io/cgilua/" target="_blank">
 CGILua</a> is a tool for creating dynamic Web pages and manipulating input
 data from Web forms.  One of advantages of CGILua is its abstraction
 of the underlying Web server. CGILua can be used with a variety of Web
 servers and, for each server, with different launchers. A launcher is
 responsible for the interaction of CGILua and the Web server, for example
-using ISAPI on IIS or mod_lua on Apache. The reference implementation
+mod_lua on Apache. The reference implementation
 of CGILua launchers is Kepler.</p>
 
-<p> <a href="http://keplerproject.github.io/wsapi/">WSAPI</a>
+<p> <a href="http://keplerproject.github.io/wsapi/" target="_blank">WSAPI</a>
 is an API that abstracts the web server from Lua web
 applications. WSAPI provides a set of helper libraries that help with
 request processing and output buffering.</p>
 
-<p>Actually CGILua has an implementation of an abstract underlying server
+<p>Currently, CGILua has an implementation of an abstract underlying server
 which is almost the same of WSAPI itself. This project proposes a
 reimplementation of this layer (called SAPI) to explore WSAPI fully. This
 should improve the performance and simplify maintenance.</p>
@@ -356,10 +354,10 @@ the context of use of these tools.</p>
 <p>Medium</p>
 
 <h4>Mentor</h4>
-<p>Tomás Guisasola</p>
+<p>Tom&aacute;s Guisasola</p>
 
 <br><hr>
-<h3 id="ceu">Interrupt-based drivers and libraries for Céu-Arduino</h3>
+<h3 id="ceu">Interrupt-based drivers and libraries for C&eacute;u-Arduino</h3>
 
 <h4>Background</h4>
 
@@ -371,44 +369,54 @@ application until they complete:
 
 <ul>
 <li> Reading an analog pin with
-     <a href="https://www.arduino.cc/en/Reference/AnalogRead">analogRead</a>
-     takes about 100 microseconds to complete.
+<a href="https://www.arduino.cc/en/Reference/AnalogRead" target="_blank">
+analogRead</a> takes about 100 microseconds to complete.
 </li>
 <li> Measuring distance with an
-     <a href="http://playground.arduino.cc/Code/NewPing">ultrasonic sensor</a>
-     takes about 30 milliseconds.
+<a href="http://playground.arduino.cc/Code/NewPing" target="_blank">
+ultrasonic sensor</a> takes about 30 milliseconds.
 </li>
 </ul>
 
 <p>
-The use of interrupts allow programs to remain executing while the operation
+The use of interrupts allows programs to remain executing while the operation
 progresses and completes.
 However, programming with interrupts is hard and error prone.
 </p>
 
 <p>
-Céu-Arduino supports the development of Arduino applications in the programming
-language Céu:
+C&eacute;u-Arduino supports the development of Arduino applications in the 
+programming language C&eacute;u:
 </p>
 
 <ul>
-<li>Source Code:   <a href="https://github.com/fsantanna/ceu-arduino/">https://github.com/fsantanna/ceu-arduino/</a></li>
-<li>Documentation: <a href="http://fsantanna.github.io/ceu-arduino/">http://fsantanna.github.io/ceu-arduino/</a></li>
-<li>Chat:          <a href="https://gitter.im/fsantanna/ceu">https://gitter.im/fsantanna/ceu</a></li>
+<li>Source Code:
+<a href="https://github.com/fsantanna/ceu-arduino/" target="_blank">
+https://github.com/fsantanna/ceu-arduino/</a></li>
+<li>Documentation:
+<a href="http://fsantanna.github.io/ceu-arduino/" target="_blank">
+http://fsantanna.github.io/ceu-arduino/</a></li>
+<li>Chat:
+<a href="https://gitter.im/fsantanna/ceu" target="_blank">
+https://gitter.im/fsantanna/ceu</a></li>
 </ul>
 
 <p>
-Céu is a reactive language that aims to offer a higher-level and safer
+C&eacute;u is a reactive language that aims to offer a higher-level and safer
 alternative to C:
 </p>
 
 <ul>
-<li>Home Page:   <a href="http://www.ceu-lang.org/">http://www.ceu-lang.org/</a></li>
-<li>Source code: <a href="https://github.com/fsantanna/ceu/">https://github.com/fsantanna/ceu/</a></li>
+<li>Home Page:
+<a href="http://www.ceu-lang.org/" target="_blank">
+http://www.ceu-lang.org/</a></li>
+<li>Source code:
+<a href="https://github.com/fsantanna/ceu/" target="_blank">
+https://github.com/fsantanna/ceu/</a></li>
 </ul>
 
 <p>
-Céu-Arduino empowers the development of Arduino applications with the following
+C&eacute;u-Arduino empowers the development of Arduino applications with the following
 extensions:
 </p>
 
@@ -427,15 +435,15 @@ extensions:
 </ul>
 
 <p>
-Céu supports
-<a href="https://github.com/fsantanna/ceu-arduino#switching-a-led-with-interrupts">
+C&eacute;u supports
+<a href="https://github.com/fsantanna/ceu-arduino#switching-a-led-with-interrupts" target="_blank">
 interrupts</a>
 as a primitive construct, reducing programming efforts considerably.
 </p>
 
 <p>
-Céu-Arduino already provides interrupt-based drivers for
-<a href="https://github.com/fsantanna/ceu-arduino/tree/master/include/arduino/isr">
+C&eacute;u-Arduino already provides interrupt-based drivers for
+<a href="https://github.com/fsantanna/ceu-arduino/tree/master/include/arduino/isr" target="_blank">
 pins, internal timers, and the USART</a>.
 </p>
 
@@ -451,8 +459,9 @@ for chips and peripherals, e.g.:
     </li>
     <li>Arduino's internal EEPROM.
     </li>
-    <li>An external real-time clock.
-        (<a href="http://forum.arduino.cc/index.php?topic=278270.0">link</a>)
+    <li>An 
+<a href="http://forum.arduino.cc/index.php?topic=278270.0" target="_blank">
+external real-time clock</a>.
     </li>
     <li>Some sensor libraries built on top of these drivers, e.g.:
         ultrasonic, accelerometer, etc.
@@ -464,16 +473,16 @@ for chips and peripherals, e.g.:
 
 <ul>
 <li>
-    <a href="https://github.com/fsantanna/ceu/">Céu</a> is the programming
-    language used in Céu-Arduino.
+    <a href="https://github.com/fsantanna/ceu/" target="_blank">
+C&eacute;u</a> is the programming language used in C&eacute;u-Arduino.
 </li>
 <li>
-    <a href="https://github.com/fsantanna/ceu-arduino/">Céu-Arduino</a> is the
-    Céu binding for Arduino.
+    <a href="https://github.com/fsantanna/ceu-arduino/" target="_blank">
+C&eacute;u-Arduino</a> is the C&eacute;u binding for Arduino.
 </li>
 <li>
-    <a href="https://www.arduino.cc/en/Main/ArduinoBoardUno">Arduino UNO</a>
-    is an Arduino development board.
+    <a href="https://www.arduino.cc/en/Main/ArduinoBoardUno" target="_blank">
+Arduino UNO</a> is an Arduino development board.
 </li>
 <li>
     A sort of Arduino peripherals.
@@ -496,28 +505,21 @@ application period:
 
 <ol>
 <li>
-    Install Céu and Céu-Arduino and compile and test some existing examples.
+    Install C&eacute;u and C&eacute;u-Arduino and compile and test some existing examples.
 </li>
 <li>
-    Create a simple example in Céu-Arduino using some sensors and actuators
+    Create a simple example in C&eacute;u-Arduino using some sensors and actuators
     (not necessarily using interrupts).
 </li>
 <li>
     Create a simple example in C that uses interrupt-driven analog reads.
 </li>
 <li>
-    Fork our <a href="https://github.com/fsantanna/ceu-arduino/">Céu-Arduino</a>
+    Fork our <a href="https://github.com/fsantanna/ceu-arduino/" target="_blank">
+C&eacute;u-Arduino</a>
     project on <i>github</i> and commit the new examples.
 </li>
 </ol>
-
-<h4>How to apply</h4>
-
-<ul>
-<li><a href="http://www.ceu-lang.org/chico">Get in touch.</a></li>
-<li>Follow the official GSoC instructions.</li>
-<li>Follow the LabLua instructions.</li>
-</ul>
 
 <h4>Skill level</h4>
 
@@ -528,25 +530,26 @@ Hard
 <h4>Mentor</h4>
 
 <p>
-<a href="http://www.ceu-lang.org/chico">Francisco Sant'Anna</a>
+<a href="http://www.ceu-lang.org/chico" target="_blank">Francisco Sant'Anna</a>
 </p>
 <br><hr>
 
 <h3 id="terradroid"> Porting Terra, a tiny IoT Virtual Machine, to
 Android Devices.</h3>
 <h4>Brief explanation</h4>
-<p><a href="http://www.inf.puc-rio.br/%7Eabranco/terra.html">Terra</a>
+<p><a href="http://www.inf.puc-rio.br/%7Eabranco/terra.html" tager="_blank">
+Terra</a>
 is a system based on a tiny virtual machine and combines a reactive
 scripting language with a set of customized components. Originally,
 Terra was designed to run in WSN/IoT nodes with limited resources.
 These nodes, typically, have small microcontrolers and communicate
 using specific radio standards like IEEE 802.15.4 (based on ZigBee).
-Terra uses Céu-T as its scripting language and implements a
+Terra uses C&eacute;u-T as its scripting language and implements a
 component-based virtual machine VM-T to be customized for different
 application domains.
-We built VM-T using the <a href="http://nescc.sourceforge.net/">nesC</a>
-programming language and
-the <a href="http://tinyos.net">TinyOS</a> operating system.
+We built VM-T using the <a href="http://nescc.sourceforge.net/" target="_blank">
+nesC</a> programming language and
+the <a href="http://tinyos.net" target="_blank">TinyOS</a> operating system.
 </p>
 <p>
 We have already started some initiatives to port Terra to different
@@ -554,7 +557,7 @@ devices to enable interoperability in heterogeneous IoT network. These
 initiatives include ports to different operating systems and devices
 with different levels of resources. These initiatives include
 the use of radio technologies like IEEE 802.11 standards and the use of
-Linux on RaspberryPI device. </p>
+Linux on a RaspberryPI device. </p>
 <p>
 The aim of this project is to port Terra Virtual Machine VM-T to
 Android devices. This port will enable interoperability of Android
@@ -586,5 +589,3 @@ different radio standards.</li>
 <p>
 <a href="mailto:abranco@inf.puc-rio.br">Adriano Branco</a>
 </p>
-
-<br/><hr/>
