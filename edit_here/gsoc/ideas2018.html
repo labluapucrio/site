@@ -8,6 +8,9 @@ Interrupt-based drivers in C&eacute;u-Arduino for Cortex-M0 microcontrollers
 <li><a href="#lpeg">
 A Parser Generator with Semi-Automatic Error Recovery based on LPeg(Label)
 </a></li>
+<li><a href="#titan">
+Titan Fiber-Based Coroutines
+</a></li>
 </ul>
 
 <br><hr>
@@ -263,3 +266,49 @@ Advanced
 S&eacute;rgio Medeiros</a>
 </p>
 
+<br><hr>
+<h3 id="titan">Titan Fiber-Based Coroutines</h3>
+
+<h4>Brief Explanation</h4>
+
+<p>
+<a href="http://titan-lang.org">Titan</a> is a new programming language, 
+designed to
+be a statically-typed, ahead-of-time compiled sister language to Lua.
+Titan is in active development and, by the time of GSoC 2018, will already
+have had its first public release. The main goal of Titan is <b>predictable
+performance</b>, getting close to or surpassing what is possible with LuaJIT
+while being easy for Lua programmers.
+
+Several important use cases of Lua and LuaJIT, such as
+<a hreef="http://openresty.org">OpenResty</a>,
+rely on Lua coroutines for exposing a blocking, synchronous API to Lua scripts
+while working on top of an asynchronous, non-blocking native API. The goal
+of this GSoC project is to add coroutine support to Titan, using the <b>fiber</b>
+APIs of the major operating systems, so similar APIs can be built in Titan.
+This should be done without changes to the Lua virtual machine and runtime
+system, although custom versions of the Lua standard library functions that
+create and manage coroutines should be necessary.
+
+<h4>Expected Results</h4>
+
+<p>
+<ul>
+<li>Being able to yield from Lua code that has been called from Titan
+<li>Expose a coroutine API similar to the one that Lua scripts use for Titan coide
+</ul>
+
+<h4>Knowledge Prerequisites</h4>
+
+<p>
+C, Lua, OS APIs for cooperative multithreading (fibers)
+
+<h4>Skill Level</h4>
+
+<p>
+Advanced
+
+<h4>Mentor</h4>
+
+<p>
+<a href="https://www.dcc.ufrj.br/~fabiom/index.en.html">Fabio Mascarenhas</a>
