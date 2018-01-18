@@ -11,6 +11,12 @@ A Parser Generator with Semi-Automatic Error Recovery based on LPeg(Label)
 <li><a href="#titan">
 Titan Fiber-Based Coroutines
 </a></li>
+<li><a href="#lunio">
+Develop I/O API for Lunatik
+</a></li>
+<li><a href="#lunsoc">
+Develop Socket API for Lunatik
+</a></li>
 </ul>
 
 <br><hr>
@@ -312,3 +318,100 @@ Advanced
 
 <p>
 <a href="https://www.dcc.ufrj.br/~fabiom/index.en.html">Fabio Mascarenhas</a>
+
+<br><hr>
+<h3 id="lunio">Develop I/O API for Lunatik</h3>
+
+<h4>Brief explanation</h4>
+
+<p>
+<a href="http://netbsd.org/~lneto/dls14.pdf" target="_blank">Lunatik</a>
+is a kernel-level Lua interpreter version for scripting the Linux kernel.
+For example, it allows users to
+<a href="http://netbsd.org/~lneto/eurobsdcon14.pdf" target="_blank">filter packets
+using Lua scripts</a>.
+</p>
+<p>
+The main difference between Lunatik and regular user-level Lua is
+that Lunatik has no support for standard libraries that
+depend on the operating system (e.g., io and os) and for floating-point
+numbers. The purpose of this project is to develop a Lunatik
+library to provide I/O functionality to kernel scripts. This API
+should provide access to the file system internals and be implemented
+as a Linux loadable kernel module, binding the kernel internal implementation
+for the file user-level API.
+</p>
+
+<h4>Expected results</h4>
+
+<ul>
+<li>Lunatik I/O Library</li>
+<li>Documentation and Benchmarks</li>
+</ul>
+
+<h4>Knowledge prerequisites</h4>
+
+<p>
+C, Lua, OS  (and some courage :) )
+</p>
+
+<h4>Skill level</h4>
+
+<p>
+Advanced
+</p>
+
+<h4>Mentor</h4>
+
+<p>
+<a href="mailto:lneto@NetBSD.org">Lourival Vieira Neto</a>
+</p>
+
+<br><hr>
+<h3 id="lunsoc">Develop Socket API for Lunatik</h3>
+
+<h4>Brief explanation</h4>
+
+<p>
+<a href="http://netbsd.org/~lneto/dls14.pdf" target="_blank">Lunatik</a>
+is a kernel-level Lua interpreter version for scripting the Linux kernel.
+For example, it allows users to
+<a href="http://netbsd.org/~lneto/eurobsdcon14.pdf" target="_blank">filter packets
+using Lua scripts</a>.
+</p>
+<p>
+The main difference between Lunatik and regular user-level Lua is
+that Lunatik has no support for standard libraries that
+depend on the operating system (e.g., io and os) and for floating-point
+numbers. The purpose of this project is to develop a Lunatik
+library to provide network functionality to kernel scripts. This API
+should provide access to the network internals and be implemented
+as a Linux loadable kernel module, binding the kernel internal implementation
+for the socket user-level API.
+</p>
+
+<h4>Expected results</h4>
+
+<ul>
+<li>Lunatik Socket Library</li>
+<li>Documentation and Benchmarks</li>
+</ul>
+
+<h4>Knowledge prerequisites</h4>
+
+<p>
+C, Lua, OS  (and some courage :) )
+</p>
+
+<h4>Skill level</h4>
+
+<p>
+Advanced
+</p>
+
+<h4>Mentor</h4>
+
+<p>
+<a href="mailto:lneto@NetBSD.org">Lourival Vieira Neto</a>
+</p>
+
