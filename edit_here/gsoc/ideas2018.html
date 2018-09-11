@@ -1,3 +1,25 @@
+<!-- THIS FILE WAS AUTOMATICALLY GENERATED. -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<title>LabLua - Programming Language Research</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="/style.css"/>
+</head>
+<body>
+<div class="hspacer">&nbsp;</div>
+<div class="main">
+<div class="header">
+<img src="/images/site_header.png"/>
+</div>
+<div class="menu">
+<a href="/index.html">about</a> |
+<a href="/people.html">people</a> |
+<a href="/publications.html">publications</a> |
+<a href="/projects.html">projects</a> |
+<a href="/portugues.html">portugu&ecirc;s</a>
+</div>
+<!-- BEGIN CONTENT -->
 
 <h2>Ideas List - Google Summer of Code 2018</h2>
 
@@ -17,10 +39,13 @@ Develop I/O API for Lunatik
 <li><a href="#lunsoc">
 Develop Socket API for Lunatik
 </a></li>
+<li><a href="#libgit">
+Update the Lua Binding to libgit2
+</a></li>
 </ul>
 
 <br><hr>
-<h3 id="ceu">Interrupt-based drivers in Céu-Arduino for Cortex-M0 microcontrollers</h3>
+<h3 id="ceu">Interrupt-based drivers in C&eacute;u-Arduino for Cortex-M0 microcontrollers</h3>
 
 <h4>Background</h4>
 
@@ -48,8 +73,8 @@ However, programming with interrupts is hard and error prone.
 </p>
 
 <p>
-Céu-Arduino supports the development of Arduino applications in the 
-programming language Céu:
+C&eacute;u-Arduino supports the development of Arduino applications in the 
+programming language C&eacute;u:
 </p>
 
 <ul>
@@ -65,7 +90,7 @@ https://gitter.im/fsantanna/ceu</a></li>
 </ul>
 
 <p>
-Céu is a reactive language that aims to offer a higher-level and safer
+C&eacute;u is a reactive language that aims to offer a higher-level and safer
 alternative to C:
 </p>
 
@@ -79,7 +104,7 @@ https://github.com/fsantanna/ceu/</a></li>
 </ul>
 
 <p>
-Céu-Arduino empowers the development of Arduino applications with the following
+C&eacute;u-Arduino empowers the development of Arduino applications with the following
 extensions:
 </p>
 
@@ -98,14 +123,14 @@ extensions:
 </ul>
 
 <p>
-Céu supports
+C&eacute;u supports
 <a href="https://github.com/fsantanna/ceu-arduino#switching-a-led-with-interrupts" target="_blank">
 interrupts</a>
 as a primitive construct, reducing programming efforts considerably.
 </p>
 
 <p>
-Céu-Arduino already provides some interrupt-based drivers for AVR
+C&eacute;u-Arduino already provides some interrupt-based drivers for AVR
 microcontrollers, such as for
 <a href="https://github.com/fsantanna/ceu-arduino/tree/master/include/arduino/isr" target="_blank">
 external pins, timers, ADC, SPI, and the USART</a>.
@@ -135,11 +160,11 @@ microcontrollers, e.g.:
 <ul>
 <li>
     <a href="https://github.com/fsantanna/ceu/" target="_blank">
-Céu</a> is the programming language used in Céu-Arduino.
+C&eacute;u</a> is the programming language used in C&eacute;u-Arduino.
 </li>
 <li>
     <a href="https://github.com/fsantanna/ceu-arduino/" target="_blank">
-Céu-Arduino</a> is the Céu binding for Arduino.
+C&eacute;u-Arduino</a> is the C&eacute;u binding for Arduino.
 </li>
 <li>
     <a href="http://www.rocketscream.com/blog/docs-item/mini-ultra-pro-hookup-guide/" target="_blank">
@@ -166,10 +191,10 @@ application period:
 
 <ol>
 <li>
-    Install Céu and Céu-Arduino and compile and test some existing examples.
+    Install C&eacute;u and C&eacute;u-Arduino and compile and test some existing examples.
 </li>
 <li>
-    Create a simple example in Céu-Arduino using some sensors and actuators
+    Create a simple example in C&eacute;u-Arduino using some sensors and actuators
     (not necessarily using interrupts).
 </li>
 <li>
@@ -177,7 +202,7 @@ application period:
 </li>
 <li>
     Fork our <a href="https://github.com/fsantanna/ceu-arduino/" target="_blank">
-Céu-Arduino</a>
+C&eacute;u-Arduino</a>
     project on <i>github</i> and commit the new examples.
 </li>
 </ol>
@@ -415,3 +440,58 @@ Advanced
 <a href="mailto:lneto@NetBSD.org">Lourival Vieira Neto</a>
 </p>
 
+<br><hr>
+<h3 id="libgit">Update the Lua Binding to libgit2</h3>
+
+<h4>Brief explanation</h4>
+
+<p>
+<a href="https://libgit2.github.com/">libgit2</a> is a portable, pure C89 
+implementation of the Git core methods provided as a linkable library with a 
+solid API with zero dependencies.
+It is currently used in a variety of git-based applications such as GitHub, 
+GitLab and BitBucket. libgit2 has bindings with multiple programming
+languages such Ruby, Python, Erlang, Go, Lua and many others.
+
+<p>
+The project consists in updating (or rewriting) the Lua binding to libgit2 
+(<a href="https://github.com/libgit2/luagit2">luagit2</a>)
+</p>
+
+<h4>Expected results</h4>
+
+<ul>
+<li>Working luagit2 library compatible with the most recent versions
+of libgit2 and Lua
+<li>A luagit2 module uploaded to <a href="http://luarocks.org/">LuaRocks</a>
+<li>Proper documentation
+<li>Bi-weekly blog posts about the development process
+</ul>
+
+<h4>Prerequisites</h4>
+
+<ul>
+<li> Good knowledge of C 
+<li> Lua
+</ul>
+</p>
+
+<h4>Skill level</h4>
+
+<p>
+Medium
+</p>
+
+<h4>Mentors</h4>
+
+<p>
+<a href="http://etiene.net/main/about">Etiene Dalcol</a>
+<br>
+<a href="mailto:ethomson@edwardthomson.com">Edward Thomson</a>
+</p>
+
+<!-- END CONTENT -->
+</div> <!-- main -->
+<div class="hspacer"></div>
+</body>
+</html>
