@@ -26,18 +26,5 @@ do
    mkdir -p "$output_dir/$file_dir"
    output_file="$output_dir/$file"
    echo "<!-- THIS FILE WAS AUTOMATICALLY GENERATED. -->" > "$output_file"
-   cat "$common_dir/header.html" $file "$common_dir/footer.html" |\
-     sed -e 's/á/\&aacute;/g' \
-         -e 's/é/\&eacute;/g' \
-         -e 's/í/\&iacute;/g' \
-         -e 's/ó/\&oacute;/g' \
-         -e 's/ú/\&uacute;/g' \
-         -e 's/à/\&agrave;/g' \
-         -e 's/â/\&acirc;/g'  \
-         -e 's/ê/\&ecirc;/g'  \
-         -e 's/ô/\&ocirc;/g'  \
-         -e 's/ã/\&atilde;/g' \
-         -e 's/õ/\&otilde;/g' \
-         -e 's/ç/\&ccedil;/g' \
-     >> "$output_file"
+   cat "$common_dir/header.html" $file "$common_dir/footer.html" >> "$output_file"
 done
