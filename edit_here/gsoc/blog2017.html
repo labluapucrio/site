@@ -1,0 +1,103 @@
+<h2>Google Summer of Code 2017 Wrap Up</h2>
+Here is a brief highlight of our GSoC 2017 students projects. We are extremely thankful for their
+excelent work!
+<br><br><hr>
+<b>Editor Support for Typed Lua - Marc Andr&eacute; Tanner (Switzerland)</b>
+<p>
+<a href="http://github.com/andremm/typedlua">Typed Lua</a> extends Lua with an optional type system, allowing the use of both static and dynamic typing in the same code base, while preserving existing Lua run-time semantics. It achieves that by introducing optional type annotations and applying local type inference. This richer type system not only enforces stronger program behavior guarantees, but also facilitates the development of more powerful developer tools.
+<p>
+Programmers nowadays expect that their editors/IDEs suggest accurate completion candidates, perform asynchronous - as you type - error checking and support type queries such as "go to definition" or "find all references".
+The main goal of the project was to add such features for Typed Lua in a wide range of popular editors. Furthermore, we investigated a design for a modern, asynchronous editor plugin architecture for the 
+<a href="https://github.com/martanne/vis/">vis editor system</a> itself.
+</p>
+<p>Marc's project for GSoC 2017 is available <a href="http://www.brain-dump.org/gsoc17/">here</a>.
+<p>
+Marc's feedback for GSoC: &quot;GSoC allowed me to participate in the wider FLOSS community. As an example I was able to give a talk about vis at the Chaos Computer Club (CCC) Switzerland congress.&quot;
+</p>
+
+<br><hr>
+<b>Parser Generator with LPegLabel - Benas Vaitkevicius (Lithuania/Scotland)</b>
+<p>
+<a href="http://bford.info/pub/lang/peg" target="_blank">
+Parsing Expression Grammars</a> (PEGs)
+are an expressive formalism for the design and implementation of top-down parsers
+with local backtracking.
+<a href="http://www.inf.puc-rio.br/~roberto/lpeg/" target="_blanl">LPeg</a>
+is a tool that provides an implementation of PEGs for Lua, while
+<a href="https://github.com/sqmedeiros/lpeglabel/" target="_blank">LPegLabel</a> 
+is an extension
+of LPeg with some facilities for error reporting and recovery.
+</p>
+<p>The goal of this project was to build a parser generator on top of LPegLabel.
+This new tool should make the description of commom idioms easier and
+error reporting more automatic.
+</p>
+<p>Ben's project is described <a href="http://parsergen.blogspot.com/2017/08/parser-generator-based-on-lpeglabel.html">here</a>.
+
+<p>
+Ben's feedback: &quot;This project has been an absolute blast and very different to anything I've ever programmed before. Usually when writing a program, I immediately know what approach I can take, so I spend most of the time just writing and testing the code. For this project, programming was way more interesting, as I would spend hours just trying to figure out algorithms that would achieve the necessary task&quot;
+</p>
+
+<br><hr>
+<b>Lua Client for Strava V3 API - R Akshaynath (India)</b>
+<p>
+<p><a href="https://www.strava.com" target="_blank">Strava</a>
+is a popular social network for athletes that we can use to
+track cycling, running or swimming activities and share them
+with our connections.
+The <a href="https://strava.github.io/api/" target="_blank">Strava V3 API</a>
+is publicly available and developers can use it to access Strava's dataset
+for creating custom applications.
+As an example, <a href="https://www.relive.cc/" target="_blank">RELIVE.cc</a>
+gets your latest Strava ride and creates a movie of your ride that is played
+with Google Earth 3D.
+<p>The aim of this project was to create a Strava library for Lua, making it possible to
+create Strava applications with Lua.
+
+<p>This project's results can be found <a href="https://akshaynathr.wordpress.com/2017/08/29/gsoc-2017-final-submission/">here</a>.
+</p>
+<br><hr>
+<b>Adapt CGILua SAPI launcher to explore all WSAPI features - Jo&atilde;o Dutra (Brazil)</b>
+<p>
+<p><a href="http://keplerproject.github.io/cgilua/" target="_blank">
+CGILua</a> is a tool for creating dynamic Web pages and manipulating input
+data from Web forms.  One of the advantages of CGILua is its abstraction
+of the underlying Web server. CGILua can be used with a variety of Web
+servers and, for each server, with different launchers. A launcher is
+responsible for the interaction of CGILua and the Web server, for example
+mod_lua on Apache. 
+<p> <a href="http://keplerproject.github.io/wsapi/" target="_blank">WSAPI</a>
+is an API that abstracts the web server from Lua web
+applications, providing a set of helper libraries to deal with
+request processing and output buffering.
+This project reimplemented the SAPI launcher in order to explore WSAPI fully, thus
+improving the performance and simplifying maintenance.</p>
+<p>
+Jo&atilde;o's work has already been merged into the CGILua project!
+</p>
+<br><hr>
+<b>Interrupt-based drivers & libraries for C&eacute;u-Arduino - Guilherme Simas (Brazil)</b>
+<p>
+<p>
+This project consisted of developing new interrupt-based drivers for
+<a href="https://github.com/ceu-lang/ceu-arduino">C&eacute;u-Arduino</a>,
+in order to replace current functions and libraries which freeze the application while executing.
+<p>The drivers developed were: Analog to Digital Conversion and  Serial Peripheral Interface (SPI).
+<p>
+Guilherme's work has already been merged into the C&eacute;u-Arduino repository! 
+
+<br><hr>
+<b>Porting Terra to Android Devices - Mauricio Pedro Vieira (Brazil)</b>
+<p>
+<p><a href="http://www.inf.puc-rio.br/%7Eabranco/terra.html" tager="_blank">
+Terra</a>
+is a system based on a tiny virtual machine and combines a reactive
+scripting language with a set of customized components. 
+Terra uses C&eacute;u-T as its scripting language and implements a
+component-based virtual machine VM-T to be customized for different
+application domains.
+<p>
+The aim of this project was to port Terra Virtual Machine VM-T to
+Android devices, enabling interoperability of Android
+devices with others devices running Terra.
+<p>The project developed for GSoC is described <a href="http://afbranco.github.io/Terra/terra-gsoc.html">here</a>.
