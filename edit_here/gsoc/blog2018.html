@@ -1,0 +1,101 @@
+<h2>Google Summer of Code 2018 Wrap Up</h2>
+
+<p>
+We were very happy to participate again in Google Summer of Code
+(GSoC): this was our fifth year!
+Our very special thanks to the awesome five students that contributed
+to our R&D work with their projects.
+<p>
+Here is a brief highlight of their work, in their own words.
+
+<br><br><hr>
+<p>
+<b>RCU Binding for Lua tables - Caio Luiz Messias (Brazil)</b>
+</p>
+<p>
+<img class="photo-left" src="http://www.lua.inf.puc-rio.br/images/gsoc2018/caio.jpg"/>
+<p>
+&quot;Being highly concurrent, the Linux kernel has a wide array of options for synchronization. My project was a binding for the Read-Copy-Update (RCU) API, which guarantees high data availability by never blocking reader threads, even during updates. 
+<p>
+The project consisted of the implementation of a hash table, mimicking a standard Lua table, shared across multiple Lua states. This hash table is built on RCU facilities, which guarantee safe access by different Lua states running on concurrent kernel threads.
+<p>
+Participating in GSOC was a very enriching experience, with plenty of learning and growth opportunities. I was also able to experience how it is to work for an organization, with schedules, code revisions and rigorous testing, something we don't even come close at university.&quot;
+</p>
+<p>
+Caio's work developed during GSoC 2018 can be found
+<a href="https://github.com/caioluiz/lunatik"> here</a>.
+
+<br><hr>
+<p>
+<b>Socket API for Lunatik- Chengzhi Tan (China/US)</b>
+</p>
+<p>
+<img class="photo-left" src="http://www.lua.inf.puc-rio.br/images/gsoc2018/chengzhi.jpg"/>
+<p>
+&quot;The purpose of this project was to develop a Lunatik library to provide network functionality to kernel scripts. The Lunatik socket library provides most frequently used APIs available for IPv4, TCP, and UDP. I/O multiplex API, poll is also included in this library. The library is implemented as a Linux loadable kernel module, binding the kernel internal implementation for the socket user-level API.
+<p>
+With GSoC students can get the chance to be involved in an open source project, which improves not only code skills but also my cooperative abilities. The most exciting part is that this is a rare chance to work with other people around the world.&quot;
+<p>
+Chengzhi's work developed during GSoC 2018 is available
+<a href="https://github.com/tcz717/lunatik/tree/gsoc-final/socket"> here</a>.
+
+<br><hr>
+<p>
+<b>Update the Lua binding to libgit2- Satyendra Kumar Banjare (India)</b>
+</p>
+<p>
+<img class="photo-left" src="http://www.lua.inf.puc-rio.br/images/gsoc2018/satyendra.jpg"/>
+<p>
+&quot;This project aims at updating the Lua bindings to libgit2, allowing Lua users to use the Git core API from Lua. The new Luagit2 covers most of the important libgit2 modules. It was developed using Lua-C API, which provided us with a lot of flexibility to create functions that are very close to Lua-style. This includes returning multiple values from C to Lua, type checking of Lua userdata objects and error checks if anything goes wrong.
+<p>
+The tests for such a case of software development where the binding is written completely using C and final usage is in Lua was very exciting to write. I learned a lot of things. I improved a lot in my code style. I really enjoyed a lot working on my project.&quot;
+<p>
+Satyendra's work developed during GSoC 2018 can be found
+<a href="https://github.com/SatyendraBanjare/luagit2"> here</a>.
+
+
+
+<br><hr>
+
+<p>
+<b>C&eacute;u-Maker: easy-to-install, up-to-date integrated environment for C&eacute;u-Arduino and pico-C&eacute;u development</b>
+<p>
+<b>Anny Caroline Chagas (Brazil)</b>
+</p>
+
+<p>
+<img class="photo-left" src="http://www.lua.inf.puc-rio.br/images/gsoc2018/anny.jpg"/>
+</p>
+&quot;<a href="https://github.com/ceu-lang/ceu-arduino">C&eacute;u-Arduino</a> 
+supports the development of Arduino applications in 
+<a href="http://www.ceu-lang.org/">C&eacute;u</a>, 
+while <a href="https://github.com/ceu-lang/pico-ceu">pico-C&eacute;u</a>
+ is focused on visual and interactive applications,
+and is composed of  C&eacute;u and libraries for input, graphics, network, and sound. 
+<p>
+In GSoC, we aimed to make C&eacute;u-Maker more attractive to programmers by 
+improving tutorials and sample codes, providing a library for serial 
+communication and offering a graphical interface for the programmer 
+to choose the Arduino board for which they want to load their code.&quot;
+<p>
+Anny's work can be found
+<a href="https://github.com/AnnyCaroline/ceu-maker-gsoc"> here</a>.
+
+<br><hr>
+<p>
+<b>Interrupt-based drivers in C&eacute;u-Arduino - M Naveen Kumar (India)</b>
+</p>
+
+Most operations in Arduino libraries freeze the rest of the application
+until they complete. Making use of interrupts allows programs to remain
+executing while the operation progresses and completes.
+<p>
+This project consisted of developing new interrupt-based drivers for
+<a href="https://github.com/ceu-lang/ceu-arduino">C&eacute;u-Arduino</a>,
+including Real Time Clock, OLED display and I2C, and some libraries on top
+of these drivers (e.g., RF transceiver, ultrasonic sensor an accelerometer).
+<p>
+Naveen's work can be found
+<a href="https://github.com/mnaveenkumar2009/GSoC-2018"> here</a>.
+</p>
+
