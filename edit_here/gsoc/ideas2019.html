@@ -1,0 +1,269 @@
+
+<h2>Ideas List - Google Summer of Code 2019</h2>
+
+<ul>
+<li><a href="#ceu">
+Low-Power Interrupt-Based Drivers in C&eacute;u-Arduino
+</a></li>
+<li><a href="#lpeg">
+A Parser Generator with Semi-Automatic Error Recovery based on LPeg(Label)
+</a></li>
+</ul>
+
+<br><hr>
+<h3 id="ceu">Low-Power Interrupt-Based Drivers in C&eacute;u-Arduino</h3>
+
+<h4>Background</h4>
+
+<p>
+Currently, most sensing operations in Arduino libraries freeze the rest of the
+application until they complete, e.g.:
+
+</p>
+
+<ul>
+<li> Reading an analog pin with
+<a href="https://www.arduino.cc/en/Reference/AnalogRead" target="_blank">
+analogRead</a> takes about 100 microseconds to complete.
+</li>
+<li> Measuring a distance with an
+<a href="http://playground.arduino.cc/Code/NewPing" target="_blank">
+ultrasonic sensor</a> takes about 30 milliseconds.
+</li>
+</ul>
+
+<p>
+The use of interrupts allows programs to remain executing while sensing
+operations progress and complete.
+<!--However, programming with interrupts is hard and error prone.-->
+</p>
+
+<p>
+In this project, the student will develop interrupt-based device drivers in the
+programming language C&eacute;u aiming for high concurrency and energy efficiency.
+</p>
+
+<p>
+<i>C&eacute;u-Arduino</i> supports the development of Arduino applications in the 
+programming language C&eacute;u:
+</p>
+
+<ul>
+<li>Source Code:
+<a href="https://github.com/ceu-lang/ceu-arduino/" target="_blank">
+https://github.com/ceu-lang/ceu-arduino/</a></li>
+<li>Documentation:
+<a href="http://ceu-lang.github.io/ceu-arduino/" target="_blank">
+https://ceu-lang.github.io/ceu-arduino/</a></li>
+<li>Chat:
+<a href="https://gitter.im/fsantanna/ceu" target="_blank">
+https://gitter.im/ceu-lang/ceu</a></li>
+</ul>
+
+<p>
+C&eacute;u is a reactive language that aims to offer a higher-level and safer
+alternative to C:
+</p>
+
+<ul>
+<li>Home Page:
+<a href="http://www.ceu-lang.org/" target="_blank">
+http://www.ceu-lang.org/</a></li>
+<li>Source code:
+<a href="https://github.com/ceu-lang/ceu/" target="_blank">
+https://github.com/ceu-lang/ceu/</a></li>
+</ul>
+
+<p>
+C&eacute;u-Arduino empowers the development of Arduino applications with the following
+extensions:
+</p>
+
+<ul>
+<li>Awaiting events in direct/sequential style.  </li>
+<li>Parallel lines of execution with
+    <ul>
+    <li>safe abortion;</li>
+    <li>deterministic behavior (in contrast with threads).</li>
+    </ul>
+</li>
+<li>Asynchronous loops for heavy computations.</li>
+<li>Interrupt-driven operation mode.</li>
+<li>Seamless integration with standard Arduino (e.g., <code>digitalWrite</code>,
+<code>random</code>, etc).</li>
+</ul>
+
+<p>
+C&eacute;u supports
+<a href="https://github.com/ceu-lang/ceu-arduino#switching-a-led-with-interrupts" target="_blank">
+interrupts</a>
+as a primitive construct, reducing programming efforts considerably.
+</p>
+
+<p>
+C&eacute;u-Arduino already provides interrupt-based drivers for a
+<a href="https://github.com/ceu-arduino/" target="_blank">
+variety of peripherals</a>,
+such as external pins, timers, ADC, SPI, I2C, and the USART.
+</p>
+
+<h4>The Project</h4>
+
+The project consists of developing new interrupt-based drivers for C&eacute;u-Arduino
+for additional devices:
+
+<ul>
+    <li>SPI peripherals
+    </li>
+    <li>I2C peripherals
+    </li>
+    <li>Libraries built on top of other drivers (e.g.,
+        RF transceiver, ultrasonic sensor, accelerometer).
+    </li>
+</ul>
+
+We also expect the student to develop at least one complete application to
+evaluate its functionality and energy consumption.
+
+<h4>Tools</h4>
+
+<ul>
+<li>
+    <a href="https://github.com/ceu-lang/ceu/" target="_blank">
+C&eacute;u</a> is the programming language used in C&eacute;u-Arduino.
+</li>
+<li>
+    <a href="https://github.com/ceu-lang/ceu-arduino/" target="_blank">
+C&eacute;u-Arduino</a> is the C&eacute;u binding for Arduino.
+</li>
+<li>
+    <a href="https://store.arduino.cc/usa/arduino-mega-2560-rev3" target="_blank">
+Arduino MEGA</a> or equivalent.
+</li>
+<li>
+    A sort of Arduino peripherals.
+</li>
+</ul>
+
+<h4>Prerequisites</h4>
+
+<p>
+<b>We expect the student to own the Arduino board and peripherals.</b>
+</p>
+
+We also expect the student to know <b>C</b> and
+<b>interrupt services routines</b> in Arduino microcontrollers.
+
+<p>
+We ask applicants to complete the following activities <i>before</i> the
+application period:
+</p>
+
+<ol>
+<li>
+    Install C&eacute;u and C&eacute;u-Arduino and compile and test some existing examples.
+</li>
+<li>
+    Create a simple example in C&eacute;u-Arduino using some sensors and actuators
+    (not necessarily using interrupts).
+</li>
+<li>
+    Create a simple example in C that uses interrupt-driven analog reads.
+</li>
+<li>
+    Fork our <a href="https://github.com/ceu-lang/ceu-arduino/" target="_blank">
+C&eacute;u-Arduino</a>
+    project on <i>github</i> and commit the new examples.
+</li>
+</ol>
+
+<h4>Skill level</h4>
+
+<p>
+Hard
+</p>
+
+<h4>Mentor</h4>
+
+<p>
+<a href="http://www.ceu-lang.org/chico" target="_blank">Francisco Sant'Anna</a>
+</p>
+<br><hr>
+<h3 id="lpeg">A Parser Generator with Semi-Automatic Error Recovery based on LPeg(Label)</h3>
+
+<h4>Brief explanation</h4>
+
+<p>
+<a href="http://bford.info/pub/lang/peg" target="_blank">
+Parsing Expression Grammars</a> (PEGs)
+are an expressive formalism for the design and implementation of top-down parsers 
+with local backtracking.
+<a href="http://www.inf.puc-rio.br/~roberto/lpeg/" target="_blank">LPeg</a> 
+is a tool that provides an implementation of PEGs for Lua, while 
+<a href="https://github.com/sqmedeiros/lpeglabel/" target="_blank">LPegLabel</a> 
+is an extension
+of LPeg with some facilities for error reporting and recovery.
+</p>
+
+<p>The goal of this project is to build a parser generator on top of the new version of LPegLabel.
+This new tool should make easier the description of a parser for a
+programming language and should also implement an 
+<a href="https://dl.acm.org/citation.cfm?id=3264638" target="_blank">
+algorithm</a> to automatically annotate a PEG with labels, in order to provide a quasi-automatic error
+recovery mechanism.
+</p>
+
+<h4>Tools</h4>
+
+<p>
+<ul>
+<li><a href="https://github.com/sqmedeiros/lpeglabel/" target="_blank">LPegLabel</a>
+<li><a href="http://www.inf.puc-rio.br/~roberto/lpeg/" target="_blank">LPeg</a>
+<li><a href="https://github.com/vsbenas/parser-gen/" target="_blank">parser-gen</a>
+</ul> 
+</p>
+
+
+<h4>Expected results</h4>
+
+<p>
+<ul>
+<li>A parser generator tool
+<li>The (re)writing of at least 2 parsers with the new tool,
+including <a href="https://github.com/andremm/lua-parser" target="_blank">
+<i>lua-parser</i></a>,
+with a robust error recovering mechanism. 
+<li>A proper documentation
+</p>
+
+</ul>
+
+
+<h4>Prerequisites</h4>
+
+<p>
+We expect the applicants to have a solid knowledge of <i>parsing</i> and
+to develop familiarity with LPeg and LPegLabel before the project starts.
+The applicant should have used at least one parser generator tool,
+such as yacc/bison, ANTLR, JavaCC, PEG.js, etc.
+</p>
+
+<p>
+For this reason, we will ask the applicants to perform some activities
+<b>before</b> the application period.
+</p>
+
+<h4>Skill level</h4>
+
+<p>
+Advanced
+</p>
+
+
+<h4>Mentor</h4>
+
+<p>
+<a href="https://sites.google.com/site/sqmedeiros/" target="_blank">
+Sérgio Medeiros</a>
+</p>
+
