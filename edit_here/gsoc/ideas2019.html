@@ -2,13 +2,74 @@
 <h2>Ideas List - Google Summer of Code 2019</h2>
 
 <ul>
+<li><a href="#pallene">
+C Header File Parser in Lua Using Clang AST
+</a></li>
 <li><a href="#ceu">
 Low-Power Interrupt-Based Drivers in C&eacute;u-Arduino
+</a></li>
+<li><a href="#apolo">
+Apolo: a Library to aid the Creation of Scripts in Lua, replacing Shell Scripts and Windows Batch Files
 </a></li>
 <li><a href="#lpeg">
 A Parser Generator with Semi-Automatic Error Recovery based on LPeg(Label)
 </a></li>
+<li><a href="#lunatik_dns">
+Develop an in-kernel DNS over HTTPS server for Lunatik
+<li><a href="#lunatik_io">
+Develop I/O API for Lunatik
+</a></li>
 </ul>
+
+<br><hr>
+<h3 id="pallene">C Header File Parser in Lua Using Clang AST</h3>
+
+<h4>Brief Explanation</h4>
+
+<p>
+<a href="http://www.inf.puc-rio.br/~hgualandi/papers/Gualandi-2018-SBLP.pdf" target="_blank"> Pallene</a>
+is a statically-typed companion language for Lua. Its main goal is improving 
+Lua's performance by rewriting its code with static-type annotations. 
+One of the features we want to incorporate in Pallene eventually is an FFI to C.
+Since Pallene is statically typed, it may call C efficiently. This feature 
+requires Pallene to parse C header files to manipulate its structures and 
+call its functions.
+<p>
+In this project, you should write a parser to C header files using Clang AST. 
+Clang AST is a C++ library that parses a C file and generates an abstract syntax
+tree (AST). Because we wrote the Pallene compiler in Lua, we need a Lua library
+that takes as input a C file and generate as output a Lua representation for C 
+declarations. This library should be written from scratch separately from
+Pallene.
+
+<h4>Tools</h4>
+<ul>
+<li>Clang AST (http://clang.llvm.org/docs/IntroductionToTheClangAST.html)
+<li>Lua C API (https://www.lua.org/pil/24.html)
+</ul>
+
+<h4>Expected Results</h4>
+<ul>
+<li> Define a Lua representation for C declarations
+<li> Implementing a Lua library that parses C using Clang AST
+<li> Automated tests and documentation of the Library
+</ul>
+
+<h4>Knowledge Prerequisites</h4>
+<ul>
+<li>C++
+<li>Lua C API
+</ul>
+
+<h4>Skill Level</h4>
+Intermediate
+
+<h4>Mentor</h4>
+
+<p>
+<a href="mailto:gqligneul@gmail.com">Gabriel de Quadros Ligneul</a>
+</p>
+
 
 <br><hr>
 <h3 id="ceu">Low-Power Interrupt-Based Drivers in C&eacute;u-Arduino</h3>
@@ -188,6 +249,99 @@ Hard
 <p>
 <a href="http://www.ceu-lang.org/chico" target="_blank">Francisco Sant'Anna</a>
 </p>
+
+<br><hr>
+<h3 id="apolo">Apolo: a Library to aid the Creation of Scripts in Lua, replacing Shell Scripts and Windows Batch Files</h3>
+
+<h4>Background</h4>
+
+Scripts are needed for many different tasks. For example, some programs need 
+some environment adjustments to be run properly (PATH adjustments, set up 
+plugin directories, etc.). These scripts are usually Shell scripts in Unix-like 
+operating systems and .BAT scripts in Windows. To avoid the problems associated
+with these kinds of scripts (unintuitive syntax being one of them), many people 
+choose other languages for the task, like Perl, Python or Ruby. While these 
+languages usually work well for the given goal, when the platform doesn't 
+provide interpreters for these languages natively, they become another 
+dependency that either the user has to pull in or the developer has to bundle 
+together with their program - which can be a problem, considering that these 
+interpreters are usually several megabytes in size.
+<P>
+It's already possible to write launcher scripts in Lua today, since Lua is just 
+as much of a general-purpose programming language as the ones mentioned above. 
+Also, with a size of a few hundred kilobytes, the weight a Lua interpreter 
+will put on the distribution of a program is negligible for most applications,
+making it a very good fit in that regard.
+<p>
+However, pure Lua lacks some core functionalities needed by launcher scripts, 
+making it necessary for the developer to select a set of libraries that suits 
+their purpose (e.g. filesystem manipulation); also, many convenience features 
+present in Bash and the languages above are not present in Lua. 
+So, while it's possible to write these kinds of scripts in Lua, it is not as 
+convenient as it is in the languages above.
+
+<h4>The Project</h4>
+
+<a href="https://gitlab.com/luizromario/apolo" target="_blank">Apolo</a> is a library created 
+with the goal of making writing scripts in Lua as convenient as writing them 
+in, say, Python or Perl, by removing the need to select a set of necessary 
+variables for the task and providing an API with similar functionalities.
+<p>
+Although some things are already implemented, like running processes, 
+filesystem navigation and manipulation and environment manipulation, it's 
+still on a very early stage. Ideally, we'd like to make it possible to write 
+anything you'd write in Bash without the need for external variables, but, 
+in order of importance, here's what we'd like to see implemented:
+<ul>
+<li> Basic syntax and commands from Bash (`which`, filtering, etc.)
+<li> Something similar to Bash's double-ticks
+<li> Redirecting IO
+<li> Piping
+<li> Management of processes in the background (you can currently run background processes, but they're completely detached)
+<li> Make it possible to build an `apolo` binary that includes the Apolo library built-in.
+<li> Other features (like dialogs) are welcome if there's time for them
+</ul>
+
+It's very important that most things that are convenient to do in Bash are 
+at least almost as convenient to do in Lua + Apolo, which is why, for example, 
+there should be no external dependencies besides Lua 5.3. It's also important 
+to make Apolo run on at least Linux and Windows.
+
+<h4>Tools</h4>
+<ul>
+<li> The <a href="https://lua.org" target="_blank">Lua progamming language</a>.
+<li> Windows and Linux (at least).
+<li> <a href="https://gcc.gnu.org" target="_blank">GCC</a> or 
+<a href="https://clang.llvm.org" target="_blank">Clang</a>.
+<li> <a href="http://www.mingw.org/" target="_blank">MinGW</a> (for Windows).
+</ul>
+
+<h4>Prerequisites</h4>
+
+We expect the student to know C, how to build Lua, how to use, write, and 
+build Lua libraries (both pure Lua libraries and C libraries, which includes 
+knowing the C API), how to deploy Lua libraries together with Lua 
+(how to use `LUA_PATH` and `LUA_CPATH`).
+We also expect the user to have some knowledge of Bash.
+<p>
+Before the application period, the student should do the following, 
+on both Linux and Windows:
+<ol>
+<li>Download and build the latest version of Lua
+<li>Build Apolo linking to the version of Lua built in the previous step
+<li>Take some moderately sized (at least 50 loc) real shell script and rewrite it using only Lua + Apolo
+<li>Fork the Apolo repo and commit the example
+</ol>
+
+<h4>Skill level</h4>
+
+Medium
+
+<h4>Mentor</h4>
+<p>
+<a href="mailto:romariorios@protonmail.com">Luiz Romário Santana Rios</a>
+</p>
+
 <br><hr>
 <h3 id="lpeg">A Parser Generator with Semi-Automatic Error Recovery based on LPeg(Label)</h3>
 
@@ -265,5 +419,99 @@ Advanced
 <p>
 <a href="https://sites.google.com/site/sqmedeiros/" target="_blank">
 Sérgio Medeiros</a>
+</p>
+
+<br><hr>
+<h3 id="lunatik_dns">Develop an in-kernel DNS over HTTPS server for Lunatik</h3>
+
+<h4>Brief explanation</h4>
+<a href="http://netbsd.org/~lneto/dls14.pdf" target="_blank">Lunatik</a>
+is a kernel-level Lua interpreter version for scripting the Linux kernel.
+For example, it allows users to
+<a href="http://netbsd.org/~lneto/eurobsdcon14.pdf" target="_blank">filter packets
+using Lua scripts</a>.
+</p>
+
+DNS over HTTPS is a new secure way of requesting encrypted DNS
+queries to prevent eavesdropping and improve users privacy.
+<p>
+ULP (Upper Layer Protocol) is a new feature merged recently in the
+Linux kernel which allows user-space programs to attach L7
+functionalities to the in-kernel socket structure.
+<p>
+The purpose of this project is to implement an in-kernel encrypted DNS
+server using Lunatik and its ULP binding. We expect also
+adjustments on ULP binding, documentation and benchmarks as part of
+this project.
+
+<h4>Expected results</h4>
+<ul>
+<li>DNS over HTTPS server for Lunatik
+<li>Documentation and benchmarks
+</ul>
+
+<h4>Knowledge prerequisites</h4>
+
+C, Lua, OS, Networking (and some courage :) )
+<p>
+You must be comfortable reading technical documentation, such as RFCs.
+
+<h4>Skill Level</h4>
+
+Advanced
+
+<h4>Mentors</h4>
+<p>
+<a href="mailto:lneto@NetBSD.org">Lourival Vieira Neto</a>,
+<a href="mailto:analuciadm@gmail.com">Ana Lúcia de Moura</a>,
+<a href="mailto:pctammela@gmail.com">Pedro Tammela</a>
+</p>
+
+<br><hr>
+<h3 id="lunatik_io">Develop I/O API for Lunatik</h3>
+
+<h4>Brief explanation</h4>
+
+<p>
+<a href="http://netbsd.org/~lneto/dls14.pdf" target="_blank">Lunatik</a>
+is a kernel-level Lua interpreter version for scripting the Linux kernel.
+For example, it allows users to
+<a href="http://netbsd.org/~lneto/eurobsdcon14.pdf" target="_blank">filter packets
+using Lua scripts</a>.
+</p>
+<p>
+The main difference between Lunatik and regular user-level Lua is
+that Lunatik has no support for standard libraries that
+depend on the operating system (e.g., io and os) and for floating-point
+numbers. The purpose of this project is to develop a Lunatik
+library to provide I/O functionality to kernel scripts. This API
+should provide access to the file system internals and be implemented
+as a Linux loadable kernel module, binding the kernel internal implementation
+for the file user-level API.
+</p>
+
+<h4>Expected results</h4>
+
+<ul>
+<li>Lunatik I/O Library</li>
+<li>Documentation and Benchmarks</li>
+</ul>
+
+<h4>Knowledge prerequisites</h4>
+
+<p>
+C, Lua, OS  (and some courage :) )
+</p>
+
+<h4>Skill level</h4>
+
+<p>
+Advanced
+</p>
+
+<h4>Mentor</h4>
+
+<p>
+<a href="mailto:lneto@NetBSD.org">Lourival Vieira Neto</a>
 </p>
 
