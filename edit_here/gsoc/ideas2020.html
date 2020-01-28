@@ -1,0 +1,87 @@
+
+<h2>Ideas List - Google Summer of Code 2020</h2>
+
+<ul>
+<li><a href="#lpeg">
+A Parser Generator with Semi-Automatic Error Recovery based on LPeg(Label)
+</a></li>
+</ul>
+
+<br><hr>
+<h3 id="lpeg">A Parser Generator with Semi-Automatic Error Recovery based on LPeg(Label)</h3>
+
+<h4>Brief explanation</h4>
+
+<p>
+<a href="http://bford.info/pub/lang/peg" target="_blank">
+Parsing Expression Grammars</a> (PEGs)
+are an expressive formalism for the design and implementation of top-down parsers 
+with local backtracking.
+<a href="http://www.inf.puc-rio.br/~roberto/lpeg/" target="_blank">LPeg</a> 
+is a tool that provides an implementation of PEGs for Lua, while 
+<a href="https://github.com/sqmedeiros/lpeglabel/" target="_blank">LPegLabel</a> 
+is an extension
+of LPeg with some facilities for error reporting and recovery.
+</p>
+
+<p>The goal of this project is to build a parser generator on top of the new version of LPegLabel.
+This new tool should make easier the description of a parser for a
+programming language and should also implement a
+<a href="https://arxiv.org/abs/1905.02145" target="_blank"> conservative algorithm</a>
+to automatically annotate a PEG with labels, in order to provide an automatic error
+recovery mechanism.
+</p>
+
+<h4>Tools</h4>
+
+<p>
+<ul>
+<li><a href="https://github.com/sqmedeiros/lpeglabel/" target="_blank">LPegLabel</a>
+<li><a href="http://www.inf.puc-rio.br/~roberto/lpeg/" target="_blank">LPeg</a>
+</ul> 
+</p>
+
+
+<h4>Expected results</h4>
+
+<p>
+<ul>
+<li>A parser generator tool
+<li>The (re)writing of at least 2 parsers with the new tool,
+including <a href="https://github.com/andremm/lua-parser" target="_blank">
+<i>lua-parser</i></a>,
+with a robust error recovering mechanism. 
+<li>A proper documentation
+</p>
+
+</ul>
+
+
+<h4>Prerequisites</h4>
+
+<p>
+We expect the applicants to have a solid knowledge of <i>parsing</i> and
+to develop familiarity with LPeg and LPegLabel before the project starts.
+The applicant should have used at least one parser generator tool,
+such as yacc/bison, ANTLR, JavaCC, PEG.js, etc.
+</p>
+
+<p>
+For this reason, we will ask the applicants to perform some activities
+<b>before</b> the application period.
+</p>
+
+<h4>Skill level</h4>
+
+<p>
+Advanced
+</p>
+
+
+<h4>Mentor</h4>
+
+<p>
+<a href="https://sites.google.com/site/sqmedeiros/" target="_blank">
+Sérgio Medeiros</a>
+</p>
+
