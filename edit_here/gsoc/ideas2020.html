@@ -5,6 +5,12 @@
 <li><a href="#lpeg">
 A Parser Generator with Semi-Automatic Error Recovery based on LPeg(Label)
 </a></li>
+<li><a href="#ktls">
+Lua Hook on kTLS
+</a></li>
+<li><a href="#luaformatter">
+Lazy Configuration validator for LuaFormatter
+</a></li>
 </ul>
 
 <br><hr>
@@ -83,5 +89,110 @@ Advanced
 <p>
 <a href="https://sites.google.com/site/sqmedeiros/" target="_blank">
 Sérgio Medeiros</a>
+</p>
+
+<br><hr>
+<h3 id="ktls">Lua Hook on kTLS</h3>
+
+<h4>Brief explanation</h4>
+
+<p>
+Lunatik is a kernel-level Lua interpreter version for scripting the
+Linux kernel. For example, it allows users to filter packets using Lua
+scripts. kTLS is a new socket type provided by Linux that
+transparently handles the encryption and decryption of TLS messages.
+        <p>
+ULP (Upper Layer Protocol) is a new feature merged recently in the
+Linux kernel which allows user-space programs to attach L7
+functionalities to the in-kernel socket structure. kTLS is implemented
+via ULP.
+<p>
+The purpose of this project is to implement a kernel level Lua hook
+inside the kTLS infrastructure. This way we could use Lua scripts to
+inspect the contents of the HTTP messages transparently inside the
+kernel.
+</p>
+
+<h4>Expected results</h4>
+
+<p>
+<ul>
+<li>Lua hook inside kTLS
+<li>A reference application
+<li>Documentation and benchmarks
+</p>
+
+</ul>
+
+
+<h4>Prerequisites</h4>
+
+<p>
+C, Lua, make, OS, networking (and some courage ;))
+</p>
+
+<h4>Skill level</h4>
+
+<p>
+Advanced
+</p>
+
+
+<h4>Mentor</h4>
+
+<p>
+<a href="mailto:pctammela@gmail.com">Pedro Tammela</a>
+</p>
+
+<br><hr>
+<h3 id="luaformatter">Lazy Configuration validator for LuaFormatter</h3>
+
+<h4>Brief explanation</h4>
+
+<p>
+LuaFormatter is a code formatter for Lua inspired by LLVM's
+'clang-format'. It helps projects keep a even code style in Lua
+scripts while being easy to integrate with many different code
+editors.
+<p>
+The purpose of this project is to implement a lazy configuration
+validator. Right now, LuaFormatter doesn't check if the configuration
+values makes sense before using it. For example, a clueless user could
+use a negative value in a field where the range expected is [0,
+&infin;).
+<p>
+We expect the validator to detect this kind of error and report to the
+user in a nice, helpful way.
+</p>
+
+<h4>Expected results</h4>
+
+<p>
+<ul>
+<li>Lazy configurator validator
+<li>Unit tests
+<li>Documentation
+</p>
+
+</ul>
+
+
+<h4>Prerequisites</h4>
+
+<p>
+C++/C, Git
+</p>
+
+<h4>Skill level</h4>
+
+<p>
+Easy
+</p>
+
+
+<h4>Mentor</h4>
+
+<p>
+<a href="mailto:pctammela@gmail.com">Pedro Tammela</a>
 </p>
 
