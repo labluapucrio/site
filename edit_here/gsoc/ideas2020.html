@@ -2,15 +2,21 @@
 <h2>Ideas List - Google Summer of Code 2020</h2>
 
 <ul>
-<li><a href="#lpeg">
-A Parser Generator with Semi-Automatic Error Recovery based on LPeg(Label)
-</a></li>
-<li><a href="#ktls">
-Lua Hook on kTLS
-</a></li>
-<li><a href="#luaformatter">
-Lazy Configuration validator for LuaFormatter
-</a></li>
+    <li><a href="#lpeg">
+    A Parser Generator with Semi-Automatic Error Recovery based on LPeg(Label)
+    </a></li>
+
+    <li><a href="#ktls">
+    Lua Hook on kTLS
+    </a></li>
+
+    <li><a href="#luaformatter">
+    Lazy Configuration validator for LuaFormatter
+    </a></li>
+
+    <li><a href="#pallene">
+    Closures in Pallene
+    </a></li>
 </ul>
 
 <br><hr>
@@ -204,4 +210,68 @@ Easy
 <p>
 <a href="mailto:pctammela@gmail.com">Pedro Tammela</a>,
 <a href="mailto:koihik@hotmail.com">Shaobang Wen</a>
+</p>
+
+<br><hr>
+<h3 id="pallene">Closures in Pallene</h3>
+
+<p><a href="https://github.com/pallene-lang/pallene">Pallene</a> is a typed
+companion language for Lua. Its syntax is similar to Lua, but with added type
+annotations. These types allow the Pallene compiler to generate code that is
+much more efficient than the Lua interpreter. Pallene is ideally suited for
+writing performant extension modules for Lua.
+</p>
+
+<p>
+Pallene is evolving at a rapid pace, and there are still many features
+missing from the language. One of the key missing features is function
+closures. Closures allow programmers to write nested functions, where
+the inner function uses variables from the outer function. They are are
+important because they allow programmers to write more expressive code
+with a functional paradigm. Closures are a key feature in Lua, and we
+want them in Pallene to reduce the gap between the two languages.
+</p>
+
+<p>
+In this project, you will delve into the guts of the Pallene compiler
+to implement this feature. The compiler itself is written in Lua and C,
+and it generates C code, so knowing both languages is a prerequisite.
+</p>
+
+<p>
+To add closures to the Pallene language, you will need to modify the
+parser, the type checker, the compiler intermediate representation, and
+the code generator. Besides these changes to the compiler source code,
+you will also need to update language documentation and write unit
+tests tests. Finally, it would also be nice to measure the performance
+of the implementation.
+</p>
+
+<p>
+This is a hard project, so we are expecting students that
+are looking for a challenge. Nevertheless, the student will have the
+full support of the mentors. If you are interested, please contact the
+mentors by email to get started with Pallene development.
+</p>
+
+<h4>Prerequisites</h4>
+
+<p><ul>
+    <li> Lua programming language
+    <li> C programming language
+    <li> C API for Lua
+    <li> Compilers
+</ul></p>
+
+<h4>Skill Level</h4>
+
+<p>
+Hard
+</p>
+
+<h4>Mentors</h4>
+
+<p>
+<a href="mailto:hgualandi@inf.puc-rio.br">Hugo Gualandi</a>
+<a href="mailto:gqligneul@gmail.com">Gabriel Ligneul</a>
 </p>
