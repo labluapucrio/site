@@ -283,37 +283,47 @@ Hard
 <br><hr>
 <h3 id="ceu">Extending the support of Céu in the Céu-Arduino IDE</h3>
 
+<h4>Background</h4>
+
 <p>
-<a href="https://github.com/ceu-lang/ceu-arduino" target="_blank">Céu-Arduino IDE</a>
-is a modified version of the Arduino IDE that supports developing apps
-in <a href="http://www.ceu-lang.org" target="_blank">Céu</a> with the Arduino binding.
-Currently the IDE can open, compile and upload Arduino sketches
-written in the Céu programming language.
-It also includes some features such as syntax highlighting for Céu
-constructs, Céu examples for Arduino and Céu-Arduino libraries.
+Céu is a reactive language that aims to offer a higher-level and safer alternative to C:
+<ul>
+    <li> Home Page: <a href="http://www.ceu-lang.org" target="_blank">http://www.ceu-lang.org</a>
+    <li> Source code: <a href="https://github.com/ceu-lang/ceu" target="blank">https://github.com/ceu-lang/ceu</a>
+</ul>
+</p>
+
+<p>
+Céu-Arduino IDE is a modified version of the Arduino IDE that supports
+developing apps in Céu with the Céu-Arduino binding.
+Currently the IDE can open, compile and upload Arduino sketches written
+in the Céu programming language. It also includes some features such as
+syntax highlighting for Céu constructs, Céu examples for Arduino and
+Céu-Arduino libraries.
 </p>
 
 <h4>The project</h4>
+
 <p>
 The goal of this project is to extend the support of Céu in the IDE by
 adding more features such as:
 <ul>
-    <li> Support for other Céu bindings such as pico-céu.
-         This will include developing a GUI tool for viewing the program output.
-    <li> Auto formatting, auto indentation and code folding for Céu source code files.
-    <li> Developing a GUI debugger for Céu that can keep track of which trails
-         are active and which are idle.
+    <li> Adding support for other Céu bindings like pico-céu, this will
+         include adding a GUI tool for viewing the program output.
+    <li> Auto formatting, auto indentation and code folding for Céu code files. 
+    <li> Adding a GUI debugger for Céu that can keep track of which trails are
+         active and which are idle.
 </ul>
-Optionally, a plugin architecture could be implemented for the Arduino IDE first
-so that these features and future ones could be added in the form of
-plugins instead of modifying the IDE.
+A plugin architecture could be implemented for the Arduino IDE first,
+so that these features and future ones could be added in the form of plugins
+instead of modifying the IDE.
 </p>
 
 <h4>Tools</h4>
 
 <p>
 <ul>
-    <li> Céu programming language.
+    <li> Céu programming language
     <li> Céu-Arduino IDE.
     <li> Ant for building the IDE from source.
 </ul>
@@ -322,7 +332,21 @@ plugins instead of modifying the IDE.
 <h4>Prerequisites</h4>
 
 <p>
-Knowledge of Java or C#.
+The student should know Java or a similar language (e.g. C#).
+We ask applicants to complete the following activities before the application period:
+<ol>
+    <li> Install Céu, Céu-Arduino and pico-Céu and compile and test some of the existing examples.
+    <li> Install Apache Ant and download the Céu-Arduino IDE repository from github.
+    <li> Add a dummy menu in the menu bar and a dummy button in the toolbar.
+    <li> Fork our Céu-Arduino IDE repository on github and commit your edits.
+    <li> Build the edited IDE using Ant and add the build as a release to your forked repository.
+</ol>
+</p>
+
+<h4>Skill level</h4>
+
+<p>
+Hard
 </p>
 
 <h4>Mentors</h4>
