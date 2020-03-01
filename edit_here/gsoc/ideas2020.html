@@ -14,8 +14,8 @@
     Lazy Configuration validator for LuaFormatter
     </a></li>
 
-    <li><a href="#pallene">
-    Closures in Pallene
+    <li><a href="#pallene_modules">
+    Modules in Pallene
     </a></li>
 
     <li><a href="#ceu">
@@ -217,7 +217,7 @@ Easy
 </p>
 
 <br><hr>
-<h3 id="pallene">Closures in Pallene</h3>
+<h3 id="pallene_modules">Modules in Pallene</h3>
 
 <p><a href="https://github.com/pallene-lang/pallene" target="_blank">Pallene</a> is a typed
 companion language for Lua. Its syntax is similar to Lua, but with added type
@@ -228,27 +228,29 @@ writing performant extension modules for Lua.
 
 <p>
 Pallene is evolving at a rapid pace, and there are still many features
-missing from the language. One of the key missing features is function
-closures. Closures allow programmers to write nested functions, where
-the inner function uses variables from the outer function. They are are
-important because they allow programmers to write more expressive code
-with a functional paradigm. Closures are a key feature in Lua, and we
-want them in Pallene to reduce the gap between the two languages.
+missing from the language. One of them module imports and exports. Currently,
+Pallene modules can be used by Lua, but the Pallene module cannot directly
+require other Pallene or Lua modules. Implementing this feature would
+allow programmers to write larger programs in Pallene.
 </p>
 
 <p>
-In this project, you will delve into the guts of the Pallene compiler
-to implement this feature. The compiler itself is written in Lua and C,
-and it generates C code, so knowing both languages is a prerequisite.
+In this project, you will have to get inside the guts of the Pallene compiler.
+The compiler itself is written in Lua and C, and it generates C code, so knowing
+both languages is a prerequisite.
 </p>
 
 <p>
-To add closures to the Pallene language, you will need to modify the
-parser, the type checker, the compiler intermediate representation, and
-the code generator. Besides these changes to the compiler source code,
-you will also need to update language documentation and write unit
-tests tests. Finally, it would also be nice to measure the performance
-of the implementation.
+To add support for separately-compiled modules, we will need to
+develop a file format for describing the interface of a Pallene module,
+describing all it's exported types and functions.  This interface file should
+be able to describe the interface of Pallene modules, and also of Lua modules
+used by Pallene. Then, we will need to extend the Pallene compiler so that it
+can generate these interface files after compiling a module, and also so that
+it can use these interface files when one Pallene module requires a Lua or
+Pallene module. We also expect that some changes will be necessary in the
+parser, type checker, and code generator, to support using types and functions
+declared in a separate module.
 </p>
 
 <p>
