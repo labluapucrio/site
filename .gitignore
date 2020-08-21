@@ -1,2 +1,3 @@
-edit_here/*.swp
-edit_here/gsoc/*.swp
+*.swp
+generated
+testdir

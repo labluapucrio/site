@@ -1,7 +1,7 @@
 #!/bin/bash
 
 [ "$1" = "running" ] || {
-   echo "Do not launch this one directly. Use ./upload.sh instead."
+   echo "Do not launch this one directly. Use ./test.sh or ./upload.sh instead."
    exit 1
 }
 
