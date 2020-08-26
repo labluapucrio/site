@@ -1,0 +1,133 @@
+<h2>LabLua in Google Summer of Code 2020</h2>
+
+<p>We were very happy to participate again in Google Summer of Code (GSoC)!
+This is the seventh time we had the opportunity to collaborate with students from all around the world on interesting projects.
+These are the highlights from the 2020 edition, in the student's own words.
+
+<br><br><hr>
+<br>
+<h2 id="caribay">A Parser Generator with Automatic Error Recovery for LPeg(Label) — Gustavo Castellanos</h2>
+<!--<img class="photo-right" src="/images/gsoc2020/Gustavo.jpg" alt="A picture of Gustavo"/>-->
+<p>For this project we created Caribay, a PEG (Parsing Expression Grammar) parser generator
+built with <a href="https://github.com/sqmedeiros/lpeglabel/">LpegLabel</a>,
+with support of automatic generation of error labels and error recovery rules.
+The generated parser produces a generic abstract syntax tree or a list of thrown errors.
+Caribay makes easier to parse lexical symbols, comments, identifiers and keywords using its own syntax.
+
+<p>We developed a parser for the input grammar,
+a preprocessor for computing FIRST and FOLLOW sets, 
+an algorithm for automatically generating error labels,
+optional optimizations which can be enabled by the user, 
+and a translator that generates LPegLabel patterns.
+
+<p>A story about the name: Caribay is the daughter of Zuhé (the Sun) and Chía (the Moon)
+from a legend of the Mirripuyes (an indigenous group from Mérida, Venezuela).
+Since Lua means Moon in Portuguese, the tool being the daughter of Lua sounded nice to me.
+Also, the legend involves the origin of five famous peaks from Mérida, so the name is related to "generating" things.
+
+<h3>The Code</h3>
+Caribay can be installed using <a href="https://luarocks.org/">Luarocks</a>.
+The source code has been published <a href="https://github.com/gustavoaca1997/Caribay">on Github</a>.
+
+<h3>The Student</h3>
+Gustavo Castellanos is a student of computer engineering at Universidad Simón Bolívar, Venezuela.
+He is interested in programming languages and learning new software engineering and computer science concepts.
+
+<h3>Mentors</h3>
+Sérgio Medeiros
+
+<br> <br>
+<h2 id="ceu">Extending the support of Céu in the Céu-Arduino IDE — Maged Rifaat</h2>
+Coming soon.
+<!-- <img class="photo-right" src="/images/gsoc2020/Maged.jpg" alt="A picture of Maged"/>
+<h3>The Code</h3>
+<h3>The Student</h3>
+
+<h3>Mentors</h3>
+Francisco Sant'Anna
+-->
+
+<br> <br>
+<h2 id="luaformatter">Lazy Configuration validator for LuaFormatter — Ankit Karan</h2>
+Coming soon.
+<!--<img class="photo-right" src="/images/gsoc2020/Ankit.jpg" alt="A picture of Ankit"/>
+<h3>The Code</h3>
+<h3>The Student</h3>
+
+<h3>Mentors</h3>
+Pedro Tammela and Shaobang Wen
+--> 
+
+<br> <br>
+<h2 id="ktls">Lua Hook on kTLS — Xinzhe Wang</h2>
+Coming soon.
+<!--<img class="photo-right" src="/images/gsoc2020/Xinzhe.jpg" alt="A picture of Xinzhe Wang"/>
+<h3>The Code</h3>
+<h3>The Student</h3>
+
+<h3>Mentors</h3>
+Victor Nogueira, Pedro Tammela, and Lourival Neto
+-->
+
+<br> <br>
+<h2 id="lunatik">Lua states management for Lunatik — Matheus Silva Rodrigues</h2>
+<img class="photo-right" src="/images/gsoc2020/Matheus.jpg" alt="A picture of Matheus"/>
+<p>In this project we added support for the Lunatik framework to manage Lua execution states inside the kernel.
+For this, we developed a kernel API that allows Lunatik bindings to create and
+access Lua execution states handling the synchronization with user space or other bindings.
+This includes a protocol over generic Netlink that allows creating and managing Lua states and Lua scripts from user space.
+We also also adapted both NFLua and XDPLua to use these facilities.
+More information can be found <a href="https://matheusntg.github.io/lunatik-states-managment/">in this link</a>.
+
+<h3>The Code</h3>
+The code created during this GSOC project will be merged into the related upstream projects.
+There are three pull requests,
+one for <a href="https://github.com/luainkernel/lunatik/pull/20">Lunatik</a>,
+one for <a href=https://github.com/luainkernel/linux/pull/9>XDPLua</a>,
+and one for <a href="https://github.com/luainkernel/nflua/pull/1">NFLua</a>.
+
+<h3>The Student</h3>
+Matheus Rodrigues studies computer science student at Universidade Federal de Goiás (UFG).
+He loves to learn new things every day, especially if those things are related to computers.
+
+<h3>Mentors</h3>
+Lourival Neto and Victor Nogueira
+
+<br><br>
+<h2 id="pallene">Pallene to Lua Translator — Samuel Rowe</h2>
+<img class="photo-right" src="/images/gsoc2020/Samuel.jpg" alt="A picture of Samuel"/>
+<p><a href="https://www.github.com/pallene-lang/pallene">Pallene</a> is a statically typed,
+ahead-of-time-compiled sister language to Lua, with a focus on performance.
+Programmers can use Pallene instead of C modules to improve the performance of their programs.
+Pallene achieves this by translating a statically typed compilation unit into a C source file,
+which is implicitly compiled in the background.
+In this project, we implemented several new Pallene features, including the dot notation for the built-in modules,
+the export keyword, and a Pallene to Lua translator (the new Lua backend).
+The documentation and unit tests for the same were also written.
+
+<p>We encountered many interesting challenges during the development.
+One of them is that when we were testing the validity of the translator
+we had to test both how the generated output looked and how it behaved at runtime.
+For the latter case, we managed to come up with an elegant design that allowed us to reuse existing unit tests.
+Thus, we were able to ensure that both the Lua and the C backends produce similar runtime behavior.
+
+<p> Google Summer of Code has been an amazing experience!
+I am really grateful to everyone at LabLua for providing me with this opportunity.
+I learned about collaborating with others, keeping up with schedules, code reviews, rebasing Git branches,
+writing unit tests with good coverage, and much more.
+
+<h3>The Code</h3>
+During this projects,
+<a href="https://github.com/pallene-lang/pallene/pulls?q=is:pr+author:itssamuelrowe+created:%3C2020-08-24">several pull requests</a>
+which were merged into the <a href="https://github.com/pallene-lang/pallene">Pallene source code repository</a>.
+
+<h3>The Student</h3>
+<p>Samuel Rowe is from Bengaluru, India. He enjoys working on compilers and web applications.
+Someday he wants to start a company that thrives on innovation. 
+<p>&#3221;&#3250;&#3263;&#3247;&#3275;&#3221;&#3270; &#3240;&#3266;&#3248;&#3265; &#3245;&#3262;&#3255;&#3270; &#3206;&#3233;&#3275;&#3221;&#3270; &#3218;&#3202;&#3238;&#3271; &#3245;&#3262;&#3255;&#3270; &#3221;&#3240;&#3277;&#3240;&#3233; &#3221;&#3240;&#3277;&#3240;&#3233; &#3221;&#3256;&#3277;&#3236;&#3266;&#3248;&#3263; &#3221;&#3240;&#3277;&#3240;&#3233;.
+
+<h3>Mentors</h3>
+Hugo Gualandi
+
+
+
