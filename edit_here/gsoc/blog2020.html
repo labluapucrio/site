@@ -4,10 +4,20 @@
 This is the seventh time we had the opportunity to collaborate with students from all around the world on interesting projects.
 These are the highlights from the 2020 edition, in the student's own words.
 
-<br><br><hr>
+<ul>
+    <li><a href="#caribay">The Caribay parser generator — Gustavo Castellanos</a>
+    <li><a href="#luaformatter">Configuration validator for LuaFormatter — Ankit Karan</a>
+    <li><a href="#ceu">Extending the support of Céu in the Céu-Arduino IDE — Maged Rifaat</a>
+    <li><a href="#ktls">Lua Hook on kTLS — Xinzhe Wang</a>
+    <li><a href="#lunatik">Lua states management for Lunatik — Matheus Silva Rodrigues</a>
+    <li><a href="#pallene">Pallene to Lua Translator — Samuel Rowe</a>
+</ul>
+
 <br>
-<h2 id="caribay">A Parser Generator with Automatic Error Recovery for LPeg(Label) — Gustavo Castellanos</h2>
-<!--<img class="photo-right" src="/images/gsoc2020/Gustavo.jpg" alt="A picture of Gustavo"/>-->
+<hr>
+<br>
+<h2 id="caribay">The Caribay parser generator — Gustavo Castellanos</h2>
+<img class="photo-right" src="/images/gsoc2020/Gustavo.jpg" alt="A picture of Gustavo"/>
 <p>For this project we created Caribay, a PEG (Parsing Expression Grammar) parser generator
 built with <a href="https://github.com/sqmedeiros/lpeglabel/">LpegLabel</a>,
 with support of automatic generation of error labels and error recovery rules.
@@ -30,44 +40,94 @@ Caribay can be installed using <a href="https://luarocks.org/">Luarocks</a>.
 The source code has been published <a href="https://github.com/gustavoaca1997/Caribay">on Github</a>.
 
 <h3>The Student</h3>
-Gustavo Castellanos is a student of computer engineering at Universidad Simón Bolívar, Venezuela.
+<a href="https://www.linkedin.com/in/gustavo-alejandro-castellanos-alfonzo-b67343a7">Gustavo Castellanos</a>
+is a student of computer engineering at Universidad Simón Bolívar, Venezuela.
 He is interested in programming languages and learning new software engineering and computer science concepts.
 
 <h3>Mentors</h3>
 Sérgio Medeiros
 
 <br> <br>
-<h2 id="ceu">Extending the support of Céu in the Céu-Arduino IDE — Maged Rifaat</h2>
-Coming soon.
-<!-- <img class="photo-right" src="/images/gsoc2020/Maged.jpg" alt="A picture of Maged"/>
-<h3>The Code</h3>
-<h3>The Student</h3>
+<h2 id="luaformatter">Configuration validator for LuaFormatter — Ankit Karan</h2>
+<img class="photo-right" src="/images/gsoc2020/Ankit.jpg" alt="A picture of Ankit"/>
+<p>LuaFormatter is a code formatter for Lua scripts inspired by clang-format.
+It formats Lua scripts according to a user defined configuration file.
+Before this project, LuaFormatter didn't check if the configuration values made sense before using it.
+For example, following configuration was valid:
+<pre>
+ - column_limit : -5
+ - indent_width : -2
+ - single_quote_to_double_quote : true
+ - double_quote_to_single_quote : true
+</pre>
+In this project, we implemented validators for each configuration field.
+We also had the opportunity to fix bugs and implement other features. 
+You can find more information about what we did
+<a href="https://karanankit01.github.io/LuaFormatter-Report/2020/08/24/Final-report/">in this link</a>.
 
-<h3>Mentors</h3>
-Francisco Sant'Anna
--->
+<p>The most exciting part for me was working with open-source around brilliant techies from all over the world.
+I learned a lot of things and improved my code workflow.
 
-<br> <br>
-<h2 id="luaformatter">Lazy Configuration validator for LuaFormatter — Ankit Karan</h2>
-Coming soon.
-<!--<img class="photo-right" src="/images/gsoc2020/Ankit.jpg" alt="A picture of Ankit"/>
 <h3>The Code</h3>
+Ankit's work resulted in
+<a href="https://github.com/Koihik/LuaFormatter/pulls?q=is:pr+author:karanankit01+created:<=2020-08-31">several pull requests</a>,
+which were merged into the upstream
+<a href="https://github.com/Koihik/LuaFormatter">LuaFormatter repository</a>.
+
 <h3>The Student</h3>
+<a href="https://www.linkedin.com/in/ankit-karan-47904b182/">Ankit Karan</a>
+is a tech-oriented person diving into the programming world to sort out the
+real-world problems with software-based solutions.
+He is from Bihar, India. Currently he is pursuing a B.Tech from Indian Institue of Technology, Mandi.
 
 <h3>Mentors</h3>
 Pedro Tammela and Shaobang Wen
---> 
+
+<br> <br>
+<h2 id="ceu">Extending the support of Céu in the Céu-Arduino IDE — Maged Rifaat</h2>
+Coming Soon.
+<!--<img class="photo-right" src="/images/gsoc2020/Maged.jpg" alt="A picture of Maged"/>
+<a href="http://www.ceu-lang.org/">Céu</a> is a reactive programming language that provides
+a deterministic parallel execution model and aims to offer a higher-level and safer alternative to C.
+In this GSOC Project, we improved the support for the Céu language in the Arduino IDE,
+implementing support for opening code files, compiling and running/uploading scripts.
+We also added documentation and syntax features such as syntax highlighting, auto indentation and code folding.
+
+<h3>The Code</h3>
+The code produced during this GSOC is available <a href="https://github.com/magedrifaat/Ceu-Arduino-IDE">on Github</a>.
+
+<h3>The Student</h3>
+Maged Rifaat is an engineering student from Egypt and a programming enthusiast who is always eager to learn more.
+
+<h3>Mentors</h3>
+Francisco Sant'Anna-->
 
 <br> <br>
 <h2 id="ktls">Lua Hook on kTLS — Xinzhe Wang</h2>
-Coming soon.
-<!--<img class="photo-right" src="/images/gsoc2020/Xinzhe.jpg" alt="A picture of Xinzhe Wang"/>
+Coming Soon.
+<!--<img class="photo-right" src="/images/gsoc2020/Xinzhe.jpg" alt="A picture of Xinzhe Wang"/>-->
+<!--For this project, we added Lua hook support to the kTLS Linux kernel module.
+The goal is to combine the benefit of kTLS and Lua kernel script so we can use the Lua script without
+much modification to current user code and have acceptable overhead.
+
+The goal of Lua Hook on kTLS is to modify the `tls` module in linux kernel to add Lua hook inside,
+this allows us to execute Lua script through Lunatik after receiving and decrypting data.
+
+We also write a simple https server that serving only static file which make use of Lua script through the hook
+to parse the request and using `sendfile` to send the static file back to user.
+
+You can find more information about what we did this GSOC <a href="https://luainkernel.github.io/ktls/">in this link</a>.
+
 <h3>The Code</h3>
+The code for the kernel module and the benchmark web server is available
+<a href="https://github.com/luainkernel/ktls">on Github</a>
+
 <h3>The Student</h3>
+Xinzhe Wang is an undergraduate student at Shanghai Jiao Tong University, majoring in Software Engineering.
+He enjoys geek culture and always tries new things. He hopes to change the world with code someday.
 
 <h3>Mentors</h3>
-Victor Nogueira, Pedro Tammela, and Lourival Neto
--->
+Pedro Tammela and Victor Nogueira-->
 
 <br> <br>
 <h2 id="lunatik">Lua states management for Lunatik — Matheus Silva Rodrigues</h2>
@@ -75,7 +135,7 @@ Victor Nogueira, Pedro Tammela, and Lourival Neto
 <p>In this project we added support for the Lunatik framework to manage Lua execution states inside the kernel.
 For this, we developed a kernel API that allows Lunatik bindings to create and
 access Lua execution states handling the synchronization with user space or other bindings.
-This includes a protocol over generic Netlink that allows creating and managing Lua states and Lua scripts from user space.
+This includes a protocol over generic Netlink that allows creating and managing Lua states and loading Lua scripts from user space.
 We also also adapted both NFLua and XDPLua to use these facilities.
 More information can be found <a href="https://matheusntg.github.io/lunatik-states-managment/">in this link</a>.
 
@@ -91,7 +151,7 @@ Matheus Rodrigues studies computer science student at Universidade Federal de Go
 He loves to learn new things every day, especially if those things are related to computers.
 
 <h3>Mentors</h3>
-Lourival Neto and Victor Nogueira
+Lourival Vieira Neto and Victor Nogueira
 
 <br><br>
 <h2 id="pallene">Pallene to Lua Translator — Samuel Rowe</h2>
