@@ -63,7 +63,7 @@ For example, following configuration was valid:
 In this project, we implemented validators for each configuration field.
 We also had the opportunity to fix bugs and implement other features. 
 You can find more information about what we did
-<a href="https://karanankit01.github.io/LuaFormatter-Report/2020/08/24/Final-report/">in this link</a>.
+<a href="https://karanankit01.github.io/LuaFormatter-Report/2020/08/26/Final-report/">in this link</a>.
 
 <p>The most exciting part for me was working with open-source around brilliant techies from all over the world.
 I learned a lot of things and improved my code workflow.
@@ -86,7 +86,7 @@ Pedro Tammela and Shaobang Wen
 <br> <br>
 <h2 id="ceu">Extending the support of Céu in the Céu-Arduino IDE — Maged Rifaat</h2>
 Coming Soon.
-<!--<img class="photo-right" src="/images/gsoc2020/Maged.jpg" alt="A picture of Maged"/>
+<!--<img class="photo-right" src="/images/gsoc2020/Maged.jpg" alt="A picture of Maged"/>-->
 <a href="http://www.ceu-lang.org/">Céu</a> is a reactive programming language that provides
 a deterministic parallel execution model and aims to offer a higher-level and safer alternative to C.
 In this GSOC Project, we improved the support for the Céu language in the Arduino IDE,
@@ -100,23 +100,22 @@ The code produced during this GSOC is available <a href="https://github.com/mage
 Maged Rifaat is an engineering student from Egypt and a programming enthusiast who is always eager to learn more.
 
 <h3>Mentors</h3>
-Francisco Sant'Anna-->
+Francisco Sant'Anna
 
 <br> <br>
 <h2 id="ktls">Lua Hook on kTLS — Xinzhe Wang</h2>
-Coming Soon.
 <!--<img class="photo-right" src="/images/gsoc2020/Xinzhe.jpg" alt="A picture of Xinzhe Wang"/>-->
-<!--For this project, we added Lua hook support to the kTLS Linux kernel module.
-The goal is to combine the benefit of kTLS and Lua kernel script so we can use the Lua script without
-much modification to current user code and have acceptable overhead.
+<p>For this project, we added Lua hook support to the kTLS Linux kernel module.
+The goal is to combine kTLS with the flexibility of Lua to processs network requests inside the Linux kernel.
+By adding Lua hooks to kTLS, it is now possible to use Lua scripts to process network data inside the kernel,
+after it has been received and decrypted.
 
-The goal of Lua Hook on kTLS is to modify the `tls` module in linux kernel to add Lua hook inside,
-this allows us to execute Lua script through Lunatik after receiving and decrypting data.
+<p>We also wrote a simple https server to measure the performance of the Lua hook.
+The server uses Lua scripts to parse the request and then uses the sendfile system call to send the static file back to the user.
+The performance was similar to that of the lighttpd web server,
+which is promising because the implementation of Lua hooks hasn't been fully optimized yet.
 
-We also write a simple https server that serving only static file which make use of Lua script through the hook
-to parse the request and using `sendfile` to send the static file back to user.
-
-You can find more information about what we did this GSOC <a href="https://luainkernel.github.io/ktls/">in this link</a>.
+<p>You can find more information about what we did this GSOC <a href="https://luainkernel.github.io/ktls/">in this link</a>.
 
 <h3>The Code</h3>
 The code for the kernel module and the benchmark web server is available
@@ -127,7 +126,7 @@ Xinzhe Wang is an undergraduate student at Shanghai Jiao Tong University, majori
 He enjoys geek culture and always tries new things. He hopes to change the world with code someday.
 
 <h3>Mentors</h3>
-Pedro Tammela and Victor Nogueira-->
+Pedro Tammela and Victor Nogueira
 
 <br> <br>
 <h2 id="lunatik">Lua states management for Lunatik — Matheus Silva Rodrigues</h2>
