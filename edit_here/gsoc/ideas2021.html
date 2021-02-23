@@ -1,13 +1,20 @@
 
-
 <h2>Ideas List - Google Summer of Code 2021</h2>
-<p> In this page we list some ideas for GSOC 2021 projects.
-If you are a student interested in participating you can use one of these ideas
-or contact the mentors with your own idea.
+<p> This year, we are applying to be a mentoring organization in <a href="https://summerofcode.withgoogle.com/">GSOC</a>.
+In this page we introduce some of the projects that are are working with us this year under the LabLua umbrella
+and list some potential ideas for GSOC 2021 projects.
+
+<p><strong>If you are a student interested in participating, it's still too early to apply.</strong>
+</strong>However, it is never too early to get involved!</strong>
+Feel free to get in touch with us via our <a href="mailto:labluagsoc@googlegroups.com">mailing list</a>
+or one of the links below.
 
 <ul>
     <li><a href="#lldb">Lua scripted watchpoints in LLDB</a>
+    <li><a href="#pallene-closures">Closures for Pallene</a>
 </ul>
+
+<!---->
 
 <hr>
 <h3 id="lldb">Lua scripted watchpoints in LLDB</h3>
@@ -45,6 +52,39 @@ You will also improve the general Lua scripting documentation.
 <p>
 <a href="mailto:jonas@devlieghere.com">Jonas Devlieghere</a> and
 <a href="mailto:pctammela@gmail.com">Pedro Tammela</a>
+
+<!---->
+
+<hr>
+<h3 id="pallene-closures">Closures for Pallene</h3>
+<p> <a href="https://github.com/pallene-lang/pallene">Pallene</a> is a statically-typed companion language for Lua.
+It's main goal is improving Lua's performance by allowing programmers to use type annotations to write performant extension modules.
+
+<p>The Pallene language implements a subset of Lua's features.
+One feature that is currently missing are nested functions and closures.
+Implementing them would empower programmers to use a more functional programming style and would make it easier to use Lua APIs that expect to receive a Pallene function as a callback.
+
+<h4>Expected results</h4>
+<ul>
+    <li>Implement the required changes to the type checker and compiler
+    <li>Document how nested functions work in Pallene
+    <li>Unit tests for the new feature
+</ul>
+
+<h4>Prerequisites</h4>
+<ul>
+    <li> Lua and C programming languages
+    <li> Some experience with compilers
+    <li> Lua-C API
+</ul>
+
+<h4>Skill level</h4>
+<p> Challenging
+
+<h4>Mentor</h4>
+<p>
+<a href="mailto:hgualandi@inf.puc-rio.br">Hugo Gualandi</a>
+<br><hr>
 
 <!--
 <hr>
