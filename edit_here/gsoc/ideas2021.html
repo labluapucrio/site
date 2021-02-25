@@ -12,6 +12,7 @@ or one of the links below.
 <ul>
     <li><a href="#lldb">Lua scripted watchpoints in LLDB</a>
     <li><a href="#pallene-closures">Closures for Pallene</a>
+    <li><a href="#typed-api-for-luarocks">Typed API for LuaRocks</a>
 </ul>
 
 <!---->
@@ -84,7 +85,48 @@ Implementing them would empower programmers to use a more functional programming
 <h4>Mentor</h4>
 <p>
 <a href="mailto:hgualandi@inf.puc-rio.br">Hugo Gualandi</a>
-<br><hr>
+<br>
+
+<!---->
+
+<hr>
+<h3 id="typed-api-for-luarocks">
+Typed API for LuaRocks</h3>
+<p><a href="https://luarocks.org">LuaRocks</a> is the package manager for Lua. It is written as a Lua application, composed of several modules required by the main "luarocks" CLI program.</p>
+
+<p>These modules were not originally designed for reuse outside of LuaRocks, but some provide useful generic functionality, such as filesystem and platform abstractions. Further, they do not provide a programmatic interface for other applications which wish to drive LuaRocks using Lua scripting.</p>
+
+<p>The goal of this project is to provide typed API for LuaRocks modules, specified using <a href="https://github.com/teal-language">Teal</a>, a typed dialect of Lua, which allows for typed definition files to be written for untyped Lua modules. Our goal here is not to port all of LuaRocks to Teal, but to provide typed interfaces for Teal or Lua applications, so that users of these interfaces can have a stable contract of the API's inputs and outputs.</p>
+
+<p>We will exercise this new API via a proof-of-concept implementation integrating LuaRocks to some other Lua application via the API, yet to be chosen by the student and mentor. This will allow opportunity for interacting with other open source projects as well.</p>
+
+<h4>Expected results</h4>
+<ul>
+    <li>Refactoring of reusable LuaRocks components</li>
+    <li>Design of a public LuaRocks API</li>
+    <li>Teal declaration files presenting this API</li>
+    <li>A proof-of-concept implementation using this API to drive LuaRocks</li>
+</ul>
+
+<h4>Tools</h4>
+<ul>
+    <li>Lua</li>
+    <li><a href="https://github.com/teal-language">Teal</a></li>
+</ul>
+
+<h4>Prerequisites</h4>
+<ul>
+    <li>Lua</li>
+</ul>
+
+<h4>Skill level</h4>
+<p> Intermediate</p>
+
+<h4>Mentor</h4>
+<p>
+<a href="mailto:hisham@luarocks.org">Hisham Muhammad</a>
+
+<!---->
 
 <!--
 <hr>
