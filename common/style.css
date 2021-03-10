@@ -15,7 +15,7 @@ body {
 
 a {
    text-decoration: none;
-   color: #20207f;
+   /*color: #20207f;*/
 }
 
 a:hover {
@@ -61,18 +61,8 @@ li {
 }
 
 h2 {
-   font-weight: normal;
-   color: #606060;
-   font-size: 22px;
    padding-bottom: 0.3em;
    border-bottom: #d0d0f0 solid 1px;
-}
-
-h3 {
-   letter-spacing: 1px;
-   font-weight: normal;
-   color: #606060;
-   font-size: 18px;
 }
 
 img.photo-left {
