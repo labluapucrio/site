@@ -20,6 +20,7 @@ Either way, don't leave it to the last minute :)
     <li><a href="#lldb">Lua scripted watchpoints in LLDB</a>
     <li><a href="#pallene-closures">Closures for Pallene</a>
     <li><a href="#typed-api-for-luarocks">Typed API for LuaRocks</a>
+    <li><a href="#freechains">A Lua library for Freechains-P2P</a>
 </ul>
 
 <!---->
@@ -133,6 +134,45 @@ Typed API for LuaRocks</h3>
 <a href="mailto:hisham@luarocks.org">Hisham Muhammad</a>
 
 <!---->
+
+<hr>
+<h3 id="freechains">A Lua library for Freechains-P2P</h3>
+<p> <a href="https://github.com/Freechains/README">Freechains</a> is an unstructured peer-to-peer topic-based publish-subscribe system. Each topic, or chain, is disseminated peer by peer in the network with gossiping.
+This way, as an author posts to a chain, other users subscribed to the same chain eventually receive the message.
+Freechains supports multiple types of chains for public and private communication.
+
+<p>The goal of this project is to create a Lua library to interface with Freechains.
+The Lua interface should mimic the standard <a href="https://github.com/Freechains/README/blob/master/docs/cmds.md">command-line interface of Freechains</a>.
+
+<h4>Tools</h4>
+<ul>
+    <li>Freechains
+    <li>Lua
+    <li>Luasocket
+</ul>
+
+<h4>Prerequisites</h4>
+<p>The student should be familiar with Lua and LuaSockets. We ask applicants to complete the following activities <emph>before</emph> the application period:
+
+<ul>
+    <li> Install Lua, LuaSockets, and Freechains.
+    <li> Watch the videos about Freechains in the first link above.
+    <li> Create a simple example with Freechains and LuaSockets:
+        <ol>
+            <li> Start a Freechains daemon with the command <code>freechains-host</code>.
+            <li> Join a sample chain with the command  <code>freechains chains join</code>.
+            <li> Write a LuaSockets script that connects with the daemon and writes <code>FC v0.7.10 chains list</code> to it.
+            <li> Confirm if the result matches the joined chain.
+        </ol>
+</ul>
+
+<h4>Skill level</h4>
+<p> Easy
+
+<h4>Mentor</h4>
+<p>
+<a href="mailto:francisco.santanna@gmail.com">Francisco Sant'Anna</a>
+<br><hr>
 
 <!--
 <hr>
