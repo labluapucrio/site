@@ -1,0 +1,86 @@
+<h2>LabLua in Google Summer of Code 2021</h2>
+
+<p>We were very happy to participate again in Google Summer of Code (GSoC)!
+This is the eight time we had the opportunity to collaborate with students from all around the world on interesting projects.
+These are the highlights from the 2021 edition.
+
+<ul>
+    <li><a href="#closures">Closures in Pallene</a>
+    <li><a href="#watchpoints">Lua scripted watchpoints in LLDB</a>
+    <li><a href="luarocks">Typed API for LuaRocks</a>
+    <li><a href="#freechains">A Lua library for Freechains-P2P</a>
+</ul>
+
+<br> <br>
+<h2 id="closures">Closures in Pallene</h2>
+<img class="photo-right" src="/images/gsoc2021/srijan.jpg" alt="A picture of Srijan"/>
+<p><a href="https://github.com/pallene-lang/pallene">Pallene</a> is a typed companion language to Lua. It's syntax is similar to Lua, but with type annotations which allow it to be compiled into much more efficient code. In this project, we added nested functions and closures to the Pallene. This powerful feature will allow programmers to create many kinds of programs in Pallene which were not possible before. The journey we went through to solve this challenge is documented in Srijan's blog: <a href="https://injuly.in/blog/gsoc/">Part 1</a>, <a href="https://injuly.in/blog/gsoc-2/">Part 2</a>.
+
+<h3>The Code</h3>
+The code written for this GSOC has already been merged into the main <a href="https://github.com/pallene-lang/pallene">Pallene repository</a> on Github. A list of the merged pull-requests can be found <a href="https://injuly.in/blog/gsoc-2/">here</a>.
+
+<h3>The Student</h3>
+<a href="https://injuly.in/">Srijan Paul</a> is a CS undergrad. He likes functional programming, PL theory, distributed systems and game development.
+
+<h3>Mentors</h3>
+Hugo Gualandi
+
+<br> <br>
+<h2 id="watchpoints">Lua scripted watchpoints in LLDB</h2>
+<img class="photo-right" src="/images/gsoc2021/shichu.jpg" alt="A picture of Shichu"/>
+<p><a href="https://lldb.llvm.org/">LLDB</a> is a powerful debugger under LLVM project. LLDB breakpoints and
+watchpoints are scriptable with Python callbacks when they get hit.
+Breakpoints can also accept Lua callbacks while watchpoints did not
+support Lua callbacks before the project.
+
+<p>The project adds support for Lua scripted watchpoints, making
+watchpoints accept Lua callbacks as well. The project also improved the 
+the documentation of scripting parts in LLDB. We also extended the liblldb
+to make it available as a Lua module, so that all features of LLDB are visible
+to the standalone Lua interpreter. This enables Lua users to create customized
+debugging utilities with the power of LLDB.
+
+<p>To be specific, we have added necessary glue functions that connect
+LLDB with the embedded Lua interpreter, so that it may support Lua scripted watchpoints.
+We also translated Python code to Lua in LLDB scripting documentation,
+and used a new Sphinx plugin sphinx_tabs to make code blocks switchable
+between Python and Lua. For the extension part of the project, we
+supplemented SWIG typemaps for Lua and wrote a test suite for Lua LLDB
+module to make liblldb visible to Lua.
+
+<h3>The Code</h3>
+The results of this GSOC are summarized in <a href="https://gsoc2021.sigeryeung.tk/">this page</a>. It includes a link to code repository, as well as a list of the pull requests implemented by the student.
+
+<h3>The Student</h3>
+<a href="https://github.com/siger-yeung/">Shichu Yang</a>
+
+<h3>Mentors</h3>
+Pedro Tammela, Jonas Devilieghere
+
+<br> <br>
+<h2 id="luarocks">Typed API for LuaRocks</h2>
+<img class="photo-right" src="/images/gsoc2021/deepak.jpg" alt="A picture of Deepak"/>
+<a href="https://luarocks.org/">LuaRocks</a> is the package manager for Lua. It is developed in Lua and consists of various modules that are required by the primary CLI programme "luarocks." The goal of this project was to break down Luarocks into more manageable chunks, extracting portions of it into libraries. We also provided typed APIs for LuaRocks modules, using Teal, a typed dialect of Lua. This allows users of these APIs to take advantage of compile-time type-checking for error detection.
+
+Breaking LuaRocks into stand-alone modules was challenging because we needed to decide like which parts of LuaRocks should go into which stand-alone module and taking care so that any code should not have multiple copies in different stand-alone modules. We also added CI (continuous integration) in all the repositories.
+
+A full version of this blog post can be found on <a href="https://docs.google.com/document/d/1y1MFRjgDaox5Px6yMzrs-Mq1JHUidATbOTAaQFiOJ7s">this link</a>
+
+<h3>The Code</h3>
+A page describing all the modules created for this GSOC can be found on <a href="
+https://github.com/Deepak123bharat/lablua-submission">this link</a>.
+
+<h3>The Student</h3>
+<a href="https://github.com/Deepak123bharat">Deepak Singh Rathore</a>.
+
+<h3>Mentors</h3>
+Hisham Muhammad
+
+<h2 id="freechains">A Lua library for Freechains-P2P</h2>
+<!--<h3>The Code</h3>-->
+
+<h3>The Student</h3>
+Micah Kendall
+
+<h3>Mentors</h3>
+Francisco Sant'Anna
