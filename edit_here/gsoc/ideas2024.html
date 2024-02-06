@@ -1,0 +1,217 @@
+
+<h2>Ideas List - Google Summer of Code 2024</h2>
+<p> We are proud to announce that this year we will again be participating in
+<a href="https://summerofcode.withgoogle.com/">Google Summer of Code</a>.
+In this page we introduce some of the projects that are are working with us this year under the LabLua umbrella
+and list some potential ideas for GSOC 2024 projects.
+
+<p>If you are a contributor candidate,
+feel free to get in touch with us via our <a href="mailto:labluagsoc@googlegroups.com">mailing list</a>
+or by sending an email to one of our mentors.
+You can apply using one of the ideas in the list or you can bring your own idea.
+Either way, don't leave it to the last minute :)
+
+<p>Please use our <a href="/gsoc/apply2024.html">application template</a> to prepare your proposal.
+
+<!---->
+
+<hr>
+<ul>
+    <li><a href="#lunatik-test">Port Lua Test Suite to Lunatik</a>
+    <li><a href="#pallene-debugging">Improved debugging support for Pallene</a>
+    <li><a href="#lunatik-hid">Lunatik binding for Human Interface Devices (HID) drivers</a>
+</ul>
+
+<!---->
+
+<h3 id="lunatik-test">Port Lua Test Suite to Lunatik</h3>
+<p> <a href="https://github.com/luainkernel/lunatik/">Lunatik</a> is a framework for scripting the Linux kernel with Lua.
+For example, Lunatik can be used for scripting the Linux networking subsystem
+(as presented at Netdev
+<a href="https://netdevconf.info/0x14/session.html?talk-linux-network-scripting-with-lua">0x14</a>
+and
+<a href="https://netdevconf.info/0x17/sessions/talk/scripting-the-linux-routing-table-with-lua.html">0x17</a>)
+among other
+<a href="https://github.com/luainkernel/lunatik#examples">examples</a>.
+
+<p> The purpose of this project is to port the
+<a href="https://www.lua.org/tests/">Lua Test Suite</a>
+to Lunatik.
+That is,
+to adapt scripts from the Lua Test Suite and develop a Linux loadable kernel module containing its C portion.
+This project might leverage the
+<a href="http://www.lua.inf.puc-rio.br/gsoc/blog2015.html#kerneltest">GSoC 2015 project</a>
+developed by
+<a href="mailto:gsz@acm.org">Guilherme Salazar</a>,
+which ported the Lua Test Suite to the 
+<a href="https://man.netbsd.org/lua.4">NetBSD kernel</a>.
+
+<p> The main difference between the kernel Lua and regular user-level Lua is
+that kernel Lua doesn't have support for standard libraries that depend on operating system (e.g., io and os)
+and for floating-point numbers.
+
+<h4>Expected results</h4>
+<ul>
+    <li> Adapted test scripts for Lunatik
+    <li> Lunatik library for testing the Lua C API
+    <li> Test Report at least for x86_64 and ARM64
+</ul>
+
+<h4>Prerequisites</h4>
+<ul>
+    <li> Lua and C programming languages
+    <li> Experience with the Lua-C API (nice to have)
+    <li> Experience with Linux kernel (nice to have)
+</ul>
+
+<h4>Skill level</h4>
+<p> Intermediate
+
+<h4>Project size</h4>
+<p> Medium (175 hours)
+
+<h4>Mentors</h4>
+<p>
+<a href="mailto:gsz@acm.org">Guilherme Salazar</a> and
+<a href="mailto:lourival.neto@gmail.com">Lourival Vieira Neto</a>
+
+<!---->
+
+<hr>
+<h3 id="pallene-debugging">Improved debugging support for Pallene</h3>
+<p> <a href="https://github.com/pallene-lang/pallene">Pallene</a>
+is a statically-typed programming language, intended to serve as a more performant companion to Lua.
+It is designed to to seamlessly interoperate with Lua, with first-class support for Lua data types.
+
+<p>Pallene is able to be faster than Lua (sometimes as fast as LuaJIT) by taking advantage of the
+type annotations in Pallene in order to guide the compiler into outputting efficient executable code.
+The catch, is that Pallene can receive dynamically-typed data from Lua and it must check if this
+data matches the expected types, before it can send it into the faster code paths.
+If Pallene receives a value of an unexpected type, it will immediately raise an exception and
+emit a stack trace. The objective of this project is to improve the debuggability of these stack traces.
+
+<p> The biggest problem is that
+currently the error message only shows the line number of the error.
+The stack trace does not show the Pallene stack frames, only any Lua stack frames that might be present.
+This is because, from Lua's point of view, Pallene stack calls are implemented as
+C function calls and the default Lua stack traceback does not show C stack frames.
+The main objective of this project would be to implement a way to include Pallene stack frames in the stack trace.
+
+<p> One risk of the project is that the code needed to support stack traces
+might potentially result in slower performance even when the code never encounters an error.
+Therefore, an additional requirement is that we measure the performance of the new implementation.
+If it is worse than before, it might be necessary to turn the improved stack traces into an optional
+feature instead of the default.
+
+<h4>Expected results</h4>
+<ul>
+    <li>A way to produce stack traces including all Pallene function calls
+    <li>Benchmarks to measure the run-time overhead of supporting stack trace.
+    <li>Document how the stack traces are implemented
+    <li>Unit tests for the new feature
+</ul>
+
+<h4>Prerequisites</h4>
+<ul>
+    <li> Lua and C programming languages
+    <li> Experience with the Lua-C API (highly desirable)
+    <li> Experience with Lua debuggers (nice to have)
+</ul>
+
+<h4>Skill level</h4>
+<p> Challenging
+
+<h4>Project size</h4>
+<p> Large (350 hours)
+
+<h4>Mentor</h4>
+<p>
+<a href="mailto:hugo.gualandi@gmail.com">Hugo Musso Gualandi</a>
+<br>
+
+<!---->
+
+<h3 id="lunatik-hid">Lunatik binding for Human Interface Devices (HID) drivers</h3>
+<p> <a href="https://github.com/luainkernel/lunatik/">Lunatik</a> is a framework for scripting the Linux kernel with Lua.
+For example, Lunatik can be used for scripting the Linux networking subsystem
+(as presented at Netdev
+<a href="https://netdevconf.info/0x14/session.html?talk-linux-network-scripting-with-lua">0x14</a>
+and
+<a href="https://netdevconf.info/0x17/sessions/talk/scripting-the-linux-routing-table-with-lua.html">0x17</a>)
+among other
+<a href="https://github.com/luainkernel/lunatik#examples">examples</a>.
+
+<p> The purpose of this project is to create a Lunatik library for binding
+the <a href="https://docs.kernel.org/hid/index.html">Linux HID APIs</a>
+to allow developers to write new HID drivers using Lua.
+This project might leverage the
+<a href="https://github.com/luainkernel/lunatik#device">Lunatik device library</a>,
+which allows the creation of character devices using Lua. 
+Moreover,
+this project should also port the
+<a href="https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/drivers/hid/hid-nvidia-shield.c">
+Nvidia Shield HID driver</a>
+to Lua.
+
+<h4>Expected results</h4>
+<ul>
+    <li> Lunatik HID library
+    <li> Nvidia Shield HID driver in Lua
+</ul>
+
+<h4>Prerequisites</h4>
+<ul>
+    <li> Lua and C programming languages
+    <li> Experience with the Lua-C API (highly desirable)
+    <li> Experience with Linux kernel (highly desirable)
+</ul>
+
+<h4>Skill level</h4>
+<p> Challenging
+
+<h4>Project size</h4>
+<p> Large (350 hours)
+
+<h4>Mentors</h4>
+<p>
+<!--
+<a href="mailto:rrameshbabu@nvidia.com">Rahul Rameshbabu</a> and
+-->
+<a href="mailto:lourival.neto@gmail.com">Lourival Vieira Neto</a><hr>
+
+<!--
+<hr>
+<h3 id="ID">TITLE</h3>
+<p> SUMMARY
+
+<h4>Expected results</h4>
+<ul>
+    <li>RESULT 1
+    <li>RESULT 2
+</ul>
+
+<h4>Tools</h4>
+<ul>
+    <li>TOOL 1
+    <li>TOOL 2
+</ul>
+
+<h4>Prerequisites</h4>
+<ul>
+    <li> PREREQ 1
+    <li> PREREQ 2
+</ul>
+
+<h4>Skill level</h4>
+<p> Intermediate
+
+<h4>Project size</h4>
+<p> Small (90 hours)
+<p> Medium (175 hours)
+<p> Large (350 hours)
+
+<h4>Mentor</h4>
+<p>
+<a href="mailto:EMAIL">NAME</a>
+<br><hr>
+-->
