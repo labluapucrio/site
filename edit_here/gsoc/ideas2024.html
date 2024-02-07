@@ -19,6 +19,7 @@ Either way, don't leave it to the last minute :)
 <ul>
     <li><a href="#lunatik-test">Port Lua Test Suite to Lunatik</a>
     <li><a href="#pallene-debugging">Improved debugging support for Pallene</a>
+    <li><a href="#lunatik-nefilter">Lunatik binding for Netfilter</a>
     <li><a href="#lunatik-hid">Lunatik binding for Human Interface Devices (HID) drivers</a>
 </ul>
 
@@ -131,6 +132,60 @@ feature instead of the default.
 
 <!---->
 
+<h3 id="lunatik-nefilter">Lunatik binding for Netfilter</h3>
+<p> <a href="https://github.com/luainkernel/lunatik/">Lunatik</a> is a framework for scripting the Linux kernel with Lua.
+For example, Lunatik can be used for scripting the Linux networking subsystem
+(as presented at Netdev
+<a href="https://netdevconf.info/0x14/session.html?talk-linux-network-scripting-with-lua">0x14</a>
+and
+<a href="https://netdevconf.info/0x17/sessions/talk/scripting-the-linux-routing-table-with-lua.html">0x17</a>)
+among other
+<a href="https://github.com/luainkernel/lunatik#examples">examples</a>.
+
+<p> Netfilter is a packet filtering framework provided by the Linux kernel.
+It implements a set of hooks at well-defined points in the packet traversal of the network stack,
+allowing registered callback functions to receive and act upon every packet that reaches their associated hooks.
+The callback functions are defined by loadable kernel modules that dynamically extend Netfilter
+in order to set up custom filtering strategies.
+
+<p><a href="https://github.com/luainkernel/nflua">NFLua</a> is an extension module to Netfilter
+which provides a kernel-scripting framework for packet filtering using an older version of the
+Lunatik's Lua interpreter.
+The purpose of this project is to create a new Lunatik library for binding Netfilter
+to allow the creation of Netfilter extension modules in Lua
+(instead of using Lua for scripting a single Netfilter module like NFLua).
+This project should provide Lua APIs for hooking Netfilter
+(similarly to <a href="https://github.com/luainkernel/lunatik#device">Lunatik device library</a>,
+which allows the creation of character device drivers using Lua).
+
+<h4>Expected results</h4>
+<ul>
+    <li> Lunatik Netfilter library
+    <li> Iptables Lua library 
+    <li> Benchmark comparison between NFLua and the Lunatik Netfilter library
+</ul>
+
+<h4>Prerequisites</h4>
+<ul>
+    <li> Lua and C programming languages
+    <li> Linux Networking
+    <li> Experience with the Lua-C API (highly desirable)
+    <li> Experience with Linux kernel (highly desirable)
+</ul>
+
+<h4>Skill level</h4>
+<p> Challenging
+
+<h4>Project size</h4>
+<p> Large (350 hours)
+
+<h4>Mentors</h4>
+<p>
+<a href="mailto:marcel.stanley@gmail.com">Marcel Moura</a> and
+<a href="mailto:lourival.neto@gmail.com">Lourival Vieira Neto</a><hr>
+
+<!---->
+
 <h3 id="lunatik-hid">Lunatik binding for Human Interface Devices (HID) drivers</h3>
 <p> <a href="https://github.com/luainkernel/lunatik/">Lunatik</a> is a framework for scripting the Linux kernel with Lua.
 For example, Lunatik can be used for scripting the Linux networking subsystem
@@ -146,7 +201,7 @@ the <a href="https://docs.kernel.org/hid/index.html">Linux HID APIs</a>
 to allow developers to write new HID drivers using Lua.
 This project might leverage the
 <a href="https://github.com/luainkernel/lunatik#device">Lunatik device library</a>,
-which allows the creation of character devices using Lua. 
+which allows the creation of character device drivers using Lua.
 Moreover,
 this project should also port the
 <a href="https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/drivers/hid/hid-nvidia-shield.c">
@@ -157,6 +212,7 @@ to Lua.
 <ul>
     <li> Lunatik HID library
     <li> Nvidia Shield HID driver in Lua
+    <li> Benchmark comparison between Nvidia Shield HID driver and its Lua implementation
 </ul>
 
 <h4>Prerequisites</h4>
