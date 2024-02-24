@@ -17,70 +17,16 @@ Either way, don't leave it to the last minute :)
 
 <hr>
 <ul>
-    <li><a href="#lunatik-test">Port Lua Test Suite to Lunatik</a>
     <li><a href="#pallene-debugging">Improved debugging support for Pallene</a>
-    <li><a href="#lunatik-nefilter">Lunatik binding for Netfilter</a>
     <li><a href="#teal-doc">Documentation generator tool for the Teal language</a>
     <li><a href="#luarocks-teal">Port LuaRocks to Teal</a>
     <li><a href="#luarocks-windows">A Windows installer for LuaRocks</a>
+    <li><a href="#luasql-drivers">Adapt LuaSQL drivers to Lua 5.4</a>
+    <li><a href="#lunatik-test">Port Lua Test Suite to Lunatik</a>
+    <li><a href="#lunatik-nefilter">Lunatik binding for Netfilter</a>
     <li><a href="#lunatik-hid">Lunatik binding for Human Interface Devices (HID) drivers</a>
     <li><a href="#lunatik-distro">Lunatik package for Linux distros</a>
 </ul>
-
-<!---->
-
-<hr>
-<h3 id="lunatik-test">Port Lua Test Suite to Lunatik</h3>
-<p> <a href="https://github.com/luainkernel/lunatik/">Lunatik</a> is a framework for scripting the Linux kernel with Lua.
-For example, Lunatik can be used for scripting the Linux networking subsystem
-(as presented at Netdev
-<a href="https://netdevconf.info/0x14/session.html?talk-linux-network-scripting-with-lua">0x14</a>
-and
-<a href="https://netdevconf.info/0x17/sessions/talk/scripting-the-linux-routing-table-with-lua.html">0x17</a>)
-among other
-<a href="https://github.com/luainkernel/lunatik#examples">examples</a>.
-
-<p> The purpose of this project is to port the
-<a href="https://www.lua.org/tests/">Lua Test Suite</a>
-to Lunatik.
-That is,
-to adapt scripts from the Lua Test Suite and develop a Linux loadable kernel module containing its C portion.
-This project might leverage the
-<a href="http://www.lua.inf.puc-rio.br/gsoc/blog2015.html#kerneltest">GSoC 2015 project</a>
-developed by
-<a href="mailto:gsz@acm.org">Guilherme Salazar</a>,
-which ported the Lua Test Suite to the 
-<a href="https://man.netbsd.org/lua.4">NetBSD kernel</a>.
-
-<p> The main difference between the kernel Lua and regular user-level Lua is
-that kernel Lua doesn't have support for standard libraries that depend on operating system (e.g., io and os)
-and for floating-point numbers.
-
-<h4>Expected results</h4>
-<ul>
-    <li> Adapted test scripts for Lunatik
-    <li> Lunatik library for testing the Lua C API
-    <li> Test Report at least for x86_64 and ARM64
-</ul>
-
-<h4>Prerequisites</h4>
-<ul>
-    <li> Lua and C programming languages
-    <li> Experience with the Lua-C API (nice to have)
-    <li> Experience with Linux kernel (nice to have)
-</ul>
-
-<h4>Skill level</h4>
-<p> Intermediate
-
-<h4>Project size</h4>
-<p> Medium (175 hours)
-
-<h4>Mentors</h4>
-<p>
-<a href="mailto:gsz@acm.org">Guilherme Salazar</a> and
-<a href="mailto:lourival.neto@gmail.com">Lourival Vieira Neto</a>
-<br>
 
 <!---->
 
@@ -134,62 +80,6 @@ feature instead of the default.
 <h4>Mentor</h4>
 <p>
 <a href="mailto:hugo.gualandi@gmail.com">Hugo Musso Gualandi</a>
-<br>
-
-<!---->
-
-<hr>
-<h3 id="lunatik-nefilter">Lunatik binding for Netfilter</h3>
-<p> <a href="https://github.com/luainkernel/lunatik/">Lunatik</a> is a framework for scripting the Linux kernel with Lua.
-For example, Lunatik can be used for scripting the Linux networking subsystem
-(as presented at Netdev
-<a href="https://netdevconf.info/0x14/session.html?talk-linux-network-scripting-with-lua">0x14</a>
-and
-<a href="https://netdevconf.info/0x17/sessions/talk/scripting-the-linux-routing-table-with-lua.html">0x17</a>)
-among other
-<a href="https://github.com/luainkernel/lunatik#examples">examples</a>.
-
-<p> Netfilter is a packet filtering framework provided by the Linux kernel.
-It implements a set of hooks at well-defined points in the packet traversal of the network stack,
-allowing registered callback functions to receive and act upon every packet that reaches their associated hooks.
-The callback functions are defined by loadable kernel modules that dynamically extend Netfilter
-in order to set up custom filtering strategies.
-
-<p><a href="https://github.com/luainkernel/nflua">NFLua</a> is an extension module to Netfilter
-which provides a kernel-scripting framework for packet filtering using an older version of the
-Lunatik's Lua interpreter.
-The purpose of this project is to create a new Lunatik library for binding Netfilter
-to allow the creation of Netfilter extension modules in Lua
-(instead of using Lua for scripting a single Netfilter module like NFLua).
-This project should provide Lua APIs for hooking Netfilter
-(similarly to <a href="https://github.com/luainkernel/lunatik#device">Lunatik device library</a>,
-which allows the creation of character device drivers using Lua).
-
-<h4>Expected results</h4>
-<ul>
-    <li> Lunatik Netfilter library
-    <li> Iptables Lua library 
-    <li> Benchmark comparison between NFLua and the Lunatik Netfilter library
-</ul>
-
-<h4>Prerequisites</h4>
-<ul>
-    <li> Lua and C programming languages
-    <li> Linux Networking
-    <li> Experience with the Lua-C API (highly desirable)
-    <li> Experience with Linux kernel (highly desirable)
-</ul>
-
-<h4>Skill level</h4>
-<p> Challenging
-
-<h4>Project size</h4>
-<p> Large (350 hours)
-
-<h4>Mentors</h4>
-<p>
-<a href="mailto:marcel.stanley@gmail.com">Marcel Moura</a> and
-<a href="mailto:lourival.neto@gmail.com">Lourival Vieira Neto</a>
 <br>
 
 <!---->
@@ -306,6 +196,52 @@ that allows installing LuaRocks, Lua and configuring it with the user's compiler
 <!---->
 
 <hr>
+<h3 id="luasql-drivers">Adapt LuaSQL drivers to Lua 5.4</h3>
+<p><a href="https://lunarmodules.github.io/luasql/">LuaSQL</a>
+is a simple -- and unique -- interface from Lua to a DBMS:
+ODBC, ADO, Oracle, MySQL, SQLite, Firebird and PostgreSQL. Its main
+goal is a common API. The last version was tested against Lua 5.3.
+Although it should work with Lua 5.4, it was not tested.  Also the
+code may benefit from new features from version 5.4.
+
+<p> Since the goal is to update the "Lua C API part" of the code, there is
+little knowledge of the DBMS' involved in the project.  Also, since
+the code is very similar between the drivers, it should be easy to
+extend the effort to all drivers.
+
+<h4>Expected results</h4>
+<ul>
+    <li> revision of the actual code of the chosen drivers and possibly some improvement
+    <li> update docs
+    <li> overall tests and distribution of a new version
+</ul>
+
+<h4>Tools</h4>
+<ul>
+    <li> Lua
+    <li> DBMS C libraries (of the chosen drivers)
+</ul>
+
+<h4>Prerequisites</h4>
+<ul>
+    <li> Lua and C programming languages
+    <li> Experience with the Lua-C API (highly desirable)
+</ul>
+
+<h4>Skill level</h4>
+<p> Intermediate
+
+<h4>Project size</h4>
+<p> Small (90 hours), Medium (175 hours) or (Large (350 hours) depending on the chosen drivers
+
+<h4>Mentor</h4>
+<p>
+<a href="mailto:tomasguisasola@gmail.com">Tomás Guisasola</a>
+<br>
+
+<!---->
+
+<hr>
 <h3 id="lunatik-hid">Lunatik binding for Human Interface Devices (HID) drivers</h3>
 <p> <a href="https://github.com/luainkernel/lunatik/">Lunatik</a> is a framework for scripting the Linux kernel with Lua.
 For example, Lunatik can be used for scripting the Linux networking subsystem
@@ -353,6 +289,117 @@ to Lua.
 <!--
 <a href="mailto:rrameshbabu@nvidia.com">Rahul Rameshbabu</a> and
 -->
+<a href="mailto:lourival.neto@gmail.com">Lourival Vieira Neto</a>
+<br>
+
+<!---->
+
+<hr>
+<h3 id="lunatik-test">Port Lua Test Suite to Lunatik</h3>
+<p> <a href="https://github.com/luainkernel/lunatik/">Lunatik</a> is a framework for scripting the Linux kernel with Lua.
+For example, Lunatik can be used for scripting the Linux networking subsystem
+(as presented at Netdev
+<a href="https://netdevconf.info/0x14/session.html?talk-linux-network-scripting-with-lua">0x14</a>
+and
+<a href="https://netdevconf.info/0x17/sessions/talk/scripting-the-linux-routing-table-with-lua.html">0x17</a>)
+among other
+<a href="https://github.com/luainkernel/lunatik#examples">examples</a>.
+
+<p> The purpose of this project is to port the
+<a href="https://www.lua.org/tests/">Lua Test Suite</a>
+to Lunatik.
+That is,
+to adapt scripts from the Lua Test Suite and develop a Linux loadable kernel module containing its C portion.
+This project might leverage the
+<a href="http://www.lua.inf.puc-rio.br/gsoc/blog2015.html#kerneltest">GSoC 2015 project</a>
+developed by
+<a href="mailto:gsz@acm.org">Guilherme Salazar</a>,
+which ported the Lua Test Suite to the
+<a href="https://man.netbsd.org/lua.4">NetBSD kernel</a>.
+
+<p> The main difference between the kernel Lua and regular user-level Lua is
+that kernel Lua doesn't have support for standard libraries that depend on operating system (e.g., io and os)
+and for floating-point numbers.
+
+<h4>Expected results</h4>
+<ul>
+    <li> Adapted test scripts for Lunatik
+    <li> Lunatik library for testing the Lua C API
+    <li> Test Report at least for x86_64 and ARM64
+</ul>
+
+<h4>Prerequisites</h4>
+<ul>
+    <li> Lua and C programming languages
+    <li> Experience with the Lua-C API (nice to have)
+    <li> Experience with Linux kernel (nice to have)
+</ul>
+
+<h4>Skill level</h4>
+<p> Intermediate
+
+<h4>Project size</h4>
+<p> Medium (175 hours)
+
+<h4>Mentors</h4>
+<p>
+<a href="mailto:gsz@acm.org">Guilherme Salazar</a> and
+<a href="mailto:lourival.neto@gmail.com">Lourival Vieira Neto</a>
+<br>
+
+<!---->
+
+<hr>
+<h3 id="lunatik-nefilter">Lunatik binding for Netfilter</h3>
+<p> <a href="https://github.com/luainkernel/lunatik/">Lunatik</a> is a framework for scripting the Linux kernel with Lua.
+For example, Lunatik can be used for scripting the Linux networking subsystem
+(as presented at Netdev
+<a href="https://netdevconf.info/0x14/session.html?talk-linux-network-scripting-with-lua">0x14</a>
+and
+<a href="https://netdevconf.info/0x17/sessions/talk/scripting-the-linux-routing-table-with-lua.html">0x17</a>)
+among other
+<a href="https://github.com/luainkernel/lunatik#examples">examples</a>.
+
+<p> Netfilter is a packet filtering framework provided by the Linux kernel.
+It implements a set of hooks at well-defined points in the packet traversal of the network stack,
+allowing registered callback functions to receive and act upon every packet that reaches their associated hooks.
+The callback functions are defined by loadable kernel modules that dynamically extend Netfilter
+in order to set up custom filtering strategies.
+
+<p><a href="https://github.com/luainkernel/nflua">NFLua</a> is an extension module to Netfilter
+which provides a kernel-scripting framework for packet filtering using an older version of the
+Lunatik's Lua interpreter.
+The purpose of this project is to create a new Lunatik library for binding Netfilter
+to allow the creation of Netfilter extension modules in Lua
+(instead of using Lua for scripting a single Netfilter module like NFLua).
+This project should provide Lua APIs for hooking Netfilter
+(similarly to <a href="https://github.com/luainkernel/lunatik#device">Lunatik device library</a>,
+which allows the creation of character device drivers using Lua).
+
+<h4>Expected results</h4>
+<ul>
+    <li> Lunatik Netfilter library
+    <li> Iptables Lua library
+    <li> Benchmark comparison between NFLua and the Lunatik Netfilter library
+</ul>
+
+<h4>Prerequisites</h4>
+<ul>
+    <li> Lua and C programming languages
+    <li> Linux Networking
+    <li> Experience with the Lua-C API (highly desirable)
+    <li> Experience with Linux kernel (highly desirable)
+</ul>
+
+<h4>Skill level</h4>
+<p> Challenging
+
+<h4>Project size</h4>
+<p> Large (350 hours)
+
+<h4>Mentors</h4>
+<p>
+<a href="mailto:marcel.stanley@gmail.com">Marcel Moura</a> and
 <a href="mailto:lourival.neto@gmail.com">Lourival Vieira Neto</a>
 <br>
 
