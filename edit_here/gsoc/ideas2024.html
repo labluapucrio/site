@@ -20,12 +20,16 @@ Either way, don't leave it to the last minute :)
     <li><a href="#lunatik-test">Port Lua Test Suite to Lunatik</a>
     <li><a href="#pallene-debugging">Improved debugging support for Pallene</a>
     <li><a href="#lunatik-nefilter">Lunatik binding for Netfilter</a>
+    <li><a href="#teal-doc">Documentation generator tool for the Teal language</a>
+    <li><a href="#luarocks-teal">Port LuaRocks to Teal</a>
+    <li><a href="#luarocks-windows">A Windows installer for LuaRocks</a>
     <li><a href="#lunatik-hid">Lunatik binding for Human Interface Devices (HID) drivers</a>
     <li><a href="#lunatik-distro">Lunatik package for Linux distros</a>
 </ul>
 
 <!---->
 
+<hr>
 <h3 id="lunatik-test">Port Lua Test Suite to Lunatik</h3>
 <p> <a href="https://github.com/luainkernel/lunatik/">Lunatik</a> is a framework for scripting the Linux kernel with Lua.
 For example, Lunatik can be used for scripting the Linux networking subsystem
@@ -76,6 +80,7 @@ and for floating-point numbers.
 <p>
 <a href="mailto:gsz@acm.org">Guilherme Salazar</a> and
 <a href="mailto:lourival.neto@gmail.com">Lourival Vieira Neto</a>
+<br><hr>
 
 <!---->
 
@@ -129,10 +134,11 @@ feature instead of the default.
 <h4>Mentor</h4>
 <p>
 <a href="mailto:hugo.gualandi@gmail.com">Hugo Musso Gualandi</a>
-<br>
+<br><hr>
 
 <!---->
 
+<hr>
 <h3 id="lunatik-nefilter">Lunatik binding for Netfilter</h3>
 <p> <a href="https://github.com/luainkernel/lunatik/">Lunatik</a> is a framework for scripting the Linux kernel with Lua.
 For example, Lunatik can be used for scripting the Linux networking subsystem
@@ -184,9 +190,122 @@ which allows the creation of character device drivers using Lua).
 <p>
 <a href="mailto:marcel.stanley@gmail.com">Marcel Moura</a> and
 <a href="mailto:lourival.neto@gmail.com">Lourival Vieira Neto</a><hr>
+<br><hr>
 
 <!---->
 
+<hr>
+<h3 id="teal-doc">Documentation generator tool for the Teal language</h3>
+<p> The goal of this project is to create a "tealdoc" tool that generates documentation from comments embedded in
+<a href="https://teal-language.org">Teal</a> source code. Teal is a statically typed language that compiles
+to Lua (Teal is to Lua somewhat like TypeScript is to JavaScript). Since Teal is essentially a superset of Lua,
+this tool should be useful for Lua as well. There is prior art for Lua (LuaDoc, LDoc),
+but the community would benefit from a Teal-specific tool that is able to
+make use of its type annotations as possibly integrate better with language servers in modern editors.
+
+<h4>Expected results</h4>
+<ul>
+    <li> a CLI tool that generates Markdown from Teal or Lua comments and Teal type annotations
+    <li> support for generating HTML, possibly using templating systems (possibly reusing LDoc code)
+    <li> stretch goal: integration with other existing tooling such as the vscode-teal plugin and LuaRocks
+    <li> stretch goal: extensibility for supporting more languages in the Lua ecosystem
+</ul>
+
+<h4>Tools</h4>
+<ul>
+    <li><a href="https://teal-language.org">Teal</a>
+    <li> any Lua libraries needed
+    <li><a href="https://luarocks.org">LuaRocks</a>
+</ul>
+
+<h4>Skill level</h4>
+<p> Intermediate
+
+<h4>Project size</h4>
+<p> Large (350 hours)
+
+<h4>Mentor</h4>
+<p>
+<a href="mailto:h@hisham.hm">Hisham Muhammad</a>
+<br><hr>
+
+<!---->
+
+<hr>
+<h3 id="luarocks-teal">Port LuaRocks to Teal</h3>
+<p><a href="https://luarocks.org">LuaRocks</a> is the package manager for the Lua language.
+It is written in pure Lua, making use of several optional libraries. The goal of this project is to port
+the LuaRocks source code to <a href="https://teal-language.org">Teal</a>,
+a statically typed language that compiles to Lua (Teal is to Lua somewhat like TypeScript is to JavaScript).
+
+<p> Porting LuaRocks to Teal comprises essentially of writing type
+annotations to its source code,
+but will also allow for many opportunities for refactoring and
+improving its codebase, understanding
+and reporting on limitations of the Teal language and possibly inform
+or contribute to its development.
+
+<h4>Expected results</h4>
+<ul>
+    <li> a version of LuaRocks written in Teal
+</ul>
+
+<h4>Tools</h4>
+<ul>
+    <li><a href="https://teal-language.org">Teal</a>
+    <li><a href="https://luarocks.org">LuaRocks</a>
+</ul>
+
+<h4>Skill level</h4>
+<p> Challenging
+
+<h4>Project size</h4>
+<p> Large (350 hours)
+
+<h4>Mentor</h4>
+<p>
+<a href="mailto:h@hisham.hm">Hisham Muhammad</a>
+<br><hr>
+
+<!---->
+
+<hr>
+<h3 id="luarocks-windows">A Windows installer for LuaRocks</h3>
+<p><a href="https://luarocks.org">LuaRocks</a> is the package manager for the Lua language.
+While the tool itself does have full Windows support, the installation process leaves much to be desired,
+due to the lack of standard package management systems on Windows. The goal of this project is to
+produce a native installer for LuaRocks on Windows using some FOSS GUI installer tool of your choice,
+that allows installing LuaRocks, Lua and configuring it with the user's compiler toolchain.
+
+<h4>Expected results</h4>
+<ul>
+    <li> a GUI installer for LuaRocks
+    <li> integration of the building of the GUI installer to the LuaRocks release scripts
+(ideally it should be possible to cross-compile the installer generation on Linux, and/or run it from a CI system)
+    <li> stretch goal: bundling the Mingw C compiler toolchain as an optional component of the installer
+</ul>
+
+<h4>Tools</h4>
+<ul>
+    <li><a href="https://luarocks.org">LuaRocks</a>
+    <li> a FOSS GUI installer toolkit, such as <a href="WIX">https://wixtoolset.org</a> or <a href="NSIS">https://nsis.sf.net</a>
+    <li> Microsoft Windows
+</ul>
+
+<h4>Skill level</h4>
+<p> Easy/Intermediate
+
+<h4>Project size</h4>
+<p> Large (350 hours)
+
+<h4>Mentor</h4>
+<p>
+<a href="mailto:h@hisham.hm">Hisham Muhammad</a>
+<br><hr>
+
+<!---->
+
+<hr>
 <h3 id="lunatik-hid">Lunatik binding for Human Interface Devices (HID) drivers</h3>
 <p> <a href="https://github.com/luainkernel/lunatik/">Lunatik</a> is a framework for scripting the Linux kernel with Lua.
 For example, Lunatik can be used for scripting the Linux networking subsystem
@@ -235,9 +354,11 @@ to Lua.
 <a href="mailto:rrameshbabu@nvidia.com">Rahul Rameshbabu</a> and
 -->
 <a href="mailto:lourival.neto@gmail.com">Lourival Vieira Neto</a>
+<br><hr>
 
 <!---->
 
+<hr>
 <h3 id="lunatik-distro">Lunatik package for Linux distros</h3>
 <p> <a href="https://github.com/luainkernel/lunatik/">Lunatik</a> is a framework for scripting the Linux kernel with Lua.
 For example, Lunatik can be used for scripting the Linux networking subsystem
@@ -277,6 +398,7 @@ This project should also provide the documentation and templates for creating pa
 <p>
 <a href="mailto:marcel.stanley@gmail.com">Marcel Moura</a> and
 <a href="mailto:lourival.neto@gmail.com">Lourival Vieira Neto</a><hr>
+<br><hr>
 
 <!--
 <hr>
