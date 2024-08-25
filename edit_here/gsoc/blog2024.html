@@ -29,22 +29,45 @@ Tomás Guisasola
 
 <br> <br>
 <h2 id="pallene">Improved debugging support for Pallene</h2>
-<!--<img class="photo-right" src="/images/gsoc2021/asif.jpg" alt="A picture of Asif"/>-->
-<p> <!-- INSERT DESCRIPTION -->
+<img class="photo-right" src="/images/gsoc2024/asif.jpg" alt="A picture of Asif"/>
+<p><a href="https://github.com/pallene-lang/pallene">Pallene</a> is type
+inferred, ahead-of-time compiled companion language to Lua designed for performance.
+This is a space currently filled by LuaJIT and Lua C modules.
+Pallenes syntax is similar to Lua's allowing users to write
+high-performance code swiftly.</p>
+
+<p>Pallene's debugging experience was hampered by how Lua stack traces
+display C stack frames, because Pallene compiles down to C. The Lua
+call stack does not store the line numbers for Lua-to-C calls and does
+not show C-to-C calls. To address the problem not only for Pallene
+but also for Lua C modules in general, we created a new library, <a
+href="https://github.com/pallene-lang/pallene-tracer">Pallene Tracer</a>.
+It provides mechanisms to enable function tracebacks, generating a proper
+stack-trace for all the C call-frames and their respective line numbers,
+without modifying the Lua virtual machine. Hence, over the summer time we
+worked on Pallene Tracer, its adoption in Pallene and finally its adoption
+into Lua C modules. You can learn more about this journey in <a
+href="https://singul4ri7y.github.io/gsoc2024">Asif's blog</a>.</p>
 
 <h3>The Code</h3>
-<!-- INSERT BIO -->
+<p>For this project we created a <a href="https://github.com/pallene-lang/pallene-tracer">Github repository for pallene-tracer</a>.
+We also created pull requests code to
+<a href="https://github.com/pallene-lang/pallene/pulls?q=is%3Apr+is%3Aclosed+author%3Asingul4ri7y+created%3A%3E2024-05-27+merged%3A%3C2024-08-20">integrate Pallene with Pallene Tracer</a>.
+
 
 <h3>The Student</h3>
-<!-- INSERT BIO -->
+<a href="https://www.linkedin.com/in/singul4ri7y/">Syed Naimul Hasan Asif</a>
+(alias SD Asif Hossein) is an Electrical Engineering undergrad student from
+Bandladesh. He is passionate about low-level programming, programming languages,
+operating systems, deep learning and high-performance computing.
 
 <h3>Mentors</h3>
-Hugo Gualandi, Srijan Paul, Gabreiel Ligneul
+Hugo Gualandi, Srijan Paul, Gabriel Ligneul
 
 
 <br> <br>
 <h2 id="lunatik">Lunatik binding for Netfilter</h2>
-<!--<img class="photo-right" src="/images/gsoc2021/sheharyaar.jpg" alt="A picture of Mohammad"/>-->
+<!--<img class="photo-right" src="/images/gsoc2024/sheharyaar.jpg" alt="A picture of Mohammad"/>-->
 <p> <!-- INSERT DESCRIPTION -->
 
 <h3>The Code</h3>
@@ -58,7 +81,7 @@ Lourival Vieira Neto, Marcel Moura
 
 
 <h2 id="luarocks">Port LuaRocks to Teal</h2>
-<!--<img class="photo-right" src="/images/gsoc2021/victor.jpg" alt="A picture of Victor"/>-->
+<!--<img class="photo-right" src="/images/gsoc2024/victor.jpg" alt="A picture of Victor"/>-->
 <p> <!-- INSERT DESCRIPTION -->
 
 <h3>The Code</h3>
