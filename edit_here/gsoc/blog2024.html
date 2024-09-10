@@ -15,7 +15,7 @@ These are the highlights from the 2024 edition.
 <br> <br>
 <h2 id="luasql">Adapt LuaSQL drivers to Lua 5.4</h2>
 <img class="photo-right" src="/images/gsoc2024/chaitanya.jpg" alt="A picture of Chaitanya"/>
-<p>LuaSQL is a library that bridges Lua with various database management systems (DBMS), providing a consistent API for interacting with databases such as MySQL, PostgreSQL, SQLite, and others. With the release of Lua 5.4, the LuaSQL drivers required updates to maintain compatibility and take advantage of the new features introduced in this version. The project involved several key tasks:
+<p><a href="https://github.com/lunarmodules/luasql">LuaSQL</a> is a library that bridges Lua with various database management systems (DBMS), providing a consistent API for interacting with databases such as MySQL, PostgreSQL, SQLite, and others. With the release of Lua 5.4, the LuaSQL drivers required updates to maintain compatibility and take advantage of the new features introduced in this version. The project involved several key tasks:
 
 <ul>
     <li>Resolved Incompatibilities: Updated the API by replacing lua_newuserdata with lua_newuserdatauv, ensuring seamless compatibility with Lua 5.4.
@@ -91,7 +91,7 @@ a C API to load and run scripts and manage runtime environments from the kernel;
 and Lua APIs for binding kernel facilities to Lua scripts.
 
 <p>The goal of this project was to enable lunatik users to write netfilter kernel modules,
-xtables (legacy) kernel and corresponding userspace extensions entirely in lua.
+xtables (legacy) kernel and corresponding userspace extensions entirely in Lua.
 
 <h3>The Code</h3>
 <p>The code is already merged in the <a href="https://github.com/luainkernel/lunatik">Lunatik</a> repository and
@@ -110,7 +110,7 @@ Lourival Vieira Neto, Marcel Moura
 
 <h2 id="luarocks">Port LuaRocks to Teal</h2>
 <img class="photo-right" src="/images/gsoc2024/victor.jpeg" alt="A picture of Victor"/>
-<p><a href="https://github.com/luarocks/luarocks">Luarocks</a>
+<p><a href="https://github.com/luarocks/luarocks">LuaRocks</a>
 is a package manager for the Lua programming language.
 It allows developers to install, manage, and distribute Lua packages,
 which are collections of Lua modules that provide specific functionality.
