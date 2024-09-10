@@ -14,14 +14,28 @@ These are the highlights from the 2024 edition.
 
 <br> <br>
 <h2 id="luasql">Adapt LuaSQL drivers to Lua 5.4</h2>
-<!--<img class="photo-right" src="/images/gsoc2024/chaitanya.jpg" alt="A picture of Chaitanya"/>-->
-<p> <!-- INSERT DESCRIPTION -->
+<img class="photo-right" src="/images/gsoc2024/chaitanya.jpg" alt="A picture of Chaitanya"/>
+<p>LuaSQL is a library that bridges Lua with various database management systems (DBMS), providing a consistent API for interacting with databases such as MySQL, PostgreSQL, SQLite, and others. With the release of Lua 5.4, the LuaSQL drivers required updates to maintain compatibility and take advantage of the new features introduced in this version. The project involved several key tasks:
+
+<ul>
+    <li>Resolved Incompatibilities: Updated the API by replacing lua_newuserdata with lua_newuserdatauv, ensuring seamless compatibility with Lua 5.4.
+    <li>Introduced LUASQL_NEWUD Macro: Developed a macro to abstract version-specific differences in userdata creation, making the codebase more adaptable to different Lua versions.
+    <li>To-Be-Closed Variables: Added support for Lua 5.4's to-be-closed variables by incorporating the __close metamethod for environment, connection, and cursor objects, ensuring proper resource management.
+    <li>Resource Cleanup: Standardized cleanup methods across all drivers, and improved error handling.
+    <li>Expanded Test Suite: Enhanced the test suite to thoroughly verify the implementation of these updates, particularly the to-be-closed support.
+</ul>
+
+<p>In conclusion, the LuaSQL drivers have been successfully updated to be fully compatible with Lua 5.4, incorporating new features and enhancements that improve performance, resource management, and maintainability, ensuring a smooth transition for users to the latest Lua version. An updated version of LuaSQL, incorporating all the mentioned updates, will soon be released.
 
 <h3>The Code</h3>
-<!-- FILL LINKS TO CODE -->
+<p>The results of this GSOC are summarized in this
+<a href="https://gist.github.com/ChaitanyaD48/da0802dcbbaa4c7c89225c35f4fb8ada">page</a>.
+It includes a link to code repository, as well as a list of the pull requests implemented by Chaitanya.
+Latest version of LuaSQL can be found on LuaRocks, with its updated documentation.
 
 <h3>The Student</h3>
-<!-- INSERT BIO -->
+<p><a href="https://github.com/ChaitanyaD48/">Chaitanya Deshmukh</a>
+is an undergraduate student pursuing a degree in Electronics and Communication Engineering from India. He has a keen interest in software development, cloud native technologies, and database management. He is enthusiastic about building innovative solutions and staying updated with the latest trends in the tech industry.
 
 <h3>Mentors</h3>
 Tomás Guisasola
