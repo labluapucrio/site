@@ -1,0 +1,118 @@
+<h2>LabLua in Google Summer of Code 2025</h2>
+
+<p>We were very happy to participate again in Google Summer of Code (GSoC)!
+This is the 10th time we had the opportunity to collaborate with students from all around the world on interesting projects.
+These are the highlights from the 2025 edition.
+
+<ul>
+    <li><a href="#teal-macro">Ghost in the Macro: Dual-Parser Bicameral Macro System for Teal</a>
+    <li><a href="#lunatiki-hid">Lunatik binding for Human Interface Devices (HID) drivers</a>
+    <li><a href="#teal-doc">Documentation generator tool for Teal language</a>
+</ul>
+
+
+<br> <br>
+<h2 id="teal-macro">Ghost in the Macro: Dual-Parser Bicameral Macro System for Teal</h2>
+<p>Amrit Hello, I am Amrit Bhogal, 2nd year Computer Science and AI student at the
+University of Birmingham! I have been contributing to open source for about 5
+years now, and programming in Lua much longer.
+
+<p>I have been an avid user of Teal, the statically typed superset of Lua, and was
+adapting a fork of Teal to be able to compile to machine code in order to
+rewrite my Lua OS kernel in it. With GSoC, I had spoken to Hisham about
+potential ideas which would not only be useful to the wider Teal community but
+also be useful to my own work and projects. We deduced a project plan for
+bicameral macros for Teal, providing macros to Teal through "blocks", which are
+like LISP S-expressions.
+
+<p>The idea for the project is that a user would be easily able to create "blocks"
+and insert and add other blocks to them (each block is a list-like
+datastructure) in order to build a valid Teal program, allowing for easy and
+awesome extensibility.
+
+<h3>The Code</h3>
+<p><a href="https://github.com/teal-language/tl/pull/1028">GSoC 2025 - Macro support for teal</a>.
+
+<h3>The Student</h3>
+<p><a href="https://github.com/frityet">Amrit Bhogal</a>.
+
+<h3>Mentors</h3>
+<p><a href="https://github.com/hishamhm">Hisham Muhammad</a>.
+
+
+<br> <br>
+<h2 id="lunatik-hid">Lunatik binding for Human Interface Devices (HID) drivers</h2>
+
+<p><a href="https://github.com/luainkernel/lunatik/">Lunatik</a> is a framework for scripting
+the Linux kernel with Lua— previously demonstrated for networking and other
+kernel subsystems
+
+<p>This project extends Lunatik’s capabilities to the Human Interface Device (HID)
+subsystem, allowing developers to write full-featured HID drivers entirely in
+Lua. The goal is to abstract the low-level complexities of the C-based Linux HID
+stack— including device matching, initialization, event handling, and
+descriptor parsing— behind a clean, high-level, scriptable API.
+
+<p>By leveraging Lua’s expressiveness and rapid prototyping power, this work
+empowers developers to quickly create, test, and iterate on custom HID drivers
+without needing to compile kernel modules or manage intricate C data structures.
+It opens up new possibilities for embedded input device customization,
+accessibility tooling, and educational exploration of kernel internals— all
+from the comfort of a scripting language.
+
+<h3>The Code</h3>
+<p>The code can be found in the
+<a href="https://github.com/qrsikno2/GSoC2025/tree/a0867d9040a2032bebb0d56dad6b4bbfea34cfe2">
+summary repository</a> which includes a link to code repository, as well as a curated list of pull
+requests submitted by Jieming Zhou.
+
+<h3>The Student</h3>
+<p><a href="https://github.com/qrsikno2">Jieming Zhou</a>
+is a final-year undergraduate student at Beijing University of
+Posts and Telecommunications. He has a strong interest about Lua and its unique
+ability to act as a glue language between systems.
+
+<h3>Mentors</h3>
+<p><a href="https://github.com/lneto">Lourival Vieira Neto</a>,
+<a href="https://github.com/sheharyaar">Mohammad Shehar Yaar Tausif</a>,
+<a href="https://github.com/mbalmer">Marc Balmer</a>.
+
+
+<br> <br>
+<h2 id="teal-doc">Documentation generator tool for Teal language</h2>
+<p>I am Miłosz Koczorowski, and I study Computer Science at the University of
+Warsaw, Poland. This past summer, I had the incredible opportunity to work on
+Tealdoc as part of the Google Summer of Code program with LabLua.
+
+<p>Tealdoc is a documentation generation tool specifically designed for Teal, a
+statically-typed dialect of Lua. It was developed from scratch over the summer
+as a main part of our project.
+
+<p>The generator features include, HTML and Markdown outputs, numerous powerful
+tags to enhance documentation, a robust plugin system, and a modular codebase
+for total customizability and control.
+
+<p>This project necessitated making many difficult design decisions, complex
+planning of the tool's architecture for maximal extensibility, and low-level
+modifications to the Teal compiler to preserve comments during the parsing and
+lexing stages.
+
+<p>Overall, this project is expected to immensely benefit the Teal community by
+making the documentation process easier and more unified. Despite its recent
+introduction, it has already seen community interest and adoption.
+
+<p>Working on Tealdoc through GSoC has been an incredibly rewarding experience. I
+learned a ton about compiler internals, robust software design, and effective
+collaboration. I would highly recommend this to every aspiring software
+engineer.
+
+<h3>The Code</h3>
+<p><a href="https://github.com/teal-language/tealdoc">Teal documentation tool</a>.
+
+<h3>The Student</h3>
+<p><a href="https://github.com/upedd">Miłosz Koczorowski</a>.
+
+<h3>Mentors</h3>
+<p><a href="https://github.com/hishamhm">Hisham Muhammad</a>,
+<a href="https://github.com/lsegal">Loren Segal</a>.
+
